@@ -267,6 +267,8 @@ function Nav() {
     { label: "Sobre", href: "#sobre" },
     { label: "Serviços", href: "#servicos" },
     { label: "Cursos", href: "#cursos" },
+    { label: "Mentoria", href: "#mentoria" },
+    { label: "Livro", href: "#livro" },
     { label: "Depoimentos", href: "#depoimentos" },
     { label: "Contato", href: "#contato", cta: true },
   ];
@@ -755,7 +757,222 @@ function Cursos() {
   );
 }
 
-/* ─── DEPOIMENTOS ─── */
+/* ─── MENTORIA ─── */
+function Mentoria() {
+  const ref = useReveal();
+  return (
+    <section id="mentoria" style={{ background: C.grayLight }}>
+      <div ref={ref} className="reveal" style={{ maxWidth: "1060px", margin: "0 auto" }}>
+        <div className="section-label">Mentoria Executiva</div>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "72px", alignItems: "center" }}>
+          <div>
+            <h2 style={{ fontSize: "clamp(28px,3vw,44px)", letterSpacing: "-1px", lineHeight: 1.1, marginBottom: "24px" }}>
+              Clareza estratégica<br />sobre IA — para<br /><span style={{ color: C.peach }}>você e seu negócio.</span>
+            </h2>
+            <p style={{ fontSize: "15px", lineHeight: 1.8, color: "#555", marginBottom: "20px" }}>
+              A mentoria individual é voltada a empresários e executivos que querem entender
+              onde a inteligência artificial se aplica à sua trajetória profissional e ao seu negócio —
+              com clareza, sem superficialidade e sem abstração técnica.
+            </p>
+            <p style={{ fontSize: "15px", lineHeight: 1.8, color: "#555", marginBottom: "32px" }}>
+              O formato clássico são 4 encontros de 1 hora, adaptáveis às necessidades específicas
+              de cada executivo. Atendimento <strong>presencial em Joinville e região</strong> ou
+              <strong> online para todo o Brasil</strong>.
+            </p>
+            <a href="#contato" className="btn-primary">Solicitar mentoria →</a>
+          </div>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+            {[
+              {
+                num: "01",
+                title: "Diagnóstico pessoal",
+                desc: "Avaliação do seu nível atual de uso e compreensão de IA — e o que faz sentido para o seu perfil.",
+              },
+              {
+                num: "02",
+                title: "IA para o seu negócio",
+                desc: "Mapeamento das oportunidades reais de aplicação de IA nos processos e decisões da sua empresa.",
+              },
+              {
+                num: "03",
+                title: "Plano de ação",
+                desc: "Roteiro prático e personalizado para você sair da mentoria com próximos passos claros.",
+              },
+              {
+                num: "04",
+                title: "Formato flexível",
+                desc: "4 encontros de 1h é o padrão — mas o programa se adapta à sua agenda e objetivos.",
+              },
+            ].map((item) => (
+              <div key={item.num} style={{
+                background: C.white,
+                borderRadius: "4px",
+                padding: "20px 24px",
+                display: "flex",
+                gap: "20px",
+                alignItems: "flex-start",
+                border: "1px solid rgba(0,0,0,0.06)",
+                transition: "box-shadow 0.2s",
+              }}
+                onMouseEnter={(e) => e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.08)"}
+                onMouseLeave={(e) => e.currentTarget.style.boxShadow = "none"}
+              >
+                <div style={{
+                  fontFamily: "'Manrope', sans-serif",
+                  fontWeight: 900,
+                  fontSize: "13px",
+                  color: C.peach,
+                  flexShrink: 0,
+                  marginTop: "2px",
+                }}>{item.num}</div>
+                <div>
+                  <div style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 700, fontSize: "15px", marginBottom: "4px" }}>{item.title}</div>
+                  <div style={{ fontSize: "13px", lineHeight: 1.6, color: "#666" }}>{item.desc}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <style>{`@media(max-width:900px){#mentoria .reveal>div{grid-template-columns:1fr!important}}`}</style>
+    </section>
+  );
+}
+
+/* ─── LIVRO ─── */
+function Livro() {
+  const ref = useReveal();
+  return (
+    <section id="livro" style={{ background: C.graphite }}>
+      <div ref={ref} className="reveal" style={{
+        maxWidth: "1060px",
+        margin: "0 auto",
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        gap: "72px",
+        alignItems: "center",
+      }}>
+        {/* Visual do livro */}
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <div style={{
+            width: "280px",
+            aspectRatio: "2/3",
+            background: `linear-gradient(145deg, #222 0%, #111 100%)`,
+            borderRadius: "4px",
+            padding: "40px 32px",
+            position: "relative",
+            overflow: "hidden",
+            boxShadow: "16px 16px 48px rgba(0,0,0,0.5), -4px -4px 16px rgba(255,189,89,0.08)",
+          }}>
+            {/* Spine accent */}
+            <div style={{
+              position: "absolute",
+              left: 0, top: 0, bottom: 0,
+              width: "6px",
+              background: C.peach,
+            }} />
+            <div style={{
+              position: "absolute",
+              bottom: "-40px", right: "-40px",
+              width: "200px", height: "200px",
+              background: C.peach,
+              borderRadius: "50%",
+              opacity: 0.07,
+            }} />
+            <div style={{
+              fontFamily: "'Manrope', sans-serif",
+              fontWeight: 900,
+              fontSize: "11px",
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: C.peach,
+              marginBottom: "32px",
+            }}>Engenheiro Mazza</div>
+            <div style={{
+              fontFamily: "'Manrope', sans-serif",
+              fontWeight: 900,
+              fontSize: "24px",
+              color: C.white,
+              lineHeight: 1.2,
+              marginBottom: "16px",
+            }}>
+              Prompting<br /><span style={{ color: C.peach }}>Sem</span><br />Segredos
+            </div>
+            <div style={{
+              width: "32px", height: "2px",
+              background: C.peach,
+              marginBottom: "16px",
+            }} />
+            <div style={{ fontSize: "12px", color: C.grayMid, lineHeight: 1.6 }}>
+              Como se comunicar corretamente com as IAs
+            </div>
+            <div style={{
+              position: "absolute",
+              bottom: "28px", right: "28px",
+              fontSize: "11px",
+              color: "rgba(255,189,89,0.5)",
+              fontWeight: 700,
+              letterSpacing: "0.1em",
+            }}>NOV 2025</div>
+          </div>
+        </div>
+
+        {/* Texto */}
+        <div>
+          <div className="section-label" style={{ color: C.peach }}>
+            <span style={{ background: C.peach, width: "28px", height: "2px", display: "block" }} />
+            Livro
+          </div>
+          <h2 style={{
+            fontSize: "clamp(28px,3vw,44px)",
+            letterSpacing: "-1px",
+            color: C.white,
+            lineHeight: 1.1,
+            marginBottom: "20px",
+          }}>
+            Prompting<br /><span style={{ color: C.peach }}>Sem Segredos</span>
+          </h2>
+          <p style={{ fontSize: "15px", lineHeight: 1.8, color: C.grayMid, marginBottom: "16px" }}>
+            Lançado em novembro de 2025, o livro foi escrito para profissionais que querem
+            aprender a se comunicar corretamente com as inteligências artificiais —
+            sem precisar saber programar.
+          </p>
+          <p style={{ fontSize: "15px", lineHeight: 1.8, color: C.grayMid, marginBottom: "36px" }}>
+            Uma leitura prática, direta e aplicável ao dia a dia corporativo. Do iniciante
+            ao profissional que quer extrair mais resultado das ferramentas de IA generativa.
+          </p>
+
+          <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginBottom: "36px" }}>
+            {["Profissionais de escritório", "Gestores", "Equipes corporativas", "Iniciantes em IA"].map((tag) => (
+              <span key={tag} style={{
+                fontSize: "11px",
+                fontWeight: 600,
+                letterSpacing: "0.08em",
+                padding: "5px 12px",
+                border: `1px solid rgba(255,189,89,0.3)`,
+                color: C.peach,
+                borderRadius: "2px",
+              }}>{tag}</span>
+            ))}
+          </div>
+
+          <a
+            href="https://loja.gpcon.com.br/livro-prompting-sem-segredos"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
+          >
+            Adquirir o livro →
+          </a>
+        </div>
+      </div>
+      <style>{`@media(max-width:900px){#livro .reveal{grid-template-columns:1fr!important}#livro .reveal>div:first-child{display:none}}`}</style>
+    </section>
+  );
+}
+
+
 const depoimentos = [
   {
     quote: "O Engenheiro Mazza tem o dom de tornar a IA compreensível para qualquer gestor. Nossa equipe saiu com um plano real, não só com conceitos.",
@@ -1010,6 +1227,8 @@ export default function App() {
         <Sobre />
         <Servicos />
         <Cursos />
+        <Mentoria />
+        <Livro />
         <Depoimentos />
         <Contato />
       </main>
