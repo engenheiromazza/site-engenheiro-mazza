@@ -331,7 +331,7 @@ function Hero() {
 
       {/* Left content */}
       <div style={{ animation: "fadeUp 0.9s ease both", animationDelay: "0.1s" }}>
-        <div className="section-label">IA aplicada ao mundo real</div>
+        <div className="section-label">IA aplicada em escritórios</div>
         <h1 style={{
           fontSize: "clamp(40px, 5vw, 72px)",
           lineHeight: 1.05,
@@ -348,18 +348,30 @@ function Hero() {
           fontSize: "17px",
           lineHeight: 1.75,
           color: C.grayMid,
-          maxWidth: "480px",
-          marginBottom: "40px",
+          maxWidth: "500px",
+          marginBottom: "16px",
         }}>
-          Ajudo executivos, líderes e empresas a transformar inteligência artificial
-          em clareza, aplicação e resultado real — sem jargão, sem promessas vazias.
+          Ajudo profissionais de escritório e equipes administrativas — mesmo sem
+          nenhum conhecimento técnico — a usar inteligência artificial no dia a dia
+          com clareza, segurança e resultado real.
+        </p>
+        <p style={{
+          fontSize: "15px",
+          lineHeight: 1.75,
+          color: C.peach,
+          maxWidth: "500px",
+          marginBottom: "40px",
+          fontWeight: 600,
+        }}>
+          Acredito que, em breve, os próprios profissionais criarão suas soluções de IA —
+          sem depender de TI.
         </p>
         <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
           <a href="#servicos" className="btn-primary">
             Conheça os serviços →
           </a>
           <a href="#sobre" className="btn-outline">
-            Sobre o Engenheiro Mazza
+            Sobre o @engenheiromazza
           </a>
         </div>
 
@@ -374,6 +386,7 @@ function Hero() {
             { num: "20+", label: "Anos de experiência" },
             { num: "500+", label: "Profissionais formados" },
             { num: "B2B", label: "Clientes corporativos" },
+            { num: "B2C", label: "Profissionais de mercado" },
           ].map((s) => (
             <div key={s.label}>
               <div style={{
@@ -389,7 +402,7 @@ function Hero() {
         </div>
       </div>
 
-      {/* Right — decorative card */}
+      {/* Right — redes sociais / identidade */}
       <div style={{
         display: "flex",
         justifyContent: "center",
@@ -413,34 +426,54 @@ function Hero() {
             borderRadius: "50%",
             opacity: 0.12,
           }} />
+          {/* Handle de destaque */}
           <div style={{
             fontFamily: "'Manrope', sans-serif",
             fontWeight: 900,
-            fontSize: "13px",
-            letterSpacing: "0.15em",
-            textTransform: "uppercase",
+            fontSize: "22px",
             color: C.peach,
+            marginBottom: "8px",
+            letterSpacing: "-0.5px",
+          }}>@engenheiromazza</div>
+          <div style={{
+            fontSize: "12px",
+            color: C.grayMid,
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
             marginBottom: "32px",
-          }}>Engenheiro Mazza</div>
-          <div style={{ color: C.white, fontSize: "22px", fontFamily: "'Manrope', sans-serif", fontWeight: 700, lineHeight: 1.4, marginBottom: "32px" }}>
-            "A ponte entre a IA<br />e o mundo real<br />dos negócios."
+          }}>LinkedIn · Instagram · YouTube</div>
+
+          <div style={{
+            width: "32px", height: "2px",
+            background: C.peach,
+            marginBottom: "28px",
+          }} />
+
+          <div style={{
+            color: C.white,
+            fontSize: "16px",
+            fontFamily: "'Inter', sans-serif",
+            fontWeight: 400,
+            lineHeight: 1.7,
+            marginBottom: "32px",
+            fontStyle: "italic",
+            color: "rgba(255,255,255,0.75)",
+          }}>
+            "Tecnologia com sentido.<br />Conhecimento com impacto."
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-            {["Sábio", "Mentor", "Explorador"].map((tag) => (
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+            {[
+              "IA aplicada em escritórios",
+              "Sem jargão técnico",
+              "Resultado no mundo real",
+            ].map((tag) => (
               <div key={tag} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                <div style={{ width: "24px", height: "2px", background: C.peach }} />
+                <div style={{ width: "20px", height: "2px", background: C.peach, flexShrink: 0 }} />
                 <span style={{ color: C.grayMid, fontSize: "13px", fontWeight: 500 }}>{tag}</span>
               </div>
             ))}
           </div>
-          <div style={{
-            marginTop: "40px",
-            paddingTop: "24px",
-            borderTop: "1px solid rgba(255,255,255,0.08)",
-            fontSize: "12px",
-            color: C.grayMid,
-            letterSpacing: "0.08em",
-          }}>@engenheiromazza</div>
         </div>
       </div>
 
