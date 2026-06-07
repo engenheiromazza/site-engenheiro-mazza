@@ -429,40 +429,65 @@ function Livro() {
   return (
     <section id="livro" style={{ background:C.graphite }}>
       <div ref={ref} className="reveal" style={{ maxWidth:"1060px", margin:"0 auto", display:"grid", gridTemplateColumns:"1fr 1fr", gap:"72px", alignItems:"center" }}>
+
+        {/* Capa real do livro */}
         <div style={{ display:"flex", justifyContent:"center" }}>
-          <div style={{ width:"260px", aspectRatio:"2/3", background:"linear-gradient(145deg,#222,#111)", borderRadius:"4px", padding:"36px 28px", position:"relative", overflow:"hidden", boxShadow:"16px 16px 48px rgba(0,0,0,.5),-4px -4px 16px rgba(255,189,89,.06)" }}>
-            <div style={{ position:"absolute", left:0, top:0, bottom:0, width:"5px", background:C.peach }} />
-            <div style={{ position:"absolute", bottom:"-40px", right:"-40px", width:"180px", height:"180px", background:C.peach, borderRadius:"50%", opacity:.06 }} />
-            <div style={{ fontFamily:"'Manrope',sans-serif", fontWeight:900, fontSize:"10px", letterSpacing:".18em", textTransform:"uppercase", color:C.peach, marginBottom:"28px" }}>Engenheiro Mazza</div>
-            <div style={{ fontFamily:"'Manrope',sans-serif", fontWeight:900, fontSize:"22px", color:C.white, lineHeight:1.2, marginBottom:"14px" }}>
-              Prompting<br /><span style={{ color:C.peach }}>Sem</span><br />Segredos
+          <div style={{ position:"relative", width:"260px" }}>
+            <img
+              src="https://raw.githubusercontent.com/engenheiromazza/site-engenheiro-mazza/main/livro.png"
+              alt="Prompting Sem Segredos — William Mazza"
+              style={{ width:"100%", borderRadius:"4px", display:"block", boxShadow:"16px 16px 48px rgba(0,0,0,.6)" }}
+              onError={(e)=>e.target.style.display="none"}
+            />
+            <div style={{ position:"absolute", bottom:"-12px", right:"-12px", background:C.peach, padding:"8px 16px", borderRadius:"2px" }}>
+              <div style={{ fontFamily:"'Manrope',sans-serif", fontWeight:900, fontSize:"11px", color:C.black }}>NOV 2025</div>
             </div>
-            <div style={{ width:"28px", height:"2px", background:C.peach, marginBottom:"14px" }} />
-            <div style={{ fontSize:"11px", color:C.grayMid, lineHeight:1.6 }}>Como se comunicar corretamente com as IAs</div>
-            <div style={{ position:"absolute", bottom:"24px", right:"24px", fontSize:"10px", color:"rgba(255,189,89,.45)", fontWeight:700, letterSpacing:".1em" }}>NOV 2025</div>
           </div>
         </div>
 
+        {/* Texto */}
         <div>
           <div className="section-label">Livro</div>
-          <h2 style={{ fontSize:"clamp(26px,3vw,44px)", letterSpacing:"-1px", color:C.white, lineHeight:1.1, marginBottom:"20px" }}>
+          <h2 style={{ fontSize:"clamp(24px,2.8vw,40px)", letterSpacing:"-1px", color:C.white, lineHeight:1.1, marginBottom:"20px" }}>
             Prompting<br /><span style={{ color:C.peach }}>Sem Segredos</span>
           </h2>
+
           <p style={{ fontSize:"15px", lineHeight:1.85, color:C.grayMid, marginBottom:"16px" }}>
-            Publicado em novembro de 2025, o livro foi escrito para profissionais que precisam
-            se comunicar com eficácia com as ferramentas de inteligência artificial — sem precisar
-            saber programar ou ter formação técnica.
+            Se você não é profissional de tecnologia mas quer dominar a inteligência artificial,
+            este livro foi escrito para você. 16 técnicas de prompting com exemplos práticos
+            de <strong style={{ color:"rgba(255,255,255,.7)" }}>12 áreas corporativas</strong> — do Financeiro ao Jurídico, do RH ao Marketing.
           </p>
-          <p style={{ fontSize:"15px", lineHeight:1.85, color:C.grayMid, marginBottom:"32px" }}>
-            Uma leitura objetiva, com método e aplicação direta ao trabalho cotidiano.
-            Do iniciante ao profissional que quer extrair mais resultado das IAs generativas.
+          <p style={{ fontSize:"15px", lineHeight:1.85, color:C.grayMid, marginBottom:"28px" }}>
+            Você não vai decorar prompts prontos. Vai aprender a construir os seus —
+            e aplicar imediatamente na sua rotina de trabalho, com qualquer ferramenta:
+            ChatGPT, Claude, Gemini ou Copilot.
           </p>
-          <div style={{ display:"flex", gap:"8px", flexWrap:"wrap", marginBottom:"32px" }}>
-            {["Profissionais de escritório","Gestores","Equipes corporativas","Sem requisito técnico"].map((t) => (
-              <span key={t} style={{ fontSize:"11px", fontWeight:600, letterSpacing:".06em", padding:"5px 12px", border:"1px solid rgba(255,189,89,.3)", color:C.peach, borderRadius:"2px" }}>{t}</span>
+
+          <p style={{ fontSize:"15px", lineHeight:1.7, color:C.white, marginBottom:"32px", fontStyle:"italic", borderLeft:`3px solid ${C.peach}`, paddingLeft:"16px", fontWeight:500 }}>
+            "Do básico ao avançado: domine a escrita de comandos de IA e mantenha sua carreira à frente."
+          </p>
+
+          {/* Diferenciais */}
+          <div style={{ display:"flex", flexDirection:"column", gap:"10px", marginBottom:"36px" }}>
+            {[
+              "16 técnicas — do básico ao avançado",
+              "Exemplos prontos para copiar e adaptar",
+              "Aplicável a qualquer IA do mercado",
+              "Foco em áreas administrativas e de escritório",
+            ].map((item) => (
+              <div key={item} style={{ display:"flex", alignItems:"center", gap:"10px" }}>
+                <div style={{ width:"18px", height:"2px", background:C.peach, flexShrink:0 }} />
+                <span style={{ fontSize:"13px", color:C.grayMid }}>{item}</span>
+              </div>
             ))}
           </div>
-          <a href="https://loja.gpcon.com.br/livro-prompting-sem-segredos" target="_blank" rel="noopener noreferrer" className="btn-primary">
+
+          <a
+            href="https://loja.gpcon.com.br/livro-prompting-sem-segredos"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
+          >
             Adquirir o livro →
           </a>
         </div>
