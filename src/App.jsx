@@ -179,46 +179,66 @@ function Sobre() {
   const ref = useReveal();
   return (
     <section id="sobre" style={{ background:C.white }}>
-      <div ref={ref} className="reveal" style={{ maxWidth:"1060px", margin:"0 auto", display:"grid", gridTemplateColumns:"1fr 1fr", gap:"72px", alignItems:"center" }}>
+      <div ref={ref} className="reveal" style={{ maxWidth:"1060px", margin:"0 auto", display:"grid", gridTemplateColumns:"1fr 1fr", gap:"80px", alignItems:"center" }}>
+
+        {/* Visual lado esquerdo */}
         <div style={{ position:"relative" }}>
           <div style={{ background:C.grayLight, borderRadius:"4px", aspectRatio:"4/5", position:"relative", overflow:"hidden" }}>
-            <div style={{ position:"absolute", bottom:0, left:0, right:0, height:"45%", background:"linear-gradient(to top,#1A1A1A,transparent)" }} />
-            <div style={{ position:"absolute", bottom:"28px", left:"28px", fontFamily:"'Manrope',sans-serif", fontWeight:900, fontSize:"36px", color:C.white, lineHeight:1 }}>
+            <div style={{ position:"absolute", bottom:0, left:0, right:0, height:"50%", background:"linear-gradient(to top,#1A1A1A,transparent)" }} />
+            <div style={{ position:"absolute", bottom:"28px", left:"28px", fontFamily:"'Manrope',sans-serif", fontWeight:900, fontSize:"32px", color:C.white, lineHeight:1.1 }}>
               William<br /><span style={{ color:C.peach }}>Mazza</span>
             </div>
-            <div style={{ position:"absolute", top:"20px", right:"20px", width:"64px", height:"64px", border:`2px solid ${C.peach}`, borderRadius:"2px", opacity:.4 }} />
+            <div style={{ position:"absolute", top:"20px", right:"20px", width:"60px", height:"60px", border:`2px solid ${C.peach}`, borderRadius:"2px", opacity:.35 }} />
+            {/* Área para foto futura */}
+            <div style={{ position:"absolute", top:"50%", left:"50%", transform:"translate(-50%,-60%)", textAlign:"center" }}>
+              <div style={{ fontSize:"11px", fontWeight:600, letterSpacing:".14em", textTransform:"uppercase", color:"rgba(166,166,166,.4)" }}>foto</div>
+            </div>
           </div>
-          <div style={{ position:"absolute", top:"-16px", right:"-16px", background:C.peach, padding:"12px 18px", borderRadius:"2px" }}>
-            <div style={{ fontFamily:"'Manrope',sans-serif", fontWeight:900, fontSize:"11px", color:C.black, letterSpacing:".08em" }}>USP · MBA · IA</div>
+          <div style={{ position:"absolute", top:"-16px", right:"-16px", background:C.peach, padding:"11px 18px", borderRadius:"2px" }}>
+            <div style={{ fontFamily:"'Manrope',sans-serif", fontWeight:900, fontSize:"11px", color:C.black, letterSpacing:".08em" }}>@engenheiromazza</div>
           </div>
         </div>
 
+        {/* Conteúdo lado direito */}
         <div>
           <div className="section-label">Sobre</div>
-          <h2 style={{ fontSize:"clamp(26px,3vw,42px)", lineHeight:1.1, letterSpacing:"-1px", marginBottom:"20px" }}>
-            Engenharia, negócios<br />e inteligência artificial<br /><span style={{ color:C.peach }}>na mesma trajetória.</span>
+          <h2 style={{ fontSize:"clamp(24px,2.8vw,40px)", lineHeight:1.1, letterSpacing:"-1px", marginBottom:"24px" }}>
+            IA aplicada ao trabalho real,<br /><span style={{ color:C.peach }}>sem jargão técnico.</span>
           </h2>
+
           <p style={{ fontSize:"15px", lineHeight:1.85, color:"#555", marginBottom:"16px" }}>
-            Engenheiro formado pela USP, com MBA em Finanças e pós-graduações em IA, Big Data e Data Science.
-            Mais de 20 anos de experiência em liderança executiva — do chão de fábrica à diretoria de Supply Chain
-            em empresas brasileiras e multinacionais.
+            Atuo com palestras, treinamentos, cursos, mentorias e consultorias em Inteligência Artificial
+            para escritórios, ambientes administrativos e equipes corporativas. Meu foco é ajudar
+            profissionais não técnicos — de analistas a executivos — a compreenderem e aplicarem IA
+            com clareza, segurança e resultado prático.
           </p>
-          <p style={{ fontSize:"15px", lineHeight:1.85, color:"#555", marginBottom:"16px" }}>
-            Hoje atua como consultor, palestrante e professor de pós-graduação, com foco em aplicações práticas
-            de inteligência artificial para profissionais, líderes e empresas.
+          <p style={{ fontSize:"15px", lineHeight:1.85, color:"#555", marginBottom:"28px" }}>
+            Meu trabalho conecta tecnologia, gestão e educação corporativa para transformar ferramentas
+            como ChatGPT, Copilot, Claude, Gemini e agentes de IA em produtividade, melhores decisões
+            e novas formas de trabalhar.
           </p>
-          <p style={{ fontSize:"15px", lineHeight:1.85, color:"#555", marginBottom:"32px", fontStyle:"italic", borderLeft:`3px solid ${C.peach}`, paddingLeft:"16px" }}>
-            "Profundidade sem complicação. Clareza sem superficialidade."
+
+          <p style={{ fontSize:"15px", lineHeight:1.75, color:C.graphite, marginBottom:"32px", fontStyle:"italic", borderLeft:`3px solid ${C.peach}`, paddingLeft:"16px", fontWeight:500 }}>
+            "Traduzo Inteligência Artificial para quem precisa usar, liderar e decidir."
           </p>
-          <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"10px 8px", marginBottom:"32px" }}>
-            {["Engenharia (USP)","MBA em Finanças","Pós em IA & Big Data","Professor de pós-grad.","Diretor de Supply Chain","Consultor B2B"].map((item) => (
+
+          <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"10px 8px", marginBottom:"36px" }}>
+            {[
+              "IA para líderes e executivos",
+              "Treinamentos corporativos",
+              "Mentorias estratégicas",
+              "Cursos práticos de IA",
+              "Consultoria para escritórios",
+              "Adoção de IA em equipes",
+            ].map((item) => (
               <div key={item} style={{ display:"flex", alignItems:"center", gap:"10px" }}>
                 <div style={{ width:"18px", height:"2px", background:C.peach, flexShrink:0 }} />
-                <span style={{ fontSize:"13px", fontWeight:500 }}>{item}</span>
+                <span style={{ fontSize:"13px", fontWeight:500, color:C.graphite }}>{item}</span>
               </div>
             ))}
           </div>
-          <a href="#contato" className="btn-primary">Entrar em contato →</a>
+
+          <a href="#servicos" className="btn-primary">Conheça minha atuação →</a>
         </div>
       </div>
       <style>{`@media(max-width:900px){#sobre .reveal{grid-template-columns:1fr!important}#sobre .reveal>div:first-child{display:none}}`}</style>
