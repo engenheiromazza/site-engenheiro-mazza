@@ -120,36 +120,43 @@ function Hero() {
   return (
     <section id="hero" style={{
       minHeight: "100vh",
-      display: "grid",
-      gridTemplateColumns: "1fr 1fr",
-      alignItems: "center",
-      gap: "64px",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
       paddingTop: "120px",
       background: "linear-gradient(135deg,#F5F5F5 60%,#FFF8EC 100%)",
       position: "relative",
       overflow: "hidden",
     }}>
-      <div style={{ position:"absolute", top:"-80px", right:"-80px", width:"480px", height:"480px", border:"1px solid rgba(255,189,89,.15)", borderRadius:"50%", pointerEvents:"none" }} />
-      <div style={{ position:"absolute", top:"40px", right:"40px", width:"300px", height:"300px", border:"1px solid rgba(255,189,89,.08)", borderRadius:"50%", pointerEvents:"none" }} />
+      {/* geometric accents */}
+      <div style={{ position:"absolute", top:"-80px", right:"-80px", width:"520px", height:"520px", border:"1px solid rgba(255,189,89,.13)", borderRadius:"50%", pointerEvents:"none" }} />
+      <div style={{ position:"absolute", top:"60px", right:"60px", width:"340px", height:"340px", border:"1px solid rgba(255,189,89,.07)", borderRadius:"50%", pointerEvents:"none" }} />
+      <div style={{ position:"absolute", bottom:"-60px", left:"-60px", width:"300px", height:"300px", border:"1px solid rgba(255,189,89,.07)", borderRadius:"50%", pointerEvents:"none" }} />
 
-      <div style={{ animation:"fadeUp .9s ease both", animationDelay:".1s" }}>
+      <div style={{ maxWidth:"820px", animation:"fadeUp .9s ease both", animationDelay:".1s" }}>
         <div className="section-label">IA aplicada ao trabalho real</div>
-        <h1 style={{ fontSize:"clamp(38px,4.5vw,68px)", lineHeight:1.05, letterSpacing:"-2px", color:C.graphite, marginBottom:"28px" }}>
-          Inteligência<br />Artificial com<br /><span style={{ color:C.peach }}>método, clareza</span><br />e responsabilidade.
+        <h1 style={{ fontSize:"clamp(44px,6vw,80px)", lineHeight:1.02, letterSpacing:"-2.5px", color:C.graphite, marginBottom:"32px" }}>
+          Inteligência Artificial<br />com <span style={{ color:C.peach }}>método, clareza</span><br />e responsabilidade.
         </h1>
-        <p style={{ fontSize:"17px", lineHeight:1.8, color:"#555", maxWidth:"480px", marginBottom:"12px" }}>
-          Ajudo profissionais, líderes e empresas a compreender e aplicar inteligência artificial
-          com profundidade — traduzindo tecnologia em decisões melhores, equipes mais produtivas
-          e impacto real no trabalho.
+
+        <div style={{ display:"flex", gap:"48px", marginBottom:"40px", flexWrap:"wrap" }}>
+          <p style={{ fontSize:"17px", lineHeight:1.85, color:"#555", maxWidth:"520px" }}>
+            Ajudo profissionais, líderes e empresas a compreender e aplicar inteligência artificial
+            com profundidade — traduzindo tecnologia em decisões melhores, equipes mais produtivas
+            e impacto real no trabalho.
+          </p>
+        </div>
+
+        <p style={{ fontSize:"14px", lineHeight:1.7, color:C.grayMid, marginBottom:"44px", fontStyle:"italic", borderLeft:`3px solid ${C.peach}`, paddingLeft:"16px", maxWidth:"440px" }}>
+          "A IA só gera valor quando sai da teoria e entra no fluxo real de trabalho.<br />Nem hype, nem pânico. Método, contexto e aplicação."
         </p>
-        <p style={{ fontSize:"14px", lineHeight:1.7, color:C.grayMid, maxWidth:"480px", marginBottom:"40px", fontStyle:"italic" }}>
-          Nem hype, nem pânico. Método, contexto e aplicação.
-        </p>
-        <div style={{ display:"flex", gap:"14px", flexWrap:"wrap", marginBottom:"56px" }}>
+
+        <div style={{ display:"flex", gap:"14px", flexWrap:"wrap", marginBottom:"64px" }}>
           <a href="#servicos" className="btn-primary">Ver serviços →</a>
           <a href="#sobre" className="btn-outline">Sobre William Mazza</a>
         </div>
-        <div style={{ display:"flex", gap:"40px", flexWrap:"wrap", paddingTop:"32px", borderTop:"1px solid rgba(0,0,0,.08)" }}>
+
+        <div style={{ display:"flex", gap:"48px", flexWrap:"wrap", paddingTop:"32px", borderTop:"1px solid rgba(0,0,0,.08)" }}>
           {[
             { num:"20+",  label:"Anos de experiência" },
             { num:"500+", label:"Profissionais formados" },
@@ -157,38 +164,12 @@ function Hero() {
             { num:"B2C",  label:"Profissionais de mercado" },
           ].map((s) => (
             <div key={s.label}>
-              <div style={{ fontFamily:"'Manrope',sans-serif", fontWeight:900, fontSize:"26px", color:C.graphite, lineHeight:1 }}>{s.num}</div>
-              <div style={{ fontSize:"11px", color:C.grayMid, marginTop:"4px" }}>{s.label}</div>
+              <div style={{ fontFamily:"'Manrope',sans-serif", fontWeight:900, fontSize:"28px", color:C.graphite, lineHeight:1 }}>{s.num}</div>
+              <div style={{ fontSize:"11px", color:C.grayMid, marginTop:"5px" }}>{s.label}</div>
             </div>
           ))}
         </div>
       </div>
-
-      <div style={{ display:"flex", justifyContent:"center", animation:"fadeIn 1.1s ease both", animationDelay:".4s" }}>
-        <div style={{ width:"100%", maxWidth:"400px", background:C.graphite, borderRadius:"4px", padding:"44px 36px", position:"relative", overflow:"hidden" }}>
-          <div style={{ position:"absolute", bottom:"-40px", right:"-40px", width:"180px", height:"180px", background:C.peach, borderRadius:"50%", opacity:.08 }} />
-          <div style={{ fontFamily:"'Manrope',sans-serif", fontWeight:900, fontSize:"20px", color:C.peach, marginBottom:"6px", letterSpacing:"-0.3px" }}>
-            @engenheiromazza
-          </div>
-          <div style={{ fontSize:"11px", color:C.grayMid, letterSpacing:".12em", textTransform:"uppercase", marginBottom:"36px" }}>
-            LinkedIn · Instagram · YouTube
-          </div>
-          <div style={{ width:"28px", height:"2px", background:C.peach, marginBottom:"28px" }} />
-          <p style={{ color:"rgba(255,255,255,.8)", fontSize:"16px", lineHeight:1.75, fontStyle:"italic", marginBottom:"36px" }}>
-            "A IA só gera valor quando sai da teoria e entra no fluxo real de trabalho."
-          </p>
-          <div style={{ display:"flex", flexDirection:"column", gap:"10px" }}>
-            {["Aplicação prática", "Linguagem acessível", "Visão estratégica"].map((t) => (
-              <div key={t} style={{ display:"flex", alignItems:"center", gap:"10px" }}>
-                <div style={{ width:"18px", height:"2px", background:C.peach, flexShrink:0 }} />
-                <span style={{ color:C.grayMid, fontSize:"13px" }}>{t}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <style>{`@media(max-width:900px){#hero{grid-template-columns:1fr!important}#hero>div:last-child{display:none}}`}</style>
     </section>
   );
 }
