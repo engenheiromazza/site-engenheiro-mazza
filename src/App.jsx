@@ -179,69 +179,61 @@ function Sobre() {
   const ref = useReveal();
   return (
     <section id="sobre" style={{ background:C.white }}>
-      <div ref={ref} className="reveal" style={{ maxWidth:"1060px", margin:"0 auto", display:"grid", gridTemplateColumns:"1fr 1fr", gap:"80px", alignItems:"center" }}>
+      <div ref={ref} className="reveal" style={{ maxWidth:"1060px", margin:"0 auto", display:"grid", gridTemplateColumns:"420px 1fr", gap:"80px", alignItems:"center" }}>
 
-        {/* Visual lado esquerdo */}
+        {/* Foto */}
         <div style={{ position:"relative" }}>
-          <div style={{ background:C.grayLight, borderRadius:"4px", aspectRatio:"4/5", position:"relative", overflow:"hidden" }}>
-            <div style={{ position:"absolute", bottom:0, left:0, right:0, height:"50%", background:"linear-gradient(to top,#1A1A1A,transparent)" }} />
-            <div style={{ position:"absolute", bottom:"28px", left:"28px", fontFamily:"'Manrope',sans-serif", fontWeight:900, fontSize:"32px", color:C.white, lineHeight:1.1 }}>
-              William<br /><span style={{ color:C.peach }}>Mazza</span>
-            </div>
-            <div style={{ position:"absolute", top:"20px", right:"20px", width:"60px", height:"60px", border:`2px solid ${C.peach}`, borderRadius:"2px", opacity:.35 }} />
-            {/* Área para foto futura */}
-            <div style={{ position:"absolute", top:"50%", left:"50%", transform:"translate(-50%,-60%)", textAlign:"center" }}>
-              <div style={{ fontSize:"11px", fontWeight:600, letterSpacing:".14em", textTransform:"uppercase", color:"rgba(166,166,166,.4)" }}>foto</div>
-            </div>
+          <div style={{
+            borderRadius:"4px",
+            overflow:"hidden",
+            aspectRatio:"1/1",
+            background:C.grayLight,
+            position:"relative",
+          }}>
+            <img
+              src="/Foto_WMazza.png"
+              alt="William Mazza"
+              style={{ width:"100%", height:"100%", objectFit:"cover", objectPosition:"center top", display:"block" }}
+            />
+            {/* barra pêssego inferior */}
+            <div style={{ position:"absolute", bottom:0, left:0, right:0, height:"4px", background:C.peach }} />
           </div>
-          <div style={{ position:"absolute", top:"-16px", right:"-16px", background:C.peach, padding:"11px 18px", borderRadius:"2px" }}>
-            <div style={{ fontFamily:"'Manrope',sans-serif", fontWeight:900, fontSize:"11px", color:C.black, letterSpacing:".08em" }}>@engenheiromazza</div>
+          {/* tag flutuante */}
+          <div style={{ position:"absolute", top:"-14px", right:"-14px", background:C.peach, padding:"10px 16px", borderRadius:"2px", boxShadow:"0 4px 12px rgba(0,0,0,.12)" }}>
+            <div style={{ fontFamily:"'Manrope',sans-serif", fontWeight:900, fontSize:"11px", color:C.black, letterSpacing:".07em" }}>@engenheiromazza</div>
           </div>
         </div>
 
-        {/* Conteúdo lado direito */}
+        {/* Texto */}
         <div>
           <div className="section-label">Sobre</div>
-          <h2 style={{ fontSize:"clamp(24px,2.8vw,40px)", lineHeight:1.1, letterSpacing:"-1px", marginBottom:"24px" }}>
-            IA aplicada ao trabalho real,<br /><span style={{ color:C.peach }}>sem jargão técnico.</span>
+          <h2 style={{ fontSize:"clamp(24px,2.6vw,38px)", lineHeight:1.1, letterSpacing:"-1px", marginBottom:"20px" }}>
+            Engenheiro. Professor.<br /><span style={{ color:C.peach }}>Especialista em IA aplicada.</span>
           </h2>
 
-          <p style={{ fontSize:"15px", lineHeight:1.85, color:"#555", marginBottom:"16px" }}>
-            Atuo com palestras, treinamentos, cursos, mentorias e consultorias em Inteligência Artificial
-            para escritórios, ambientes administrativos e equipes corporativas. Meu foco é ajudar
-            profissionais não técnicos — de analistas a executivos — a compreenderem e aplicarem IA
-            com clareza, segurança e resultado prático.
-          </p>
-          <p style={{ fontSize:"15px", lineHeight:1.85, color:"#555", marginBottom:"28px" }}>
-            Meu trabalho conecta tecnologia, gestão e educação corporativa para transformar ferramentas
-            como ChatGPT, Copilot, Claude, Gemini e agentes de IA em produtividade, melhores decisões
-            e novas formas de trabalhar.
+          <p style={{ fontSize:"15px", lineHeight:1.85, color:"#555", marginBottom:"20px" }}>
+            Engenheiro pela USP, com MBA em Finanças e pós-graduação em Data Science.
+            Professor de Inteligência Artificial nos programas de MBA da <strong>Exame/Saint Paul</strong> e <strong>XP Educação</strong>.
           </p>
 
-          <p style={{ fontSize:"15px", lineHeight:1.75, color:C.graphite, marginBottom:"32px", fontStyle:"italic", borderLeft:`3px solid ${C.peach}`, paddingLeft:"16px", fontWeight:500 }}>
+          <p style={{ fontSize:"15px", lineHeight:1.85, color:"#555", marginBottom:"28px" }}>
+            Atuo com palestras, consultorias, treinamentos e mentorias voltados a <strong>executivos e empresários</strong> que precisam compreender e aplicar IA com clareza, segurança e resultado real — sem depender de equipes técnicas.
+          </p>
+
+          <p style={{ fontSize:"15px", lineHeight:1.7, color:C.graphite, marginBottom:"32px", fontStyle:"italic", borderLeft:`3px solid ${C.peach}`, paddingLeft:"16px", fontWeight:500 }}>
             "Traduzo Inteligência Artificial para quem precisa usar, liderar e decidir."
           </p>
 
-          <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"10px 8px", marginBottom:"36px" }}>
-            {[
-              "IA para líderes e executivos",
-              "Treinamentos corporativos",
-              "Mentorias estratégicas",
-              "Cursos práticos de IA",
-              "Consultoria para escritórios",
-              "Adoção de IA em equipes",
-            ].map((item) => (
-              <div key={item} style={{ display:"flex", alignItems:"center", gap:"10px" }}>
-                <div style={{ width:"18px", height:"2px", background:C.peach, flexShrink:0 }} />
-                <span style={{ fontSize:"13px", fontWeight:500, color:C.graphite }}>{item}</span>
-              </div>
+          <div style={{ display:"flex", gap:"8px", flexWrap:"wrap", marginBottom:"36px" }}>
+            {["Palestras","Treinamentos","Mentorias","Consultorias","MBA Exame/Saint Paul","XP Educação"].map((tag) => (
+              <span key={tag} style={{ fontSize:"11px", fontWeight:600, padding:"5px 12px", border:`1px solid rgba(0,0,0,.12)`, borderRadius:"2px", color:C.graphite, letterSpacing:".05em" }}>{tag}</span>
             ))}
           </div>
 
           <a href="#servicos" className="btn-primary">Conheça minha atuação →</a>
         </div>
       </div>
-      <style>{`@media(max-width:900px){#sobre .reveal{grid-template-columns:1fr!important}#sobre .reveal>div:first-child{display:none}}`}</style>
+      <style>{`@media(max-width:900px){#sobre .reveal{grid-template-columns:1fr!important;gap:40px!important}}`}</style>
     </section>
   );
 }
