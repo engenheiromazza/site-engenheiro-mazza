@@ -305,9 +305,33 @@ function Servicos() {
 
 /* ── CURSOS ── */
 const cursos = [
-  { title:"IA Aplicada ao RH", level:"Intermediário", format:"Online · Ao vivo", desc:"Como profissionais de RH podem estruturar o uso de IA generativa em recrutamento, onboarding, avaliação de desempenho e People Analytics — com critério e responsabilidade.", badge:"Novo" },
-  { title:"Prompting Sem Segredos", level:"Iniciante", format:"Online · Gravado", desc:"Comunicação eficaz com ferramentas de IA generativa para profissionais de escritório. Sem programação, sem tecnicismo — com método e aplicação imediata no dia a dia.", badge:null },
-  { title:"IA Generativa para Gestores", level:"Intermediário", format:"In-company", desc:"Formação executiva em IA: como líderes compreendem, avaliam e incorporam inteligência artificial à gestão, à tomada de decisão e ao desenvolvimento das equipes.", badge:"Destaque" },
+  {
+    title:"Claude para Negócios",
+    level:"Intermediário",
+    format:"Presencial · Joinville",
+    desc:"Treinamento prático e intensivo sobre o Claude aplicado ao contexto empresarial — Claude Chat, Cowork, Office, Chrome, Celular e Code. Para executivos e empresários que querem dominar a ferramenta mais avançada do mercado.",
+    badge:"Novo",
+    link:"#contato",
+    externo: false,
+  },
+  {
+    title:"AgenteIA: O fim do trabalho braçal na era digital",
+    level:"Básico",
+    format:"Online",
+    desc:"Como usar agentes de inteligência artificial para eliminar tarefas repetitivas, automatizar processos e recuperar tempo para o que realmente importa no trabalho e na gestão.",
+    badge:"Destaque",
+    link:"https://hotmart.com/pt-br/marketplace/produtos/agenteia-liberte-se-do-invisivel/A104597946M",
+    externo: true,
+  },
+  {
+    title:"Curso Completo de ChatGPT",
+    level:"Básico",
+    format:"Online",
+    desc:"Do zero ao uso avançado do ChatGPT para profissionais de escritório, gestores e equipes administrativas. Prático, direto e aplicável ao dia a dia corporativo.",
+    badge:"Destaque",
+    link:"https://hotmart.com/pt-br/marketplace/produtos/hagsxd-curso-completo-de-chatgpt-5a05n/S102029842V",
+    externo: true,
+  },
 ];
 
 function Cursos() {
@@ -315,16 +339,16 @@ function Cursos() {
   return (
     <section id="cursos" style={{ background:C.grayLight }}>
       <div ref={ref} className="reveal" style={{ maxWidth:"1060px", margin:"0 auto" }}>
-        <div className="section-label">Cursos & Formações</div>
+        <div className="section-label">Cursos</div>
         <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-end", marginBottom:"48px", flexWrap:"wrap", gap:"14px" }}>
-          <h2 style={{ fontSize:"clamp(26px,3vw,42px)", letterSpacing:"-1px", lineHeight:1.1 }}>
+          <h2 style={{ fontSize:"clamp(26px,3vw,42px)", letterSpacing:"-1px", lineHeight:1.1, maxWidth:"600px" }}>
             Formar pessoas para usar<br />IA com critério é uma das<br /><span style={{ color:C.peach }}>competências centrais</span><br />das empresas modernas.
           </h2>
-          <a href="#contato" className="btn-outline">Mais informações →</a>
+          <a href="https://forms.gle/JsvTMFe3p7a79VaK6" target="_blank" rel="noopener noreferrer" className="btn-outline">Mais informações →</a>
         </div>
         <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))", gap:"20px" }}>
           {cursos.map((c) => (
-            <div key={c.title} style={{ background:C.white, borderRadius:"4px", padding:"36px 28px", border:"1px solid rgba(0,0,0,.06)", position:"relative", transition:"transform .2s,box-shadow .2s", cursor:"default" }}
+            <div key={c.title} style={{ background:C.white, borderRadius:"4px", padding:"36px 28px", border:"1px solid rgba(0,0,0,.06)", position:"relative", transition:"transform .2s,box-shadow .2s", cursor:"default", display:"flex", flexDirection:"column" }}
               onMouseEnter={(e)=>{e.currentTarget.style.transform="translateY(-4px)";e.currentTarget.style.boxShadow="0 16px 40px rgba(0,0,0,.1)"}}
               onMouseLeave={(e)=>{e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="none"}}
             >
@@ -333,10 +357,10 @@ function Cursos() {
                 <span style={{ fontSize:"10px", fontWeight:600, color:C.grayMid, border:"1px solid #e0e0e0", padding:"3px 9px", borderRadius:"2px" }}>{c.level}</span>
                 <span style={{ fontSize:"10px", fontWeight:600, color:C.grayMid, border:"1px solid #e0e0e0", padding:"3px 9px", borderRadius:"2px" }}>{c.format}</span>
               </div>
-              <h3 style={{ fontFamily:"'Manrope',sans-serif", fontSize:"18px", fontWeight:800, marginBottom:"10px", lineHeight:1.25 }}>{c.title}</h3>
-              <p style={{ fontSize:"13px", lineHeight:1.75, color:"#666", marginBottom:"24px" }}>{c.desc}</p>
-              <a href="#contato" style={{ fontFamily:"'Manrope',sans-serif", fontWeight:700, fontSize:"13px", color:C.graphite, textDecoration:"none", display:"flex", alignItems:"center", gap:"6px" }}>
-                Saiba mais →
+              <h3 style={{ fontFamily:"'Manrope',sans-serif", fontSize:"17px", fontWeight:800, marginBottom:"10px", lineHeight:1.25 }}>{c.title}</h3>
+              <p style={{ fontSize:"13px", lineHeight:1.75, color:"#666", marginBottom:"24px", flexGrow:1 }}>{c.desc}</p>
+              <a href={c.link} target={c.externo ? "_blank" : "_self"} rel={c.externo ? "noopener noreferrer" : ""} style={{ fontFamily:"'Manrope',sans-serif", fontWeight:700, fontSize:"13px", color:C.graphite, textDecoration:"none", display:"flex", alignItems:"center", gap:"6px", marginTop:"auto" }}>
+                {c.externo ? "Acessar curso →" : "Saiba mais →"}
               </a>
             </div>
           ))}
