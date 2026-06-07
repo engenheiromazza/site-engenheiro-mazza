@@ -279,7 +279,7 @@ function Servicos() {
               Inteligência Artificial<br />aplicada ao cotidiano<br />das empresas.
             </h2>
           </div>
-          <a href="https://forms.gle/JsvTMFe3p7a79VaK6" target="_blank" rel="noopener noreferrer" className="btn-primary">Conheça minha atuação →</a>
+          <a href="https://forms.gle/JsvTMFe3p7a79VaK6" target="_blank" rel="noopener noreferrer" className="btn-primary">Solicite uma proposta →</a>
         </div>
         <div style={{ display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:"2px" }}>
           {servicos.map((s, i) => (
