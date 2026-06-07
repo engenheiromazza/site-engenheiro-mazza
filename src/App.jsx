@@ -241,10 +241,30 @@ function Sobre() {
 
 /* ── SERVIÇOS ── */
 const servicos = [
-  { num:"01", title:"Consultoria em IA", desc:"Diagnóstico, estratégia e implementação de inteligência artificial nos processos da empresa. Foco em adoção real pelas equipes e resultado mensurável — não em projeto de prateleira.", tags:["Diagnóstico","Roadmap","Implementação"] },
-  { num:"02", title:"Palestras Corporativas", desc:"Conteúdo desenvolvido para cada contexto — eventos executivos, kickoffs, treinamentos e conferências. Linguagem de negócio, casos reais, profundidade técnica sem tecnicismo.", tags:["Keynote","Workshop","In-company"] },
-  { num:"03", title:"Mentoria Individual", desc:"Programa de acompanhamento para executivos e empresários que querem entender a IA com profundidade e definir como aplicá-la em sua liderança e organização.", tags:["1-a-1","Estratégia","Presencial/Online"] },
-  { num:"04", title:"Treinamentos Corporativos", desc:"Capacitação em IA generativa para equipes de RH, Jurídico, Financeiro, Operações e Marketing. Do uso cotidiano à integração estratégica — com método e critério.", tags:["In-company","EAD","Customizado"] },
+  {
+    num:"01",
+    title:"Palestras Executivas",
+    desc:"Palestras sob medida para eventos corporativos, lideranças e equipes que precisam compreender o impacto da IA no trabalho, na gestão e nos negócios. Linguagem clara, visão estratégica e exemplos aplicáveis.",
+    tags:["Keynote","Executivos","Eventos"],
+  },
+  {
+    num:"02",
+    title:"Treinamentos para Equipes",
+    desc:"Capacitação prática em IA generativa para equipes de RH, Jurídico, Financeiro, Operações, Marketing e áreas administrativas. Conteúdos adaptados ao nível técnico do público, com foco em uso real, segurança e produtividade.",
+    tags:["In-company","EAD","Customizado"],
+  },
+  {
+    num:"03",
+    title:"Mentoria em IA para Líderes",
+    desc:"Acompanhamento individual para executivos e empresários que desejam entender, aplicar e orientar o uso da IA em suas rotinas, decisões e equipes. Formato VIP, com atenção exclusiva ao contexto de cada liderança.",
+    tags:["1:1","Estratégia","Liderança"],
+  },
+  {
+    num:"04",
+    title:"Consultoria em IA Aplicada",
+    desc:"Diagnóstico, estratégia e orientação para adoção de Inteligência Artificial em escritórios, áreas administrativas e equipes corporativas. Foco em processos reais, produtividade e aplicação segura no dia a dia.",
+    tags:["Diagnóstico","Roadmap","Adoção prática"],
+  },
 ];
 
 function Servicos() {
@@ -256,10 +276,10 @@ function Servicos() {
           <div>
             <div className="section-label">Serviços</div>
             <h2 style={{ fontSize:"clamp(26px,3vw,44px)", letterSpacing:"-1px", color:C.white, lineHeight:1.1 }}>
-              Da teoria à<br />aplicação real.
+              Inteligência Artificial<br />aplicada ao cotidiano<br />das empresas.
             </h2>
           </div>
-          <a href="#contato" className="btn-primary">Solicitar proposta →</a>
+          <a href="#contato" className="btn-primary">Conheça minha atuação →</a>
         </div>
         <div style={{ display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:"2px" }}>
           {servicos.map((s, i) => (
