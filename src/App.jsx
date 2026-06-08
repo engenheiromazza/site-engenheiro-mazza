@@ -454,7 +454,7 @@ function Livro() {
 
           <p style={{ fontSize:"15px", lineHeight:1.85, color:C.grayMid, marginBottom:"16px" }}>
             Se você não é profissional de tecnologia mas quer dominar a inteligência artificial,
-            este livro foi escrito para você. 16 técnicas de prompting com exemplos práticos
+            este livro foi escrito para você. 15 técnicas de prompting com exemplos práticos
             de <strong style={{ color:"rgba(255,255,255,.7)" }}>12 áreas corporativas</strong> — do Financeiro ao Jurídico, do RH ao Marketing.
           </p>
           <p style={{ fontSize:"15px", lineHeight:1.85, color:C.grayMid, marginBottom:"28px" }}>
@@ -499,36 +499,143 @@ function Livro() {
 
 /* ── DEPOIMENTOS ── */
 const depoimentos = [
-  { quote:"O Engenheiro Mazza tem o dom de tornar a IA compreensível para qualquer gestor. Saímos com um plano real, não apenas com conceitos.", name:"Diretora de RH", company:"Indústria multinacional · SC" },
-  { quote:"A palestra foi o ponto de inflexão do nosso time. Linguagem clara, profundidade real e ferramentas que aplicamos no dia seguinte.", name:"CEO", company:"Empresa de tecnologia · SP" },
-  { quote:"Nunca imaginei que aprenderia a usar IA no trabalho jurídico tão rapidamente. Conteúdo sólido, didática excepcional.", name:"Advogada Sênior", company:"Escritório de advocacia · RS" },
+  {
+    quote:"Quando o assunto é Inteligência Artificial, William Mazza é uma referência. Profundo conhecedor do tema, alia sólido conhecimento técnico, visão estratégica e uma rara capacidade de transformar conceitos complexos em aplicações práticas e acessíveis.",
+    name:"Pedro Luiz Pereira",
+    role:"Diretor de Cultura Organizacional",
+    company:"Metal Group",
+  },
+  {
+    quote:"Tive a oportunidade de contratar William Mazza e também participar de seus treinamentos. Sua didática clara e prática torna a Inteligência Artificial acessível e aplicável desde o primeiro contato. Com profundo conhecimento e forte visão de negócios, William é uma das principais referências em IA para executivos e organizações que buscam resultados concretos.",
+    name:"Leandro José Soares",
+    role:"Fundador",
+    company:"Líder com Alma",
+  },
+  {
+    quote:"Conhecer o trabalho de William Mazza foi uma experiência transformadora. Sua capacidade de traduzir a Inteligência Artificial em aplicações práticas e geradoras de resultados, aliada ao profundo conhecimento técnico e à visão estratégica, faz dele uma referência para profissionais e empresas que desejam utilizar a IA de forma eficiente, ética e com impacto real.",
+    name:"Mário Lúcio Floriani",
+    role:"Sócio Fundador",
+    company:"Floriani Síndicos Profissionais Ltda.",
+  },
+  {
+    quote:"Tive a oportunidade de fazer 2 formações com o Mazza em IA e automações para RH. Além da preparação técnica e estar sempre antenado, ele aborda os temas de forma prática, didática e com todas as provocações necessárias para um uso responsável da tecnologia. Recomendo demais!",
+    name:"Miguel Nisembaum",
+    role:"Fundador",
+    company:"Mapa de Talentos",
+  },
 ];
 
 function Depoimentos() {
   const ref = useReveal();
+  const [atual, setAtual] = useState(0);
+  const [saindo, setSaindo] = useState(false);
+
+  const ir = (idx) => {
+    if (idx === atual) return;
+    setSaindo(true);
+    setTimeout(() => {
+      setAtual(idx);
+      setSaindo(false);
+    }, 300);
+  };
+
+  const anterior = () => ir((atual - 1 + depoimentos.length) % depoimentos.length);
+  const proximo  = () => ir((atual + 1) % depoimentos.length);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setSaindo(true);
+      setTimeout(() => {
+        setAtual((a) => (a + 1) % depoimentos.length);
+        setSaindo(false);
+      }, 300);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const d = depoimentos[atual];
+
   return (
     <section id="depoimentos" style={{ background:C.grayLight }}>
-      <div ref={ref} className="reveal" style={{ maxWidth:"1060px", margin:"0 auto" }}>
+      <div ref={ref} className="reveal" style={{ maxWidth:"860px", margin:"0 auto" }}>
         <div className="section-label">Depoimentos</div>
         <h2 style={{ fontSize:"clamp(26px,3vw,44px)", letterSpacing:"-1px", lineHeight:1.1, marginBottom:"48px" }}>
           O impacto na prática<br /><span style={{ color:C.peach }}>de quem já aplicou.</span>
         </h2>
-        <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))", gap:"20px" }}>
-          {depoimentos.map((d, i) => (
-            <div key={i} style={{ background:C.white, borderRadius:"4px", padding:"36px 28px", borderLeft:`4px solid ${C.peach}` }}>
-              <div style={{ fontFamily:"'Manrope',sans-serif", fontSize:"48px", fontWeight:900, color:C.peach, lineHeight:.8, marginBottom:"14px", opacity:.5 }}>"</div>
-              <p style={{ fontSize:"14px", lineHeight:1.8, color:"#444", fontStyle:"italic", marginBottom:"24px" }}>{d.quote}</p>
-              <div style={{ display:"flex", alignItems:"center", gap:"10px" }}>
-                <div style={{ width:"34px", height:"34px", borderRadius:"50%", background:C.graphite, display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0 }}>
-                  <span style={{ color:C.peach, fontWeight:800, fontSize:"13px" }}>{d.name.charAt(0)}</span>
-                </div>
-                <div>
-                  <div style={{ fontWeight:700, fontSize:"13px" }}>{d.name}</div>
-                  <div style={{ fontSize:"11px", color:C.grayMid }}>{d.company}</div>
-                </div>
-              </div>
+
+        {/* Card carrossel */}
+        <div style={{
+          background: C.white,
+          borderRadius: "4px",
+          padding: "48px 56px",
+          borderLeft: `4px solid ${C.peach}`,
+          minHeight: "280px",
+          position: "relative",
+          opacity: saindo ? 0 : 1,
+          transform: saindo ? "translateY(8px)" : "translateY(0)",
+          transition: "opacity .3s ease, transform .3s ease",
+        }}>
+          <div style={{ fontFamily:"'Manrope',sans-serif", fontSize:"52px", fontWeight:900, color:C.peach, lineHeight:.8, marginBottom:"20px", opacity:.4 }}>"</div>
+          <p style={{ fontSize:"16px", lineHeight:1.85, color:"#444", fontStyle:"italic", marginBottom:"32px", maxWidth:"680px" }}>
+            {d.quote}
+          </p>
+          <div style={{ display:"flex", alignItems:"center", gap:"14px" }}>
+            <div style={{ width:"40px", height:"40px", borderRadius:"50%", background:C.graphite, display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0 }}>
+              <span style={{ color:C.peach, fontWeight:800, fontSize:"15px" }}>{d.name.charAt(0)}</span>
             </div>
-          ))}
+            <div>
+              <div style={{ fontFamily:"'Manrope',sans-serif", fontWeight:700, fontSize:"15px", color:C.graphite }}>{d.name}</div>
+              <div style={{ fontSize:"12px", color:C.grayMid, marginTop:"2px" }}>{d.role} · {d.company}</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Controles */}
+        <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", marginTop:"28px" }}>
+          {/* Dots */}
+          <div style={{ display:"flex", gap:"8px" }}>
+            {depoimentos.map((_, i) => (
+              <button key={i} onClick={() => ir(i)} style={{
+                width: i === atual ? "28px" : "8px",
+                height: "8px",
+                borderRadius: "4px",
+                background: i === atual ? C.peach : "#ccc",
+                border: "none",
+                cursor: "pointer",
+                transition: "all .3s ease",
+                padding: 0,
+              }} />
+            ))}
+          </div>
+
+          {/* Setas */}
+          <div style={{ display:"flex", gap:"8px" }}>
+            <button onClick={anterior} style={{
+              width:"40px", height:"40px", borderRadius:"2px",
+              background:"transparent", border:`1.5px solid ${C.graphite}`,
+              cursor:"pointer", fontSize:"16px", display:"flex",
+              alignItems:"center", justifyContent:"center",
+              transition:"all .2s",
+            }}
+              onMouseEnter={(e)=>{e.currentTarget.style.background=C.graphite;e.currentTarget.style.color=C.white}}
+              onMouseLeave={(e)=>{e.currentTarget.style.background="transparent";e.currentTarget.style.color=C.graphite}}
+            >←</button>
+            <button onClick={proximo} style={{
+              width:"40px", height:"40px", borderRadius:"2px",
+              background:C.graphite, border:`1.5px solid ${C.graphite}`,
+              cursor:"pointer", fontSize:"16px", color:C.white,
+              display:"flex", alignItems:"center", justifyContent:"center",
+              transition:"all .2s",
+            }}
+              onMouseEnter={(e)=>e.currentTarget.style.background="#333"}
+              onMouseLeave={(e)=>e.currentTarget.style.background=C.graphite}
+            >→</button>
+          </div>
+        </div>
+
+        {/* Contador */}
+        <div style={{ marginTop:"16px", fontSize:"12px", color:C.grayMid, textAlign:"right" }}>
+          {atual + 1} / {depoimentos.length}
         </div>
       </div>
     </section>
