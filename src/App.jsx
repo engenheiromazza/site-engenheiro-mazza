@@ -707,7 +707,14 @@ function Contato() {
               <div style={{ fontSize:"12px", color:C.grayMid }}>
                 Ou: <a href="mailto:william@wmazza.com" style={{ color:C.peach, textDecoration:"none" }}>william@wmazza.com</a>
               </div>
-              <button className="btn-primary" onClick={handleSubmit}>Enviar mensagem →</button>
+              <a
+                href="https://forms.gle/JsvTMFe3p7a79VaK6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+              >
+                Enviar mensagem →
+              </a>
             </div>
           </div>
         )}
