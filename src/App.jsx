@@ -311,6 +311,7 @@ const cursos = [
     format:"Presencial · Joinville",
     desc:"Treinamento prático e intensivo sobre o Claude aplicado ao contexto empresarial — Claude Chat, Cowork, Office, Chrome, Celular e Code. Para executivos e empresários que querem dominar a ferramenta mais avançada do mercado.",
     badge:"Novo",
+    data:"11 de julho",
     link:"#contato",
     externo: false,
   },
@@ -320,6 +321,7 @@ const cursos = [
     format:"Online",
     desc:"Como usar agentes de inteligência artificial para eliminar tarefas repetitivas, automatizar processos e recuperar tempo para o que realmente importa no trabalho e na gestão.",
     badge:"Destaque",
+    data: null,
     link:"https://hotmart.com/pt-br/marketplace/produtos/agenteia-liberte-se-do-invisivel/A104597946M",
     externo: true,
   },
@@ -329,6 +331,7 @@ const cursos = [
     format:"Online",
     desc:"Do zero ao uso avançado do ChatGPT para profissionais de escritório, gestores e equipes administrativas. Prático, direto e aplicável ao dia a dia corporativo.",
     badge:"Destaque",
+    data: null,
     link:"https://hotmart.com/pt-br/marketplace/produtos/hagsxd-curso-completo-de-chatgpt-5a05n/S102029842V",
     externo: true,
   },
@@ -353,6 +356,11 @@ function Cursos() {
               onMouseLeave={(e)=>{e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="none"}}
             >
               {c.badge && <div style={{ position:"absolute", top:"20px", right:"20px", background:C.peach, padding:"3px 10px", fontSize:"10px", fontWeight:700, borderRadius:"2px" }}>{c.badge}</div>}
+              {c.data && (
+                <div style={{ display:"inline-flex", alignItems:"center", gap:"6px", background:C.graphite, color:C.peach, fontSize:"11px", fontWeight:700, padding:"5px 12px", borderRadius:"2px", marginBottom:"12px" }}>
+                  📅 {c.data}
+                </div>
+              )}
               <div style={{ display:"flex", gap:"6px", marginBottom:"16px" }}>
                 <span style={{ fontSize:"10px", fontWeight:600, color:C.grayMid, border:"1px solid #e0e0e0", padding:"3px 9px", borderRadius:"2px" }}>{c.level}</span>
                 <span style={{ fontSize:"10px", fontWeight:600, color:C.grayMid, border:"1px solid #e0e0e0", padding:"3px 9px", borderRadius:"2px" }}>{c.format}</span>
@@ -649,6 +657,11 @@ function Contato() {
   const [sent, setSent] = useState(false);
   const handleSubmit = () => {
     if (!form.nome || !form.email) return;
+    const subject = encodeURIComponent(`Contato via site — ${form.nome}`);
+    const body = encodeURIComponent(
+      `Nome: ${form.nome}\nE-mail: ${form.email}\nEmpresa: ${form.empresa || "Não informado"}\n\nMensagem:\n${form.mensagem}`
+    );
+    window.location.href = `mailto:william@wmazza.com?subject=${subject}&body=${body}`;
     setSent(true);
   };
   const fieldStyle = { width:"100%", background:"rgba(255,255,255,.06)", border:"1px solid rgba(255,255,255,.12)", borderRadius:"2px", padding:"13px 15px", color:C.white, fontSize:"14px", fontFamily:"'Inter',sans-serif", outline:"none", transition:"border-color .2s" };
@@ -728,10 +741,14 @@ function Footer() {
         </div>
       </div>
       <div style={{ display:"flex", gap:"20px" }}>
-        {["LinkedIn","Instagram","YouTube"].map((s)=>(
-          <a key={s} href="#" style={{ fontSize:"12px", color:C.grayMid, textDecoration:"none", fontWeight:500, transition:"color .2s" }}
+        {[
+          { label:"LinkedIn", url:"https://www.linkedin.com/in/engenheiromazza/" },
+          { label:"Instagram", url:"https://www.instagram.com/engenheiromazza" },
+          { label:"YouTube", url:"https://www.youtube.com/@engenheiromazza" },
+        ].map((s)=>(
+          <a key={s.label} href={s.url} target="_blank" rel="noopener noreferrer" style={{ fontSize:"12px", color:C.grayMid, textDecoration:"none", fontWeight:500, transition:"color .2s" }}
             onMouseOver={(e)=>e.target.style.color=C.peach}
-            onMouseOut={(e)=>e.target.style.color=C.grayMid}>{s}</a>
+            onMouseOut={(e)=>e.target.style.color=C.grayMid}>{s.label}</a>
         ))}
       </div>
       <div style={{ fontSize:"11px", color:C.grayMid }}>© 2026 William Mazza · @engenheiromazza</div>
