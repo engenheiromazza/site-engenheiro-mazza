@@ -657,11 +657,7 @@ function Contato() {
   const [sent, setSent] = useState(false);
   const handleSubmit = () => {
     if (!form.nome || !form.email) return;
-    const subject = encodeURIComponent(`Contato via site — ${form.nome}`);
-    const body = encodeURIComponent(
-      `Nome: ${form.nome}\nE-mail: ${form.email}\nEmpresa: ${form.empresa || "Não informado"}\n\nMensagem:\n${form.mensagem}`
-    );
-    window.location.href = `mailto:william@wmazza.com?subject=${subject}&body=${body}`;
+    window.open('https://forms.gle/JsvTMFe3p7a79VaK6', '_blank');
     setSent(true);
   };
   const fieldStyle = { width:"100%", background:"rgba(255,255,255,.06)", border:"1px solid rgba(255,255,255,.12)", borderRadius:"2px", padding:"13px 15px", color:C.white, fontSize:"14px", fontFamily:"'Inter',sans-serif", outline:"none", transition:"border-color .2s" };
@@ -704,13 +700,6 @@ function Contato() {
               <label style={labelStyle}>Empresa / Organização</label>
               <input type="text" placeholder="Nome da empresa" style={fieldStyle} value={form.empresa}
                 onChange={(e)=>setForm({...form,empresa:e.target.value})}
-                onFocus={(e)=>e.target.style.borderColor=C.peach}
-                onBlur={(e)=>e.target.style.borderColor="rgba(255,255,255,.12)"} />
-            </div>
-            <div style={{ gridColumn:"1/-1" }}>
-              <label style={labelStyle}>Como posso ajudar?</label>
-              <textarea rows={4} placeholder="Descreva sua necessidade..." style={{...fieldStyle,resize:"vertical"}} value={form.mensagem}
-                onChange={(e)=>setForm({...form,mensagem:e.target.value})}
                 onFocus={(e)=>e.target.style.borderColor=C.peach}
                 onBlur={(e)=>e.target.style.borderColor="rgba(255,255,255,.12)"} />
             </div>
