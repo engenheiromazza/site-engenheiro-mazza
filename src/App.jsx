@@ -464,13 +464,13 @@ function Livro() {
           </p>
 
           <p style={{ fontSize:"15px", lineHeight:1.7, color:C.white, marginBottom:"32px", fontStyle:"italic", borderLeft:`3px solid ${C.peach}`, paddingLeft:"16px", fontWeight:500 }}>
-            "Do básico ao avançado: domine a escrita de comandos de IA e mantenha sua carreira à frente."
+            "Se você usa IA mas não sabe como pedir o que realmente precisa, este livro resolve isso — agora."
           </p>
 
           {/* Diferenciais */}
           <div style={{ display:"flex", flexDirection:"column", gap:"10px", marginBottom:"36px" }}>
             {[
-              "16 técnicas — do básico ao avançado",
+              "15 técnicas — do básico ao avançado",
               "Exemplos prontos para copiar e adaptar",
               "Aplicável a qualquer IA do mercado",
               "Foco em áreas administrativas e de escritório",
@@ -703,7 +703,7 @@ function Contato() {
             </div>
             <div style={{ gridColumn:"1/-1", display:"flex", justifyContent:"space-between", alignItems:"center", flexWrap:"wrap", gap:"14px" }}>
               <div style={{ fontSize:"12px", color:C.grayMid }}>
-                Ou: <a href="mailto:contato@engenheiromazza.com.br" style={{ color:C.peach, textDecoration:"none" }}>contato@engenheiromazza.com.br</a>
+                Ou: <a href="mailto:william@wmazza.com" style={{ color:C.peach, textDecoration:"none" }}>william@wmazza.com</a>
               </div>
               <button className="btn-primary" onClick={handleSubmit}>Enviar mensagem →</button>
             </div>
@@ -734,7 +734,10 @@ function Footer() {
             onMouseOut={(e)=>e.target.style.color=C.grayMid}>{s}</a>
         ))}
       </div>
-      <div style={{ fontSize:"11px", color:C.grayMid }}>© 2025 William Mazza · @engenheiromazza</div>
+      <div style={{ fontSize:"11px", color:C.grayMid }}>© 2026 William Mazza · @engenheiromazza</div>
+      <div style={{ fontSize:"11px", color:"rgba(166,166,166,.45)", letterSpacing:".04em" }}>
+        Site elaborado com <span style={{ color:C.peach }}>Claude</span>
+      </div>
       <style>{`@media(max-width:600px){footer{padding:28px 24px;flex-direction:column;text-align:center}}`}</style>
     </footer>
   );
