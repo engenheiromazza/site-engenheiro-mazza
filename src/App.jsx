@@ -94,6 +94,7 @@ function Nav() {
     { label: "Mentoria",    href: "#mentoria" },
     { label: "Livro",       href: "#livro" },
     { label: "Depoimentos", href: "#depoimentos" },
+    { label: "Clientes",    href: "#clientes" },
     { label: "Contato",     href: "#contato", cta: true },
   ];
   return (
@@ -650,7 +651,83 @@ function Depoimentos() {
   );
 }
 
-/* ── CONTATO ── */
+/* ── CLIENTES ── */
+const clientes = [
+  "Metal Group","Líder com Alma","Floriani Síndicos","Portobello",
+  "MMD Advogados","Schulz","Elian","Fras-le","Dequech","Motorista PX",
+  "PUC-PR","Hotmilk","Cravil","FFFP Advogados","Aura","Bonja",
+  "Opty","Moore","BZCP Advocacia","SST Advogados","Construtora Axia",
+  "Otto House","ABRH","Viva Care","Univille","Fórmula Animal",
+  "EMAL","Irineu Imóveis","Fortlev","XP Educação","Exame/Saint Paul",
+  "CREA-PR","Shopping Mueller","Volvo CE","Refratek","e outros.",
+];
+
+function Clientes() {
+  const ref = useReveal();
+  return (
+    <section id="clientes" style={{ background:C.white }}>
+      <div ref={ref} className="reveal" style={{ maxWidth:"1060px", margin:"0 auto" }}>
+        <div className="section-label">Clientes</div>
+        <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-end", marginBottom:"48px", flexWrap:"wrap", gap:"16px" }}>
+          <h2 style={{ fontSize:"clamp(24px,2.8vw,40px)", letterSpacing:"-1px", lineHeight:1.1 }}>
+            Empresas e organizações<br />que já <span style={{ color:C.peach }}>aplicaram IA</span><br />com William Mazza.
+          </h2>
+          <div style={{ fontSize:"13px", color:C.grayMid, maxWidth:"280px", lineHeight:1.6, textAlign:"right" }}>
+            Palestrante, professor e consultor em organizações de diferentes setores e portes.
+          </div>
+        </div>
+
+        <div style={{
+          display:"flex",
+          flexWrap:"wrap",
+          gap:"12px 16px",
+        }}>
+          {clientes.map((nome, i) => (
+            <div key={i} style={{
+              fontFamily:"'Manrope',sans-serif",
+              fontWeight: nome === "e outros." ? 400 : 700,
+              fontSize: nome === "e outros." ? "13px" : "15px",
+              color: nome === "e outros." ? C.grayMid : C.graphite,
+              fontStyle: nome === "e outros." ? "italic" : "normal",
+              padding:"10px 18px",
+              border:`1px solid ${nome === "e outros." ? "transparent" : "rgba(0,0,0,.08)"}`,
+              borderRadius:"2px",
+              letterSpacing: nome === "e outros." ? "0" : "0.01em",
+              transition:"all .2s",
+              cursor:"default",
+              background: "transparent",
+            }}
+              onMouseEnter={(e) => {
+                if (nome !== "e outros.") {
+                  e.currentTarget.style.borderColor = C.peach;
+                  e.currentTarget.style.color = C.black;
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (nome !== "e outros.") {
+                  e.currentTarget.style.borderColor = "rgba(0,0,0,.08)";
+                  e.currentTarget.style.color = C.graphite;
+                }
+              }}
+            >
+              {nome}
+            </div>
+          ))}
+        </div>
+
+        {/* Separador visual */}
+        <div style={{ marginTop:"48px", paddingTop:"32px", borderTop:"1px solid rgba(0,0,0,.08)", display:"flex", alignItems:"center", gap:"16px" }}>
+          <div style={{ width:"28px", height:"2px", background:C.peach }} />
+          <span style={{ fontSize:"13px", color:C.grayMid, fontStyle:"italic" }}>
+            Setores: Indústria · Advocacia · Educação · Imóveis · Saúde · Varejo · Tecnologia · Construção · Associações
+          </span>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
 function Contato() {
   const ref = useReveal();
   const [form, setForm] = useState({ nome:"", email:"", empresa:"", mensagem:"" });
@@ -770,6 +847,7 @@ export default function App() {
         <Mentoria />
         <Livro />
         <Depoimentos />
+        <Clientes />
         <Contato />
       </main>
       <Footer />
