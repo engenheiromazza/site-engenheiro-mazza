@@ -532,6 +532,12 @@ const depoimentos = [
     role:"Fundador",
     company:"Mapa de Talentos",
   },
+  {
+    quote:"Como profissional da área, valorizo quem tem conteúdo de verdade e fala com honestidade. O Mazza traduz conceitos complexos de um jeito acessível pra quem está começando, mas com a solidez técnica que segura uma conversa com quem é do ramo. Não promete milagre, não engana — diz o que é e o que não é. Tem o meu respaldo.",
+    name:"Luis Ricardo Sabino",
+    role:"Head de Dados & IA",
+    company:"nstech",
+  },
 ];
 
 function Depoimentos() {
@@ -558,7 +564,7 @@ function Depoimentos() {
         setAtual((a) => (a + 1) % depoimentos.length);
         setSaindo(false);
       }, 300);
-    }, 6000);
+    }, 9000);
     return () => clearInterval(timer);
   }, []);
 
@@ -653,13 +659,13 @@ function Depoimentos() {
 
 /* ── CLIENTES ── */
 const clientes = [
-  "Metal Group","Líder com Alma","Floriani Síndicos","Portobello",
-  "MMD Advogados","Schulz","Elian","Fras-le","Dequech","Motorista PX",
-  "PUC-PR","Hotmilk","Cravil","FFFP Advogados","Aura","Bonja",
-  "Opty","Moore","BZCP Advocacia","SST Advogados","Construtora Axia",
-  "Otto House","ABRH","Viva Care","Univille","Fórmula Animal",
-  "EMAL","Irineu Imóveis","Fortlev","XP Educação","Exame/Saint Paul",
-  "CREA-PR","Shopping Mueller","Volvo CE","Refratek","e outros.",
+  "Volvo CE","Portobello","Schulz","Fras-le","Elian","Shopping Mueller",
+  "Univille","PUC-PR","XP Educação","Exame/Saint Paul","CREA-PR","ABRH",
+  "Fortlev","Metal Group","Motorista PX","Viva Care","Opty","Moore",
+  "Hotmilk","Cravil","EMAL","Refratek","Construtora Axia","Otto House",
+  "Fórmula Animal","Irineu Imóveis","Dequech","Bonja","Aura",
+  "Líder com Alma","Floriani Síndicos","Mapa de Talentos",
+  "MMD Advogados","FFFP Advogados","BZCP Advocacia","SST Advogados","e outros.",
 ];
 
 function Clientes() {
