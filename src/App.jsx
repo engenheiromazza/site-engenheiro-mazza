@@ -513,30 +513,49 @@ const depoimentos = [
     name:"Pedro Luiz Pereira",
     role:"Diretor de Cultura Organizacional",
     company:"Metal Group",
+    link: null,
   },
   {
     quote:"Tive a oportunidade de contratar William Mazza e também participar de seus treinamentos. Sua didática clara e prática torna a Inteligência Artificial acessível e aplicável desde o primeiro contato. Com profundo conhecimento e forte visão de negócios, William é uma das principais referências em IA para executivos e organizações que buscam resultados concretos.",
     name:"Leandro José Soares",
     role:"Fundador",
     company:"Líder com Alma",
+    link: null,
   },
   {
     quote:"Conhecer o trabalho de William Mazza foi uma experiência transformadora. Sua capacidade de traduzir a Inteligência Artificial em aplicações práticas e geradoras de resultados, aliada ao profundo conhecimento técnico e à visão estratégica, faz dele uma referência para profissionais e empresas que desejam utilizar a IA de forma eficiente, ética e com impacto real.",
     name:"Mário Lúcio Floriani",
     role:"Sócio Fundador",
     company:"Floriani Síndicos Profissionais Ltda.",
+    link: null,
   },
   {
     quote:"Tive a oportunidade de fazer 2 formações com o Mazza em IA e automações para RH. Além da preparação técnica e estar sempre antenado, ele aborda os temas de forma prática, didática e com todas as provocações necessárias para um uso responsável da tecnologia. Recomendo demais!",
     name:"Miguel Nisembaum",
     role:"Fundador",
     company:"Mapa de Talentos",
+    link: null,
   },
   {
     quote:"Como profissional da área, valorizo quem tem conteúdo de verdade e fala com honestidade. O Mazza traduz conceitos complexos de um jeito acessível pra quem está começando, mas com a solidez técnica que segura uma conversa com quem é do ramo. Não promete milagre, não engana — diz o que é e o que não é. Tem o meu respaldo.",
     name:"Luis Ricardo Sabino",
     role:"Head de Dados & IA",
     company:"nstech",
+    link: null,
+  },
+  {
+    quote:"Realizar o curso de Inteligência Artificial com William Mazza foi uma experiência extremamente enriquecedora para minha formação profissional. O conteúdo é apresentado de forma clara, prática e acessível, permitindo a aplicação concreta no dia a dia. Recomendo fortemente para todos que desejam se atualizar e se destacar em um mercado cada vez mais conectado e inovador.",
+    name:"Ticiane Machado Belmonte do Prado",
+    role:"Gerente Administrativo",
+    company:"Irineu Imóveis Ltda.",
+    link: null,
+  },
+  {
+    quote:"O que mais admiro no Mazza é a forma como ele tira a inteligência artificial do campo da promessa e leva para a aplicação real. Ele tem uma escuta prática e assertiva: entende primeiro a dor, o contexto e a realidade de cada área/empresa para, só então, apontar como a tecnologia pode gerar valor. Essa visão vem de quem já viveu a operação por dentro e sabe que ferramenta nenhuma resolve problema mal compreendido. Mazza comunica com clareza, objetividade e profundidade na medida certa. É direto, didático e conectado aos desafios reais das empresas.",
+    name:"Maria Regina Runze",
+    role:"CEO",
+    company:"WeShine Consulting",
+    link: "https://weshine.com.br/",
   },
 ];
 
@@ -599,7 +618,11 @@ function Depoimentos() {
               <span style={{ color:C.peach, fontWeight:800, fontSize:"15px" }}>{d.name.charAt(0)}</span>
             </div>
             <div>
-              <div style={{ fontFamily:"'Manrope',sans-serif", fontWeight:700, fontSize:"15px", color:C.graphite }}>{d.name}</div>
+              <div style={{ fontFamily:"'Manrope',sans-serif", fontWeight:700, fontSize:"15px", color:C.graphite }}>
+                {d.link ? (
+                  <a href={d.link} target="_blank" rel="noopener noreferrer" style={{ color:C.graphite, textDecoration:"underline", textDecorationColor:C.peach, textUnderlineOffset:"3px" }}>{d.name}</a>
+                ) : d.name}
+              </div>
               <div style={{ fontSize:"12px", color:C.grayMid, marginTop:"2px" }}>{d.role} · {d.company}</div>
             </div>
           </div>
