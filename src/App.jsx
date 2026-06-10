@@ -349,6 +349,7 @@ function Cursos() {
             Formar pessoas para usar<br />IA com critério é uma das<br /><span style={{ color:C.peach }}>competências centrais</span><br />das empresas modernas.
           </h2>
           <a href="https://upupo.share.hsforms.com/2fpp6iBowSOOAdbpN8mbMZA" target="_blank" rel="noopener noreferrer" className="btn-outline">Mais informações →</a>
+          <a href="/cursos" className="btn-primary">Ver todos os cursos →</a>
         </div>
         <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))", gap:"20px" }}>
           {cursos.map((c) => (
