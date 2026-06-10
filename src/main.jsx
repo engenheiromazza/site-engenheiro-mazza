@@ -1,9 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
+import PaginaCursos from './Cursos.jsx'
+
+function Router() {
+  const path = window.location.pathname;
+  if (path === '/cursos') return <PaginaCursos />;
+  return <App />;
+}
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <Router />
   </React.StrictMode>
 )
