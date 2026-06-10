@@ -280,7 +280,7 @@ function Servicos() {
               Inteligência Artificial<br />aplicada ao cotidiano<br />das empresas.
             </h2>
           </div>
-          <a href="https://forms.gle/JsvTMFe3p7a79VaK6" target="_blank" rel="noopener noreferrer" className="btn-primary">Solicite uma proposta →</a>
+          <a href="https://upupo.share.hsforms.com/2fpp6iBowSOOAdbpN8mbMZA" target="_blank" rel="noopener noreferrer" className="btn-primary">Solicite uma proposta →</a>
         </div>
         <div style={{ display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:"2px" }}>
           {servicos.map((s, i) => (
@@ -348,7 +348,7 @@ function Cursos() {
           <h2 style={{ fontSize:"clamp(26px,3vw,42px)", letterSpacing:"-1px", lineHeight:1.1, maxWidth:"600px" }}>
             Formar pessoas para usar<br />IA com critério é uma das<br /><span style={{ color:C.peach }}>competências centrais</span><br />das empresas modernas.
           </h2>
-          <a href="https://forms.gle/JsvTMFe3p7a79VaK6" target="_blank" rel="noopener noreferrer" className="btn-outline">Mais informações →</a>
+          <a href="https://upupo.share.hsforms.com/2fpp6iBowSOOAdbpN8mbMZA" target="_blank" rel="noopener noreferrer" className="btn-outline">Mais informações →</a>
         </div>
         <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))", gap:"20px" }}>
           {cursos.map((c) => (
@@ -763,7 +763,7 @@ function Contato() {
   const [sent, setSent] = useState(false);
   const handleSubmit = () => {
     if (!form.nome || !form.email) return;
-    window.open('https://forms.gle/JsvTMFe3p7a79VaK6', '_blank');
+    window.open('https://upupo.share.hsforms.com/2fpp6iBowSOOAdbpN8mbMZA', '_blank');
     setSent(true);
   };
   const fieldStyle = { width:"100%", background:"rgba(255,255,255,.06)", border:"1px solid rgba(255,255,255,.12)", borderRadius:"2px", padding:"13px 15px", color:C.white, fontSize:"14px", fontFamily:"'Inter',sans-serif", outline:"none", transition:"border-color .2s" };
@@ -814,7 +814,7 @@ function Contato() {
                 Ou: <a href="mailto:william@wmazza.com" style={{ color:C.peach, textDecoration:"none" }}>william@wmazza.com</a>
               </div>
               <a
-                href="https://forms.gle/JsvTMFe3p7a79VaK6"
+                href="https://upupo.share.hsforms.com/2fpp6iBowSOOAdbpN8mbMZA"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary"
