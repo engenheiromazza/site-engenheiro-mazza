@@ -39,13 +39,6 @@ const cursos = [
     link: "https://hotmart.com/pt-br/marketplace/produtos/prompting-sem-segredos/B100885453K",
   },
   {
-    titulo: "AnalistaIA: IA Prática para Eliminar 80% das Dúvidas do RH",
-    descricao: "Formação prática em IA para profissionais de Recursos Humanos. Recrutamento, onboarding, People Analytics e gestão de desempenho com inteligência artificial.",
-    nivel: "Intermediário",
-    ferramenta: "IA para RH",
-    link: "https://hotmart.com/pt-br/marketplace/produtos/analistaia-ia-pratica-para-eliminar-80-das-duvidas-do-rh/L104207539J",
-  },
-  {
     titulo: "SamuRHai",
     descricao: "Programa avançado de IA aplicada ao universo de Recursos Humanos. Para profissionais que querem dominar o uso estratégico da inteligência artificial na gestão de pessoas.",
     nivel: "Intermediário",
@@ -171,4 +164,3 @@ export default function PaginaCursos() {
     </>
   );
 }
-
