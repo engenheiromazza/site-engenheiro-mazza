@@ -327,13 +327,13 @@ const cursos = [
     externo: true,
   },
   {
-    title:"Curso Completo de ChatGPT",
-    level:"Básico",
-    format:"Online",
-    desc:"Do zero ao uso avançado do ChatGPT para profissionais de escritório, gestores e equipes administrativas. Prático, direto e aplicável ao dia a dia corporativo.",
-    badge:"Destaque",
-    data: null,
-    link:"https://hotmart.com/pt-br/marketplace/produtos/hagsxd-curso-completo-de-chatgpt-5a05n/S102029842V",
+    title:"Claude para RH",
+    level:"Intermediário",
+    format:"Online · Síncrono",
+    desc:"4 encontros ao vivo (13, 15, 20 e 22/jul) com 8h de conteúdo prático: do básico do Claude até Skills, Projetos, Cowork e agentes aplicados a recrutamento, avaliação de desempenho e People Analytics.",
+    badge:"Novo",
+    data:"13 a 22 de julho",
+    link:"https://www.sympla.com.br/evento-online/claude-para-rh/3462696",
     externo: true,
   },
 ];
@@ -557,6 +557,13 @@ const depoimentos = [
     role:"CEO",
     company:"WeShine Consulting",
     link: "https://weshine.com.br/",
+  },
+  {
+    quote:"William Mazza atuou conosco como professor em temáticas relacionadas à Inteligência Artificial, conduzindo diversas aulas com excelente domínio técnico, clareza didática e grande capacidade de conectar teoria e prática. Ao longo de sua participação, demonstrou profundo conhecimento sobre o tema, postura colaborativa e constante disponibilidade para contribuir com a XP Educação, agregando valor à formação dos nossos alunos e às iniciativas acadêmicas da instituição.",
+    name:"Luis Fernando Conduta",
+    role:"Coordenador Acadêmico Geral",
+    company:"XP Educação",
+    link: null,
   },
 ];
 
