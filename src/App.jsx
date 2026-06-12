@@ -689,18 +689,24 @@ function Depoimentos() {
 }
 
 /* ── CLIENTES ── */
-const clientes = [
-  "Volvo CE","Portobello","Schulz","Fras-le","Elian","Shopping Mueller",
-  "Univille","PUC-PR","XP Educação","Exame/Saint Paul","CREA-PR","ABRH",
-  "Fortlev","Metal Group","Motorista PX","Viva Care","Opty","Moore",
-  "Hotmilk","Cravil","EMAL","Refratek","Construtora Axia","Otto House",
-  "Fórmula Animal","Irineu Imóveis","Dequech","Bonja","Aura",
-  "Líder com Alma","Floriani Síndicos","Mapa de Talentos",
-  "MMD Advogados","FFFP Advogados","BZCP Advocacia","SST Advogados","e outros.",
-];
+const TOTAL_LOGOS = 38;
 
 function Clientes() {
   const ref = useReveal();
+  const [atual, setAtual] = useState(0);
+  const [visivel, setVisivel] = useState(true);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setVisivel(false);
+      setTimeout(() => {
+        setAtual((a) => (a + 1) % TOTAL_LOGOS);
+        setVisivel(true);
+      }, 200);
+    }, 2500);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section id="clientes" style={{ background:C.white }}>
       <div ref={ref} className="reveal" style={{ maxWidth:"1060px", margin:"0 auto" }}>
@@ -714,42 +720,55 @@ function Clientes() {
           </div>
         </div>
 
+        {/* Carrossel de logos */}
         <div style={{
           display:"flex",
-          flexWrap:"wrap",
-          gap:"12px 16px",
+          flexDirection:"column",
+          alignItems:"center",
+          gap:"24px",
         }}>
-          {clientes.map((nome, i) => (
-            <div key={i} style={{
-              fontFamily:"'Manrope',sans-serif",
-              fontWeight: nome === "e outros." ? 400 : 700,
-              fontSize: nome === "e outros." ? "13px" : "15px",
-              color: nome === "e outros." ? C.grayMid : C.graphite,
-              fontStyle: nome === "e outros." ? "italic" : "normal",
-              padding:"10px 18px",
-              border:`1px solid ${nome === "e outros." ? "transparent" : "rgba(0,0,0,.08)"}`,
-              borderRadius:"2px",
-              letterSpacing: nome === "e outros." ? "0" : "0.01em",
-              transition:"all .2s",
-              cursor:"default",
-              background: "transparent",
-            }}
-              onMouseEnter={(e) => {
-                if (nome !== "e outros.") {
-                  e.currentTarget.style.borderColor = C.peach;
-                  e.currentTarget.style.color = C.black;
-                }
+          <div style={{
+            width:"100%",
+            maxWidth:"320px",
+            height:"160px",
+            display:"flex",
+            alignItems:"center",
+            justifyContent:"center",
+            border:"1px solid rgba(0,0,0,.08)",
+            borderRadius:"4px",
+            background:C.grayLight,
+            overflow:"hidden",
+          }}>
+            <img
+              src={`/clientes/${atual + 1}.png`}
+              alt={`Cliente ${atual + 1}`}
+              style={{
+                maxWidth:"82%",
+                maxHeight:"72%",
+                objectFit:"contain",
+                opacity: visivel ? 1 : 0,
+                transition:"opacity .2s ease",
               }}
-              onMouseLeave={(e) => {
-                if (nome !== "e outros.") {
-                  e.currentTarget.style.borderColor = "rgba(0,0,0,.08)";
-                  e.currentTarget.style.color = C.graphite;
-                }
-              }}
-            >
-              {nome}
-            </div>
-          ))}
+              onError={(e) => { e.target.style.display = "none"; }}
+            />
+          </div>
+
+          {/* Dots de progresso */}
+          <div style={{ display:"flex", gap:"5px", flexWrap:"wrap", justifyContent:"center", maxWidth:"100%" }}>
+            {Array.from({ length: TOTAL_LOGOS }).map((_, i) => (
+              <div key={i} style={{
+                width: i === atual ? "16px" : "5px",
+                height:"5px",
+                borderRadius:"3px",
+                background: i === atual ? C.peach : "#ddd",
+                transition:"all .25s ease",
+              }} />
+            ))}
+          </div>
+
+          <div style={{ fontSize:"12px", color:C.grayMid }}>
+            {atual + 1} / {TOTAL_LOGOS}
+          </div>
         </div>
 
         {/* Separador visual */}
