@@ -317,16 +317,6 @@ const cursos = [
     externo: false,
   },
   {
-    title:"AgenteIA: O fim do trabalho braçal na era digital",
-    level:"Básico",
-    format:"Online",
-    desc:"Como usar agentes de inteligência artificial para eliminar tarefas repetitivas, automatizar processos e recuperar tempo para o que realmente importa no trabalho e na gestão.",
-    badge:"Destaque",
-    data: null,
-    link:"https://hotmart.com/pt-br/marketplace/produtos/agenteia-liberte-se-do-invisivel/A104597946M",
-    externo: true,
-  },
-  {
     title:"Claude para RH",
     level:"Intermediário",
     format:"Online · Síncrono",
@@ -334,6 +324,16 @@ const cursos = [
     badge:"Novo",
     data:"13 a 22 de julho",
     link:"https://www.sympla.com.br/evento-online/claude-para-rh/3462696",
+    externo: true,
+  },
+  {
+    title:"AgenteIA: O fim do trabalho braçal na era digital",
+    level:"Básico",
+    format:"Online",
+    desc:"Como usar agentes de inteligência artificial para eliminar tarefas repetitivas, automatizar processos e recuperar tempo para o que realmente importa no trabalho e na gestão.",
+    badge:"Destaque",
+    data: null,
+    link:"https://hotmart.com/pt-br/marketplace/produtos/agenteia-liberte-se-do-invisivel/A104597946M",
     externo: true,
   },
 ];
@@ -730,7 +730,7 @@ function Clientes() {
           <div style={{
             width:"100%",
             maxWidth:"320px",
-            height:"160px",
+            aspectRatio:"1/1",
             display:"flex",
             alignItems:"center",
             justifyContent:"center",
@@ -743,8 +743,8 @@ function Clientes() {
               src={`/clientes/${atual + 1}.png`}
               alt={`Cliente ${atual + 1}`}
               style={{
-                maxWidth:"82%",
-                maxHeight:"72%",
+                width:"100%",
+                height:"100%",
                 objectFit:"contain",
                 opacity: visivel ? 1 : 0,
                 transition:"opacity .2s ease",
