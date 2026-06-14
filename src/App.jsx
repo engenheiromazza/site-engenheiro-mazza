@@ -565,6 +565,13 @@ const depoimentos = [
     company:"XP Educação",
     link: null,
   },
+  {
+    quote:"O 'mais RH' dos 'não RH'. É assim que eu costumo me referir ao Mazza. Nos conhecemos através do LinkedIn — foram suas postagens que despertaram minha curiosidade para decifrar o algoritmo da plataforma, e também foi inspirado por suas contribuições sobre liderança e carreira que me animei a compartilhar minhas ideias na rede. Hoje, ambos somos Top Voice. Foi a admiração mútua que nos tornou parceiros em várias iniciativas de educação para a comunidade de RH. É um prazer ver a dedicação, disciplina e sabedoria que o Mazza coloca em tudo que faz. Nossos alunos aprendem de forma divertida, didática e muito prática — vimos produtos, serviços e parcerias de negócios nascerem nas nossas salas de aula.",
+    name:"Marcelo Nóbrega",
+    role:"IA, Inovação e Tecnologia em RH",
+    company:"Investidor, Conselheiro de HRTechs e Palestrante Internacional",
+    link: null,
+  },
 ];
 
 function Depoimentos() {
