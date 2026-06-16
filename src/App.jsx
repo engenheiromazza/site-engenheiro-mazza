@@ -311,10 +311,24 @@ const cursos = [
     level:"Intermediário",
     format:"Presencial · Joinville",
     desc:"Treinamento prático e intensivo sobre o Claude aplicado ao contexto empresarial — Claude Chat, Cowork, Office, Chrome, Celular e Code. Para executivos e empresários que querem dominar a ferramenta mais avançada do mercado.",
-    badge:"Novo",
+    badge:"Esgotado",
+    badgeBg:"#888",
     data:"11 de julho",
     link:"#contato",
     externo: false,
+    esgotado: true,
+  },
+  {
+    title:"Claude para Negócios",
+    level:"Intermediário",
+    format:"Presencial · Joinville",
+    desc:"Treinamento prático e intensivo sobre o Claude aplicado ao contexto empresarial — Claude Chat, Cowork, Office, Chrome, Celular e Code. Para executivos e empresários que querem dominar a ferramenta mais avançada do mercado.",
+    badge:"2ª Turma",
+    badgeBg:"#FFBD59",
+    data:"18 de julho",
+    link:"#contato",
+    externo: false,
+    esgotado: false,
   },
   {
     title:"Claude para RH",
@@ -322,19 +336,11 @@ const cursos = [
     format:"Online · Síncrono",
     desc:"4 encontros ao vivo (13, 15, 20 e 22/jul) com 8h de conteúdo prático: do básico do Claude até Skills, Projetos, Cowork e agentes aplicados a recrutamento, avaliação de desempenho e People Analytics.",
     badge:"Novo",
+    badgeBg:"#FFBD59",
     data:"13 a 22 de julho",
     link:"https://www.sympla.com.br/evento-online/claude-para-rh/3462696",
     externo: true,
-  },
-  {
-    title:"AgenteIA: O fim do trabalho braçal na era digital",
-    level:"Básico",
-    format:"Online",
-    desc:"Como usar agentes de inteligência artificial para eliminar tarefas repetitivas, automatizar processos e recuperar tempo para o que realmente importa no trabalho e na gestão.",
-    badge:"Destaque",
-    data: null,
-    link:"https://hotmart.com/pt-br/marketplace/produtos/agenteia-liberte-se-do-invisivel/A104597946M",
-    externo: true,
+    esgotado: false,
   },
 ];
 
@@ -357,10 +363,10 @@ function Cursos() {
               onMouseEnter={(e)=>{e.currentTarget.style.transform="translateY(-4px)";e.currentTarget.style.boxShadow="0 16px 40px rgba(0,0,0,.1)"}}
               onMouseLeave={(e)=>{e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="none"}}
             >
-              {c.badge && <div style={{ position:"absolute", top:"20px", right:"20px", background:C.peach, padding:"3px 10px", fontSize:"10px", fontWeight:700, borderRadius:"2px" }}>{c.badge}</div>}
+              {c.badge && <div style={{ position:"absolute", top:"20px", right:"20px", background:c.badgeBg||C.peach, color:c.esgotado?"#fff":"#000", padding:"3px 10px", fontSize:"10px", fontWeight:700, borderRadius:"2px" }}>{c.badge}</div>}
               {c.data && (
-                <div style={{ display:"inline-flex", alignItems:"center", gap:"6px", background:C.graphite, color:C.peach, fontSize:"11px", fontWeight:700, padding:"5px 12px", borderRadius:"2px", marginBottom:"12px" }}>
-                  📅 {c.data}
+                <div style={{ display:"inline-flex", alignItems:"center", gap:"6px", background: c.esgotado ? "#eee" : C.graphite, color: c.esgotado ? "#999" : C.peach, fontSize:"11px", fontWeight:700, padding:"5px 12px", borderRadius:"2px", marginBottom:"12px", textDecoration: c.esgotado ? "line-through" : "none" }}>
+                  📅 {c.data}{c.esgotado ? " — Esgotado" : ""}
                 </div>
               )}
               <div style={{ display:"flex", gap:"6px", marginBottom:"16px" }}>
