@@ -578,6 +578,13 @@ const depoimentos = [
     company:"Investidor, Conselheiro de HRTechs e Palestrante Internacional",
     link: null,
   },
+  {
+    quote:"Há exatos dois anos tive o prazer de começar uma parceria profissional bacana com o meu amigo, colega de profissão, engenheiro William Mazza. O Mazza é aquele profissional que consegue passar conteúdo com uma maestria que poucos profissionais conseguem — de uma maneira leve, amigável e ao mesmo tempo aprofundada. Um estudioso incansável de IA que aplica na prática as melhores ferramentas do mercado e traz para as nossas turmas, nos cursos da Você Está Contratado!, o que de mais bacana acontece no mercado.",
+    name:"Jederson Beck",
+    role:"Specialist in Sales Agility & HR Solutions",
+    company:"Mentor at Top2You",
+    link: null,
+  },
 ];
 
 function Depoimentos() {
