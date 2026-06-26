@@ -585,6 +585,13 @@ const depoimentos = [
     company:"Mentor at Top2You",
     link: null,
   },
+  {
+    quote:"O Treinamento de IA com o Engenheiro Mazza abriu novas perspectivas, potencializando a performance do capital intelectual da nossa equipe.",
+    name:"Aurea Pirmann",
+    role:"CEO",
+    company:"Shopping Mueller · Joinville",
+    link: null,
+  },
 ];
 
 function Depoimentos() {
