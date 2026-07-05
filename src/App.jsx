@@ -716,7 +716,7 @@ function Depoimentos() {
 }
 
 /* ── CLIENTES ── */
-const TOTAL_LOGOS = 38;
+const TOTAL_LOGOS = 39;
 
 function Clientes() {
   const ref = useReveal();
