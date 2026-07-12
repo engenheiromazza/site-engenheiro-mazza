@@ -95,6 +95,7 @@ function Nav() {
     { label: "Livro",       href: "#livro" },
     { label: "Depoimentos", href: "#depoimentos" },
     { label: "Clientes",    href: "#clientes" },
+    { label: "Avaliações",  href: "#avaliacoes" },
     { label: "Contato",     href: "#contato", cta: true },
   ];
   return (
@@ -811,6 +812,46 @@ function Clientes() {
 }
 
 
+/* ── AVALIAÇÕES ── */
+function AvaliacoesTeaser() {
+  const ref = useReveal();
+  return (
+    <section id="avaliacoes" style={{ background:C.graphite }}>
+      <div ref={ref} className="reveal" style={{ maxWidth:"1060px", margin:"0 auto", display:"grid", gridTemplateColumns:"1fr 1fr", gap:"72px", alignItems:"center" }}>
+        <div>
+          <div className="section-label">Avaliações</div>
+          <h2 style={{ fontSize:"clamp(26px,3vw,44px)", letterSpacing:"-1px", color:C.white, lineHeight:1.1, marginBottom:"20px" }}>
+            Transparência é<br /><span style={{ color:C.peach }}>parte do método.</span>
+          </h2>
+          <p style={{ fontSize:"15px", lineHeight:1.85, color:C.grayMid, marginBottom:"16px" }}>
+            Todos os treinamentos são avaliados pelos participantes em 11 critérios.
+            Os resultados são públicos, acumulados e atualizados em tempo real.
+          </p>
+          <p style={{ fontSize:"15px", lineHeight:1.85, color:C.grayMid, marginBottom:"32px" }}>
+            Sem filtro, sem curadoria — o que os participantes dizem é o que aparece.
+          </p>
+          <a href="/avaliacoes" className="btn-primary">Ver avaliações →</a>
+        </div>
+        <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"16px" }}>
+          {[
+            { label:"Conteúdo", nota:"4.9" },
+            { label:"Didática", nota:"5.0" },
+            { label:"Aplicabilidade", nota:"4.8" },
+            { label:"Recomendaria", nota:"5.0" },
+          ].map((item,i) => (
+            <div key={i} style={{ background:"rgba(255,255,255,.05)", border:"1px solid rgba(255,189,89,.2)", borderRadius:"4px", padding:"24px 20px", textAlign:"center" }}>
+              <div style={{ fontFamily:"'Manrope',sans-serif", fontWeight:900, fontSize:"36px", color:C.peach, lineHeight:1 }}>{item.nota}</div>
+              <div style={{ fontSize:"11px", color:C.grayMid, marginTop:"8px", fontWeight:500 }}>{item.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <style>{`@media(max-width:768px){#avaliacoes .reveal{grid-template-columns:1fr!important}}`}</style>
+    </section>
+  );
+}
+
+
 function Contato() {
   const ref = useReveal();
   const [form, setForm] = useState({ nome:"", email:"", empresa:"", mensagem:"" });
@@ -931,6 +972,7 @@ export default function App() {
         <Livro />
         <Depoimentos />
         <Clientes />
+        <AvaliacoesTeaser />
         <Contato />
       </main>
       <Footer />
