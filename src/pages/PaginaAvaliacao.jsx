@@ -10,8 +10,8 @@ const C = {
 };
 
 const EVENTOS = [
-  { id: 'claude-para-negocios-11072026', nome: 'Claude para Negócios - Turma 1', data: '11/07/2026' },
-  { id: 'claude-para-negocios-18072026', nome: 'Claude para Negócios - Turma 2', data: '18/07/2026' }
+  { id: 'claude-para-negocios-11072026', nome: 'Claude para Negócios', data: '11/07/2026' },
+  { id: 'claude-para-negocios-18072026', nome: 'Claude para Negócios', data: '18/07/2026' }
 ];
 
 const ALUNOS_POR_EVENTO = {
@@ -64,6 +64,7 @@ export default function PaginaAvaliacao() {
   const [erro, setErro] = useState('');
 
   const alunosDisp = ALUNOS_POR_EVENTO[eventoId] || [];
+  const eventoInfo = EVENTOS.find(e => e.id === eventoId);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -158,60 +159,29 @@ export default function PaginaAvaliacao() {
 
         <form onSubmit={handleSubmit}>
           {/* Evento */}
-          <div style={{ marginBottom: '24px' }}>
+          <div style={{ marginBottom: '32px' }}>
             <label style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: C.grayMid, display: 'block', marginBottom: '8px' }}>
-              Qual treinamento você participou?
+              Qual é o seu nome?
             </label>
             <select 
-              value={eventoId} 
+              value={nomeAluno} 
               onChange={e => {
-                setEventoId(e.target.value);
-                setNomeAluno('');
+                setNomeAluno(e.target.value);
                 setNotas({});
               }}
               style={fieldStyle}
               required
             >
-              <option value="">Selecione o treinamento...</option>
-              {EVENTOS.map(e => (
-                <option key={e.id} value={e.id}>{e.nome} ({e.data})</option>
+              <option value="">Selecione seu nome...</option>
+              {alunosDisp.map(aluno => (
+                <option key={aluno} value={aluno}>{aluno}</option>
               ))}
             </select>
           </div>
 
-          {/* Nome */}
-          {eventoId && (
-            <div style={{ marginBottom: '32px' }}>
-              <label style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: C.grayMid, display: 'block', marginBottom: '8px' }}>
-                Qual é o seu nome?
-              </label>
-              {alunosDisp.length === 0 ? (
-                <div style={{ padding: '14px 16px', background: '#f0f0f0', borderRadius: '4px', fontSize: '14px', color: C.grayMid }}>
-                  Todos os participantes já avaliaram.
-                </div>
-              ) : (
-                <select 
-                  value={nomeAluno} 
-                  onChange={e => setNomeAluno(e.target.value)}
-                  style={fieldStyle}
-                  required
-                >
-                  <option value="">Selecione seu nome...</option>
-                  {alunosDisp.map(aluno => (
-                    <option key={aluno} value={aluno}>{aluno}</option>
-                  ))}
-                </select>
-              )}
-            </div>
-          )}
-
-          {/* Critérios */}
+          {/* Critérios - apenas se aluno foi selecionado */}
           {nomeAluno && (
             <div style={{ marginBottom: '40px' }}>
-              <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '.1em', color: C.peach, marginBottom: '24px', textTransform: 'uppercase' }}>
-                Avalie cada aspecto
-              </div>
-
               {CRITERIOS.map(criterio => (
                 <div key={criterio.id} style={{ marginBottom: '20px' }}>
                   <label style={{ fontSize: '14px', fontWeight: 500, color: C.black, display: 'block', marginBottom: '8px' }}>
