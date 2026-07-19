@@ -10,6 +10,7 @@ const C = {
 };
 
 const CERTIFICADOS_MAPPING = {
+  // TURMA 1 (11/07/2026)
   "Altair Ribeiro": "altair-ribeiro.pdf",
   "Braulio Barbosa": "braulio-barbosa.pdf",
   "Douglas Antunes Back": "douglas-antunes-back.pdf",
@@ -19,7 +20,18 @@ const CERTIFICADOS_MAPPING = {
   "Renata Jacob": "renata-jacob.pdf",
   "Renato Aragonez": "renato-aragonez.pdf",
   "Ricardo Guizoni dos Anjos": "ricardo-guizoni-dos-anjos.pdf",
-  "Vitor Gustavo Lotoski": "vitor-gustavo-lotoski.pdf"
+  "Vitor Gustavo Lotoski": "vitor-gustavo-lotoski.pdf",
+  
+  // TURMA 2 (18/07/2026)
+  "André C. S. Pereira": "andre-pereira.pdf",
+  "Ciro Perez Alvarez": "ciro-perez-alvarez.pdf",
+  "Cristina Ventura": "cristina-ventura.pdf",
+  "Diego Perez Alvarez": "diego-perez-alvarez.pdf",
+  "Julio Cezar Sary": "julio-cezar-sary.pdf",
+  "Marjory Muller": "marjory-muller.pdf",
+  "Priscila Santos": "priscila-santos.pdf",
+  "Teste": "teste.pdf",
+  "Wellerson Roggia": "wellerson-roggia.pdf"
 };
 
 export default function PaginaCertificado() {
@@ -93,6 +105,7 @@ export default function PaginaCertificado() {
               Seu certificado de conclusão está pronto para download e impressão.
             </p>
 
+            {/* Preview do PDF */}
             <div style={{ 
               background: C.grayLight, 
               border: `2px solid #DDD`, 
@@ -110,6 +123,7 @@ export default function PaginaCertificado() {
               />
             </div>
 
+            {/* Botões de ação */}
             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
               <a 
                 href={urlCertificado} 
@@ -165,6 +179,7 @@ export default function PaginaCertificado() {
               </button>
             </div>
 
+            {/* Info adicional */}
             <div style={{ 
               marginTop: '48px', 
               padding: '24px', 
