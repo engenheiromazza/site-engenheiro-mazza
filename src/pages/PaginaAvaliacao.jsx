@@ -10,7 +10,8 @@ const C = {
 };
 
 const EVENTOS = [
-  { id: 'claude-para-negocios-11072026', nome: 'Claude para Negócios', data: '11/07/2026' }
+  { id: 'claude-para-negocios-11072026', nome: 'Claude para Negócios - Turma 1', data: '11/07/2026' },
+  { id: 'claude-para-negocios-18072026', nome: 'Claude para Negócios - Turma 2', data: '18/07/2026' }
 ];
 
 const ALUNOS_POR_EVENTO = {
@@ -25,6 +26,17 @@ const ALUNOS_POR_EVENTO = {
     'Renato Aragonez',
     'Ricardo Guizoni dos Anjos',
     'Vitor Gustavo Lotoski'
+  ],
+  'claude-para-negocios-18072026': [
+    'André C. S. Pereira',
+    'Ciro Perez Alvarez',
+    'Cristina Ventura',
+    'Diego Perez Alvarez',
+    'Julio Cezar Sary',
+    'Marjory Muller',
+    'Priscila Santos',
+    'Teste',
+    'Wellerson Roggia'
   ]
 };
 
@@ -49,14 +61,21 @@ export default function PaginaAvaliacao() {
   const [notas, setNotas] = useState({});
   const [comentario, setComentario] = useState('');
   const [enviando, setEnviando] = useState(false);
+  const [erro, setErro] = useState('');
 
   const alunosDisp = ALUNOS_POR_EVENTO[eventoId] || [];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErro('');
     
     if (!eventoId || !nomeAluno) {
-      alert('Por favor, selecione o treinamento e seu nome.');
+      setErro('Por favor, selecione o treinamento e seu nome.');
+      return;
+    }
+
+    if (Object.keys(notas).length < CRITERIOS.length) {
+      setErro('Por favor, avalie todos os critérios antes de enviar.');
       return;
     }
 
@@ -75,20 +94,21 @@ export default function PaginaAvaliacao() {
           evento_id: eventoId,
           aluno_nome: nomeAluno,
           notas: notas,
-          comentario: comentario,
+          comentario: comentario || null,
           data_submissao: new Date().toISOString()
         })
       });
 
       if (!response.ok) {
-        throw new Error('Erro ao salvar avaliação');
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Erro ao salvar avaliação');
       }
 
       // Redirecionar para certificado com o novo parametro
       navigate(`/certificado?nome=${encodeURIComponent(nomeAluno)}`);
     } catch (err) {
       console.error('Erro:', err);
-      alert('Erro ao salvar avaliação. Tente novamente.');
+      setErro(`Erro ao salvar avaliação: ${err.message}`);
       setEnviando(false);
     }
   };
@@ -129,6 +149,12 @@ export default function PaginaAvaliacao() {
         <p style={{ color: C.grayMid, fontSize: '14px', lineHeight: 1.7, marginBottom: '40px' }}>
           Preencha a avaliação e acesse seu certificado de conclusão na sequência.
         </p>
+
+        {erro && (
+          <div style={{ background: '#FFE5E5', border: '1px solid #FFCCCC', padding: '14px 16px', borderRadius: '4px', marginBottom: '24px', fontSize: '14px', color: '#C33' }}>
+            {erro}
+          </div>
+        )}
 
         <form onSubmit={handleSubmit}>
           {/* Evento */}
