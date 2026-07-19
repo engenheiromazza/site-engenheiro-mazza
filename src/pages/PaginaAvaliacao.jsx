@@ -51,26 +51,19 @@ export default function PaginaAvaliacao() {
   const [notas, setNotas] = useState({});
   const [comentario, setComentario] = useState('');
   const [enviando, setEnviando] = useState(false);
-  const [erro, setErro] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErro('');
     
-    if (!nomeAluno) {
-      setErro('Por favor, selecione seu nome.');
-      return;
-    }
-
-    if (Object.keys(notas).length < CRITERIOS.length) {
-      setErro('Por favor, avalie todos os critérios antes de enviar.');
+    if (!nomeAluno || Object.keys(notas).length < CRITERIOS.length) {
+      alert('Por favor, selecione seu nome e avalie todos os critérios.');
       return;
     }
 
     setEnviando(true);
 
     try {
-      const response = await fetch('https://nzwpnilozhjpgajdxaxs.supabase.co/rest/v1/avaliacoes', {
+      await fetch('https://nzwpnilozhjpgajdxaxs.supabase.co/rest/v1/avaliacoes', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -86,36 +79,18 @@ export default function PaginaAvaliacao() {
         })
       });
 
-      if (!response.ok) {
-        throw new Error('Erro ao salvar avaliação');
-      }
-
       navigate(`/certificado?nome=${encodeURIComponent(nomeAluno)}`);
     } catch (err) {
-      console.error('Erro:', err);
-      setErro(`Erro ao salvar avaliação`);
+      alert('Erro ao salvar avaliação');
       setEnviando(false);
     }
-  };
-
-  const fieldStyle = {
-    width: '100%',
-    padding: '12px 16px',
-    border: '1px solid #DDD',
-    borderRadius: '4px',
-    fontSize: '14px',
-    fontFamily: "'Inter', sans-serif",
-    background: C.white,
-    color: C.black
   };
 
   return (
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800;900&family=Inter:wght@400;500;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background: ${C.grayLight}; color: ${C.black}; }
-        ::selection { background: ${C.peach}; color: ${C.black}; }
       `}</style>
 
       <header style={{ background: C.white, borderBottom: `1px solid rgba(0,0,0,.08)`, padding: '18px 40px' }}>
@@ -125,25 +100,16 @@ export default function PaginaAvaliacao() {
       </header>
 
       <div style={{ maxWidth: '680px', margin: '0 auto', padding: '48px 24px 80px' }}>
-        <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '.18em', color: C.peach, marginBottom: '12px', textTransform: 'uppercase' }}>
-          Avaliação de Treinamento
-        </div>
-        <h1 style={{ fontFamily: "'Manrope', sans-serif", fontSize: 'clamp(26px, 4vw, 40px)', fontWeight: 900, lineHeight: 1.1, marginBottom: '8px' }}>
+        <h1 style={{ fontFamily: "'Manrope', sans-serif", fontSize: '32px', fontWeight: 900, marginBottom: '8px' }}>
           Sua opinião<br /><span style={{ color: C.peach }}>libera seu certificado.</span>
         </h1>
-        <p style={{ color: C.grayMid, fontSize: '14px', lineHeight: 1.7, marginBottom: '40px' }}>
+        <p style={{ color: C.grayMid, fontSize: '14px', marginBottom: '40px' }}>
           Preencha a avaliação e acesse seu certificado de conclusão na sequência.
         </p>
 
-        {erro && (
-          <div style={{ background: '#FFE5E5', border: '1px solid #FFCCCC', padding: '14px 16px', borderRadius: '4px', marginBottom: '24px', fontSize: '14px', color: '#C33' }}>
-            {erro}
-          </div>
-        )}
-
         <form onSubmit={handleSubmit}>
           <div style={{ marginBottom: '32px' }}>
-            <label style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: C.grayMid, display: 'block', marginBottom: '8px' }}>
+            <label style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', color: C.grayMid, display: 'block', marginBottom: '8px' }}>
               Qual é o seu nome?
             </label>
             <select 
@@ -152,7 +118,15 @@ export default function PaginaAvaliacao() {
                 setNomeAluno(e.target.value);
                 setNotas({});
               }}
-              style={fieldStyle}
+              style={{
+                width: '100%',
+                padding: '12px 16px',
+                border: '1px solid #DDD',
+                borderRadius: '4px',
+                fontSize: '14px',
+                background: C.white,
+                color: C.black
+              }}
               required
             >
               <option value="">Selecione seu nome...</option>
@@ -178,24 +152,13 @@ export default function PaginaAvaliacao() {
                         style={{
                           flex: 1,
                           padding: '12px',
-                          border: notas[criterio.id] === valor ? 'none' : `1px solid #DDD`,
+                          border: notas[criterio.id] === valor ? 'none' : '1px solid #DDD',
                           background: notas[criterio.id] === valor ? C.peach : C.white,
                           color: notas[criterio.id] === valor ? C.black : C.grayMid,
                           borderRadius: '4px',
                           fontWeight: 700,
                           cursor: 'pointer',
-                          fontSize: '14px',
-                          transition: 'all 0.2s'
-                        }}
-                        onMouseEnter={e => {
-                          if (notas[criterio.id] !== valor) {
-                            e.target.style.background = C.grayLight;
-                          }
-                        }}
-                        onMouseLeave={e => {
-                          if (notas[criterio.id] !== valor) {
-                            e.target.style.background = C.white;
-                          }
+                          fontSize: '14px'
                         }}
                       >
                         {valor}
@@ -209,7 +172,7 @@ export default function PaginaAvaliacao() {
 
           {nomeAluno && (
             <div style={{ marginBottom: '32px' }}>
-              <label style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: C.grayMid, display: 'block', marginBottom: '8px' }}>
+              <label style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', color: C.grayMid, display: 'block', marginBottom: '8px' }}>
                 Comentário (opcional)
               </label>
               <textarea
@@ -217,10 +180,13 @@ export default function PaginaAvaliacao() {
                 onChange={e => setComentario(e.target.value)}
                 placeholder="Suas sugestões..."
                 style={{
-                  ...fieldStyle,
+                  width: '100%',
+                  padding: '12px 16px',
+                  border: '1px solid #DDD',
+                  borderRadius: '4px',
+                  fontSize: '14px',
                   minHeight: '100px',
-                  fontFamily: "'Inter', sans-serif",
-                  resize: 'none'
+                  fontFamily: "'Inter', sans-serif"
                 }}
               />
             </div>
@@ -240,23 +206,13 @@ export default function PaginaAvaliacao() {
                 padding: '16px 32px',
                 borderRadius: '4px',
                 border: 'none',
-                cursor: Object.keys(notas).length < CRITERIOS.length ? 'not-allowed' : 'pointer',
+                cursor: 'pointer'
               }}
             >
               {enviando ? 'Enviando...' : 'Enviar Avaliação e Acessar Certificado'}
             </button>
           )}
         </form>
-
-        {nomeAluno && (
-          <div style={{ marginTop: '32px', padding: '24px', background: C.grayLight, borderRadius: '4px' }}>
-            <p style={{ fontSize: '13px', color: C.grayMid, margin: 0, lineHeight: 1.6 }}>
-              ✓ Seus dados estão seguros.
-              <br />
-              ✓ Após enviar, você será redirecionado para seu certificado.
-            </p>
-          </div>
-        )}
       </div>
     </>
   );
