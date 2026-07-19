@@ -9,27 +9,7 @@ const C = {
   grayLight: '#F5F5F5'
 };
 
-const ALUNOS = [
-  'Altair Ribeiro',
-  'Braulio Barbosa',
-  'Douglas Antunes Back',
-  'Jessica Sell',
-  'Lidiane Medeiros Jacinto',
-  'Luciano Gulgen',
-  'Renata Jacob',
-  'Renato Aragonez',
-  'Ricardo Guizoni dos Anjos',
-  'Vitor Gustavo Lotoski',
-  'André C. S. Pereira',
-  'Ciro Perez Alvarez',
-  'Cristina Ventura',
-  'Diego Perez Alvarez',
-  'Julio Cezar Sary',
-  'Marjory Muller',
-  'Priscila Santos',
-  'Teste',
-  'Wellerson Roggia'
-];
+const ALUNOS = ['Altair Ribeiro', 'Braulio Barbosa', 'Douglas Antunes Back', 'Jessica Sell', 'Lidiane Medeiros Jacinto', 'Luciano Gulgen', 'Renata Jacob', 'Renato Aragonez', 'Ricardo Guizoni dos Anjos', 'Vitor Gustavo Lotoski', 'André C. S. Pereira', 'Ciro Perez Alvarez', 'Cristina Ventura', 'Diego Perez Alvarez', 'Julio Cezar Sary', 'Marjory Muller', 'Priscila Santos', 'Teste', 'Wellerson Roggia'];
 
 const CRITERIOS = [
   { id: 'relevancia', label: 'O conteúdo foi relevante para sua área de atuação?' },
@@ -54,14 +34,11 @@ export default function PaginaAvaliacao() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    if (!nomeAluno || Object.keys(notas).length < CRITERIOS.length) {
-      alert('Por favor, selecione seu nome e avalie todos os critérios.');
+    if (!nomeAluno || Object.keys(notas).length < 11) {
+      alert('Preencha todos os campos');
       return;
     }
-
     setEnviando(true);
-
     try {
       await fetch('https://nzwpnilozhjpgajdxaxs.supabase.co/rest/v1/avaliacoes', {
         method: 'POST',
@@ -78,10 +55,9 @@ export default function PaginaAvaliacao() {
           data_submissao: new Date().toISOString()
         })
       });
-
       navigate(`/certificado?nome=${encodeURIComponent(nomeAluno)}`);
     } catch (err) {
-      alert('Erro ao salvar avaliação');
+      alert('Erro ao salvar');
       setEnviando(false);
     }
   };
@@ -90,128 +66,43 @@ export default function PaginaAvaliacao() {
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800;900&family=Inter:wght@400;500;600&display=swap');
-        body { font-family: 'Inter', sans-serif; background: ${C.grayLight}; color: ${C.black}; }
+        body { font-family: 'Inter', sans-serif; background: #F5F5F5; }
       `}</style>
-
-      <header style={{ background: C.white, borderBottom: `1px solid rgba(0,0,0,.08)`, padding: '18px 40px' }}>
-        <div style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 900, fontSize: '16px' }}>
-          @engenheiro<span style={{ color: C.peach }}>mazza</span>
-        </div>
+      <header style={{ background: '#FFF', borderBottom: '1px solid #DDD', padding: '18px 40px' }}>
+        <div style={{ fontFamily: "'Manrope'", fontWeight: 900, fontSize: '16px' }}>@engenheiro<span style={{ color: '#FFBD59' }}>mazza</span></div>
       </header>
-
       <div style={{ maxWidth: '680px', margin: '0 auto', padding: '48px 24px 80px' }}>
-        <h1 style={{ fontFamily: "'Manrope', sans-serif", fontSize: '32px', fontWeight: 900, marginBottom: '8px' }}>
-          Sua opinião<br /><span style={{ color: C.peach }}>libera seu certificado.</span>
-        </h1>
-        <p style={{ color: C.grayMid, fontSize: '14px', marginBottom: '40px' }}>
-          Preencha a avaliação e acesse seu certificado de conclusão na sequência.
-        </p>
-
+        <h1 style={{ fontFamily: "'Manrope'", fontSize: '32px', fontWeight: 900, marginBottom: '8px' }}>Sua opinião<br /><span style={{ color: '#FFBD59' }}>libera seu certificado.</span></h1>
+        <p style={{ color: '#A6A6A6', fontSize: '14px', marginBottom: '40px' }}>Preencha a avaliação e acesse seu certificado de conclusão na sequência.</p>
         <form onSubmit={handleSubmit}>
           <div style={{ marginBottom: '32px' }}>
-            <label style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', color: C.grayMid, display: 'block', marginBottom: '8px' }}>
-              Qual é o seu nome?
-            </label>
-            <select 
-              value={nomeAluno} 
-              onChange={e => {
-                setNomeAluno(e.target.value);
-                setNotas({});
-              }}
-              style={{
-                width: '100%',
-                padding: '12px 16px',
-                border: '1px solid #DDD',
-                borderRadius: '4px',
-                fontSize: '14px',
-                background: C.white,
-                color: C.black
-              }}
-              required
-            >
+            <label style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', color: '#A6A6A6', display: 'block', marginBottom: '8px' }}>Qual é o seu nome?</label>
+            <select value={nomeAluno} onChange={e => { setNomeAluno(e.target.value); setNotas({}); }} style={{ width: '100%', padding: '12px 16px', border: '1px solid #DDD', borderRadius: '4px', fontSize: '14px', background: '#FFF' }} required>
               <option value="">Selecione seu nome...</option>
-              {ALUNOS.map(aluno => (
-                <option key={aluno} value={aluno}>{aluno}</option>
-              ))}
+              {ALUNOS.map(a => <option key={a} value={a}>{a}</option>)}
             </select>
           </div>
-
-          {nomeAluno && (
-            <div style={{ marginBottom: '40px' }}>
-              {CRITERIOS.map(criterio => (
-                <div key={criterio.id} style={{ marginBottom: '20px' }}>
-                  <label style={{ fontSize: '14px', fontWeight: 500, color: C.black, display: 'block', marginBottom: '8px' }}>
-                    {criterio.label}
-                  </label>
-                  <div style={{ display: 'flex', gap: '8px' }}>
-                    {[1, 2, 3, 4, 5].map(valor => (
-                      <button
-                        key={valor}
-                        type="button"
-                        onClick={() => setNotas({ ...notas, [criterio.id]: valor })}
-                        style={{
-                          flex: 1,
-                          padding: '12px',
-                          border: notas[criterio.id] === valor ? 'none' : '1px solid #DDD',
-                          background: notas[criterio.id] === valor ? C.peach : C.white,
-                          color: notas[criterio.id] === valor ? C.black : C.grayMid,
-                          borderRadius: '4px',
-                          fontWeight: 700,
-                          cursor: 'pointer',
-                          fontSize: '14px'
-                        }}
-                      >
-                        {valor}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              ))}
+          {nomeAluno && <div style={{ marginBottom: '40px' }}>{CRITERIOS.map(c => (
+            <div key={c.id} style={{ marginBottom: '20px' }}>
+              <label style={{ fontSize: '14px', fontWeight: 500, display: 'block', marginBottom: '8px' }}>{c.label}</label>
+              <div style={{ display: 'flex', gap: '8px' }}>
+                {[1, 2, 3, 4, 5].map(v => (
+                  <button key={v} type="button" onClick={() => setNotas({ ...notas, [c.id]: v })} style={{ flex: 1, padding: '12px', border: notas[c.id] === v ? 'none' : '1px solid #DDD', background: notas[c.id] === v ? '#FFBD59' : '#FFF', borderRadius: '4px', fontWeight: 700, cursor: 'pointer' }}>
+                    {v}
+                  </button>
+                ))}
+              </div>
             </div>
-          )}
-
+          ))}</div>}
           {nomeAluno && (
             <div style={{ marginBottom: '32px' }}>
-              <label style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', color: C.grayMid, display: 'block', marginBottom: '8px' }}>
-                Comentário (opcional)
-              </label>
-              <textarea
-                value={comentario}
-                onChange={e => setComentario(e.target.value)}
-                placeholder="Suas sugestões..."
-                style={{
-                  width: '100%',
-                  padding: '12px 16px',
-                  border: '1px solid #DDD',
-                  borderRadius: '4px',
-                  fontSize: '14px',
-                  minHeight: '100px',
-                  fontFamily: "'Inter', sans-serif"
-                }}
-              />
+              <label style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', color: '#A6A6A6', display: 'block', marginBottom: '8px' }}>Comentário (opcional)</label>
+              <textarea value={comentario} onChange={e => setComentario(e.target.value)} placeholder="Suas sugestões..." style={{ width: '100%', padding: '12px 16px', border: '1px solid #DDD', borderRadius: '4px', fontSize: '14px', minHeight: '100px', fontFamily: "'Inter'" }} />
             </div>
           )}
-
-          {nomeAluno && (
-            <button
-              type="submit"
-              disabled={enviando || Object.keys(notas).length < CRITERIOS.length}
-              style={{
-                width: '100%',
-                background: enviando || Object.keys(notas).length < CRITERIOS.length ? C.grayMid : C.peach,
-                color: C.black,
-                fontFamily: "'Manrope', sans-serif",
-                fontWeight: 800,
-                fontSize: '15px',
-                padding: '16px 32px',
-                borderRadius: '4px',
-                border: 'none',
-                cursor: 'pointer'
-              }}
-            >
-              {enviando ? 'Enviando...' : 'Enviar Avaliação e Acessar Certificado'}
-            </button>
-          )}
+          {nomeAluno && <button type="submit" disabled={enviando || Object.keys(notas).length < 11} style={{ width: '100%', background: enviando || Object.keys(notas).length < 11 ? '#A6A6A6' : '#FFBD59', color: '#1A1A1A', fontFamily: "'Manrope'", fontWeight: 800, fontSize: '15px', padding: '16px 32px', borderRadius: '4px', border: 'none', cursor: 'pointer' }}>
+            {enviando ? 'Enviando...' : 'Enviar Avaliação e Acessar Certificado'}
+          </button>}
         </form>
       </div>
     </>
