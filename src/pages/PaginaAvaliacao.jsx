@@ -9,36 +9,27 @@ const C = {
   grayLight: '#F5F5F5'
 };
 
-const EVENTOS = [
-  { id: 'claude-para-negocios-11072026', nome: 'Claude para Negócios', data: '11/07/2026' },
-  { id: 'claude-para-negocios-18072026', nome: 'Claude para Negócios', data: '18/07/2026' }
+const ALUNOS = [
+  'Altair Ribeiro',
+  'Braulio Barbosa',
+  'Douglas Antunes Back',
+  'Jessica Sell',
+  'Lidiane Medeiros Jacinto',
+  'Luciano Gulgen',
+  'Renata Jacob',
+  'Renato Aragonez',
+  'Ricardo Guizoni dos Anjos',
+  'Vitor Gustavo Lotoski',
+  'André C. S. Pereira',
+  'Ciro Perez Alvarez',
+  'Cristina Ventura',
+  'Diego Perez Alvarez',
+  'Julio Cezar Sary',
+  'Marjory Muller',
+  'Priscila Santos',
+  'Teste',
+  'Wellerson Roggia'
 ];
-
-const ALUNOS_POR_EVENTO = {
-  'claude-para-negocios-11072026': [
-    'Altair Ribeiro',
-    'Braulio Barbosa',
-    'Douglas Antunes Back',
-    'Jessica Sell',
-    'Lidiane Medeiros Jacinto',
-    'Luciano Gulgen',
-    'Renata Jacob',
-    'Renato Aragonez',
-    'Ricardo Guizoni dos Anjos',
-    'Vitor Gustavo Lotoski'
-  ],
-  'claude-para-negocios-18072026': [
-    'André C. S. Pereira',
-    'Ciro Perez Alvarez',
-    'Cristina Ventura',
-    'Diego Perez Alvarez',
-    'Julio Cezar Sary',
-    'Marjory Muller',
-    'Priscila Santos',
-    'Teste',
-    'Wellerson Roggia'
-  ]
-};
 
 const CRITERIOS = [
   { id: 'relevancia', label: 'O conteúdo foi relevante para sua área de atuação?' },
@@ -56,22 +47,18 @@ const CRITERIOS = [
 
 export default function PaginaAvaliacao() {
   const navigate = useNavigate();
-  const [eventoId, setEventoId] = useState('');
   const [nomeAluno, setNomeAluno] = useState('');
   const [notas, setNotas] = useState({});
   const [comentario, setComentario] = useState('');
   const [enviando, setEnviando] = useState(false);
   const [erro, setErro] = useState('');
 
-  const alunosDisp = ALUNOS_POR_EVENTO[eventoId] || [];
-  const eventoInfo = EVENTOS.find(e => e.id === eventoId);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErro('');
     
-    if (!eventoId || !nomeAluno) {
-      setErro('Por favor, selecione o treinamento e seu nome.');
+    if (!nomeAluno) {
+      setErro('Por favor, selecione seu nome.');
       return;
     }
 
@@ -83,7 +70,6 @@ export default function PaginaAvaliacao() {
     setEnviando(true);
 
     try {
-      // Salvar avaliação no Supabase
       const response = await fetch('https://nzwpnilozhjpgajdxaxs.supabase.co/rest/v1/avaliacoes', {
         method: 'POST',
         headers: {
@@ -92,7 +78,7 @@ export default function PaginaAvaliacao() {
           'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im56d3BuaWxvemhqcGdhamR4YXhzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDU4OTg1NzksImV4cCI6MTkyMTQ3NDU3OX0.VuuQRMO3kB89J_42g-zZGmXHiJlKNRXBZ0TyqK9Yyc0'
         },
         body: JSON.stringify({
-          evento_id: eventoId,
+          evento_id: 'claude-para-negocios',
           aluno_nome: nomeAluno,
           notas: notas,
           comentario: comentario || null,
@@ -101,15 +87,13 @@ export default function PaginaAvaliacao() {
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Erro ao salvar avaliação');
+        throw new Error('Erro ao salvar avaliação');
       }
 
-      // Redirecionar para certificado com o novo parametro
       navigate(`/certificado?nome=${encodeURIComponent(nomeAluno)}`);
     } catch (err) {
       console.error('Erro:', err);
-      setErro(`Erro ao salvar avaliação: ${err.message}`);
+      setErro(`Erro ao salvar avaliação`);
       setEnviando(false);
     }
   };
@@ -158,7 +142,6 @@ export default function PaginaAvaliacao() {
         )}
 
         <form onSubmit={handleSubmit}>
-          {/* Evento */}
           <div style={{ marginBottom: '32px' }}>
             <label style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: C.grayMid, display: 'block', marginBottom: '8px' }}>
               Qual é o seu nome?
@@ -173,13 +156,12 @@ export default function PaginaAvaliacao() {
               required
             >
               <option value="">Selecione seu nome...</option>
-              {alunosDisp.map(aluno => (
+              {ALUNOS.map(aluno => (
                 <option key={aluno} value={aluno}>{aluno}</option>
               ))}
             </select>
           </div>
 
-          {/* Critérios - apenas se aluno foi selecionado */}
           {nomeAluno && (
             <div style={{ marginBottom: '40px' }}>
               {CRITERIOS.map(criterio => (
@@ -225,7 +207,6 @@ export default function PaginaAvaliacao() {
             </div>
           )}
 
-          {/* Comentário */}
           {nomeAluno && (
             <div style={{ marginBottom: '32px' }}>
               <label style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase', color: C.grayMid, display: 'block', marginBottom: '8px' }}>
@@ -234,7 +215,7 @@ export default function PaginaAvaliacao() {
               <textarea
                 value={comentario}
                 onChange={e => setComentario(e.target.value)}
-                placeholder="Suas sugestões e observações nos ajudam a melhorar..."
+                placeholder="Suas sugestões..."
                 style={{
                   ...fieldStyle,
                   minHeight: '100px',
@@ -245,7 +226,6 @@ export default function PaginaAvaliacao() {
             </div>
           )}
 
-          {/* Botão Submit */}
           {nomeAluno && (
             <button
               type="submit"
@@ -261,15 +241,6 @@ export default function PaginaAvaliacao() {
                 borderRadius: '4px',
                 border: 'none',
                 cursor: Object.keys(notas).length < CRITERIOS.length ? 'not-allowed' : 'pointer',
-                transition: 'opacity 0.2s'
-              }}
-              onMouseEnter={e => {
-                if (Object.keys(notas).length === CRITERIOS.length && !enviando) {
-                  e.target.style.opacity = '0.9';
-                }
-              }}
-              onMouseLeave={e => {
-                e.target.style.opacity = '1';
               }}
             >
               {enviando ? 'Enviando...' : 'Enviar Avaliação e Acessar Certificado'}
@@ -277,16 +248,12 @@ export default function PaginaAvaliacao() {
           )}
         </form>
 
-        {/* Info */}
         {nomeAluno && (
           <div style={{ marginTop: '32px', padding: '24px', background: C.grayLight, borderRadius: '4px' }}>
             <p style={{ fontSize: '13px', color: C.grayMid, margin: 0, lineHeight: 1.6 }}>
-              ✓ Seus dados estão seguros e serão usados apenas para validar seu certificado.
+              ✓ Seus dados estão seguros.
               <br />
               ✓ Após enviar, você será redirecionado para seu certificado.
-              <br />
-              <br />
-              <strong>Dúvidas?</strong> Entre em contato: <a href="mailto:william@wmazza.com" style={{ color: C.peach, textDecoration: 'none', fontWeight: 700 }}>william@wmazza.com</a>
             </p>
           </div>
         )}
