@@ -101,7 +101,13 @@ h3{font-size:20px;margin-bottom:10px;letter-spacing:-.01em}
 /* ---------- HERO ---------- */
 .hero{padding:104px 64px 88px;background:var(--bg)}
 .hero-grid{display:grid;grid-template-columns:1.35fr .95fr;gap:64px;align-items:start}
-.hero h1{font-size:clamp(34px,5.2vw,60px);margin-bottom:24px;max-width:16ch}
+.produto{
+  font-family:Manrope,sans-serif;font-weight:800;line-height:1.05;
+  font-size:clamp(26px,3.2vw,38px);letter-spacing:-.025em;
+  color:var(--ink);margin:2px 0 20px;
+}
+.produto em{font-style:normal;color:#B07A12}
+.hero h1{font-size:clamp(30px,4.4vw,52px);margin-bottom:24px;max-width:17ch}
 .hero .lead{font-size:19px;margin-bottom:32px}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:36px}
 .trust{display:flex;gap:28px;flex-wrap:wrap;padding-top:26px;border-top:1px solid var(--line)}
@@ -256,7 +262,8 @@ footer a:hover{color:var(--accent)}
   <div class="hatch tr" aria-hidden="true"></div>
   <div class="wrap hero-grid">
     <div>
-      <span class="section-label">Turma online · Sábado, 29 de agosto de 2026</span>
+      <span class="section-label">Treinamento online · Sábado, 29 de agosto de 2026</span>
+      <div class="produto">Claude para <em>Negócios</em></div>
       <h1>Seis horas para sair do “eu deveria estar usando IA” para “eu uso todo dia”.</h1>
       <p class="lead">
         Treinamento prático em Claude para sócios de escritórios, diretores e executivos
@@ -277,7 +284,8 @@ footer a:hover{color:var(--accent)}
 
     <!-- CARD DE PREÇO -->
     <aside class="card-price" id="topo-preco">
-      <span class="kicker">Investimento</span>
+      <span class="kicker">Claude para Negócios</span>
+      <div style="font-size:12.5px;color:rgba(255,255,255,.5);margin-top:6px">Turma de 29 de agosto</div>
       <div class="badge-parceria" id="avisoParceira">Condição de fidelidade</div>
       <div class="price-old" id="precoOld"></div>
       <div class="price-now"><sup>R$</sup><span id="precoNow">997</span></div>
@@ -485,6 +493,7 @@ footer a:hover{color:var(--accent)}
       </p>
 
       <ul class="check" style="margin-top:32px">
+        <li><strong>Curso:</strong> Claude para Negócios — turma online</li>
         <li><strong>Data:</strong> sábado, 29 de agosto de 2026</li>
         <li><strong>Horário:</strong> 9h às 12h e 14h às 17h (Brasília)</li>
         <li><strong>Formato:</strong> online e ao vivo, via Google Meet</li>
