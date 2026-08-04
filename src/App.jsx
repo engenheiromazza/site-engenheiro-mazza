@@ -307,16 +307,16 @@ function Servicos() {
 /* ── CURSOS ── */
 const cursos = [
   {
-    title:"Claude para Advogados",
-    level:"Intermediário",
-    format:"Presencial · Joinville",
-    desc:"Treinamento intensivo sobre o uso do Claude aplicado à prática jurídica — contratos, petições, pesquisa legal e automação de tarefas repetitivas do escritório.",
-    badge:"Vagas Esgotadas",
-    badgeBg:"#888",
-    data:"01 de agosto",
-    link:"#contato",
-    externo: false,
-    esgotado: true,
+    title: "Claude para Negócios — com Raquel Amaral",
+    level: "Introdutório",
+    format: "Online · Google Meet",
+    desc: "Seis horas ao vivo para sócios de escritórios, diretores e executivos que não têm tempo de virar técnicos. Quatro módulos práticos, do primeiro acesso ao Claude Design, com um bloco dedicado a posicionamento e autoridade no LinkedIn.",
+    badge: "Inscrições Abertas",
+    badgeBg: "#FFBD59",
+    data: "29 de agosto",
+    link: "/claude-para-negocios.html",
+    externo: true,
+    esgotado: false
   },
   {
     title:"Claude para Negócios — Turma 3",
