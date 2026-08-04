@@ -652,9 +652,8 @@ footer a:hover{color:var(--accent)}
    Só falta o GUID do formulário HubSpot e a página está pronta para subir.
    ===================================================================== */
 const CONFIG = {
-  // HubSpot → Marketing → Formulários → criar formulário → pegar o GUID na URL
-  HUBSPOT_PORTAL_ID : '51594684',
-  HUBSPOT_FORM_GUID : 'acd45193-8ff8-4dcf-96ce-85c638d1e7c9',
+  // O CRM é gravado pela função /api/lead, no servidor.
+  // Nenhum token do HubSpot trafega nesta página.
 
   // Checkout público, R$ 997. Aceita boleto, Pix e cartão parcelado.
   ASAAS_LINK          : 'https://www.asaas.com/c/i1xlnhbcsnxo3lk0',
@@ -719,42 +718,14 @@ $('formInscricao').addEventListener('submit', async function(e){
   msg.textContent = '';
   msg.className = 'form-msg';
 
-  const partes = nome.split(' ');
-  const payload = {
-    fields: [
-      { objectTypeId:'0-1', name:'firstname', value: partes[0] },
-      { objectTypeId:'0-1', name:'lastname',  value: partes.slice(1).join(' ') || partes[0] },
-      { objectTypeId:'0-1', name:'email',     value: email },
-      { objectTypeId:'0-1', name:'phone',     value: fone },
-      { objectTypeId:'0-1', name:'jobtitle',  value: cargo },
-      { objectTypeId:'0-1', name:'company',   value: empresa },
-      // Atribuição da parceria. Exige a propriedade "parceiro_origem" criada
-      // no HubSpot e adicionada como campo oculto do formulário.
-      { objectTypeId:'0-1', name:'parceiro_origem',
-        value: viaParceira ? CONFIG.PARCEIRO_NOME : 'Direto' }
-    ],
-    context: {
-      pageUri:  window.location.href,
-      pageName: viaParceira
-        ? 'LP Claude para Negócios — Turma 29/08 (indicação ' + CONFIG.PARCEIRO_NOME + ')'
-        : 'LP Claude para Negócios — Turma 29/08'
-    },
-  };
-  // Observação: legalConsentOptions foi omitido de propósito. O HubSpot só aceita
-  // esse bloco quando as opções de GDPR estão ativas no portal e com IDs reais de
-  // tipo de assinatura — enviar IDs inventados faz a submissão inteira falhar.
-  // O aceite continua sendo exigido na interface e fica registrado na página.
-
+  // Envia para a nossa função na Vercel, que cria contato + negócio no HubSpot.
+  // O token do CRM fica no servidor — nunca nesta página.
   try{
-    await fetch(
-      'https://api.hsforms.com/submissions/v3/integration/submit/' +
-      CONFIG.HUBSPOT_PORTAL_ID + '/' + CONFIG.HUBSPOT_FORM_GUID,
-      {
-        method : 'POST',
-        headers: { 'Content-Type':'application/json' },
-        body   : JSON.stringify(payload)
-      }
-    );
+    await fetch('/api/lead', {
+      method : 'POST',
+      headers: { 'Content-Type':'application/json' },
+      body   : JSON.stringify({ nome, email, fone, cargo, empresa, viaParceira })
+    });
   } catch(err){
     // O lead não pode travar a venda: se o CRM falhar, segue para o checkout mesmo assim.
     console.warn('Falha ao registrar lead no HubSpot:', err);
