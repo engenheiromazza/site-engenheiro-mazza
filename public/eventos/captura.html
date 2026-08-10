@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="googlebot" content="noindex, nofollow">
+<title>Material do evento — William Mazza</title>
+<style>
+  :root{
+    --tinta:#111418;
+    --tinta-fraca:#5a636e;
+    --linha:#e2e6ea;
+    --fundo:#ffffff;
+    --acento:#12463f;
+    --acento-claro:#e8f2f0;
+    --alerta:#8a5a00;
+    --alerta-fundo:#fff6e0;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--tinta);background:var(--fundo);
+    font-size:17px;line-height:1.5;
+    padding:0 0 48px;
+  }
+  .wrap{max-width:520px;margin:0 auto;padding:0 20px}
+  header{padding:32px 0 20px}
+  .kicker{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--acento);font-weight:600;margin:0 0 8px}
+  h1{font-size:26px;line-height:1.2;margin:0 0 10px;letter-spacing:-.02em}
+  .sub{color:var(--tinta-fraca);margin:0;font-size:16px}
+
+  .aviso{
+    background:var(--alerta-fundo);border:1px solid #f0d99b;color:var(--alerta);
+    padding:12px 14px;border-radius:8px;font-size:14px;margin:16px 0 0;
+  }
+  .aviso strong{display:block;margin-bottom:2px}
+
+  form{margin-top:24px}
+  .campo{margin-bottom:18px}
+  label{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
+  .opcional{font-weight:400;color:var(--tinta-fraca)}
+  input[type=text],input[type=email],input[type=tel],select{
+    width:100%;padding:13px 14px;font-size:16px;font-family:inherit;color:var(--tinta);
+    border:1px solid var(--linha);border-radius:8px;background:#fff;appearance:none;
+  }
+  select{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8'><path d='M1 1l5 5 5-5' stroke='%235a636e' stroke-width='2' fill='none' stroke-linecap='round'/></svg>");
+    background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}
+  input:focus,select:focus{outline:none;border-color:var(--acento);box-shadow:0 0 0 3px var(--acento-claro)}
+  .duplo{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media (max-width:400px){.duplo{grid-template-columns:1fr}}
+
+  button{
+    width:100%;padding:16px;font-size:17px;font-weight:600;font-family:inherit;
+    color:#fff;background:var(--acento);border:0;border-radius:8px;cursor:pointer;
+    margin-top:8px;
+  }
+  button:disabled{opacity:.6;cursor:default}
+  .lgpd{font-size:13px;color:var(--tinta-fraca);margin-top:14px;line-height:1.45}
+  .erro{color:#a01b1b;font-size:14px;margin-top:12px;display:none}
+
+  /* ---- tela de sucesso ---- */
+  #sucesso{display:none}
+  .selo{
+    width:44px;height:44px;border-radius:50%;background:var(--acento-claro);
+    display:flex;align-items:center;justify-content:center;margin-bottom:16px;
+  }
+  .selo svg{display:block}
+  .porta{
+    border:1px solid var(--linha);border-radius:10px;padding:18px;margin-bottom:14px;
+  }
+  .porta.destaque{border-color:var(--acento);border-width:2px;background:var(--acento-claro)}
+  .porta .tag{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--acento);font-weight:700;margin-bottom:6px}
+  .porta h3{margin:0 0 4px;font-size:18px;letter-spacing:-.01em}
+  .porta .meta{font-size:14px;color:var(--tinta-fraca);margin:0 0 8px}
+  .porta p{margin:0;font-size:15px;color:var(--tinta-fraca)}
+  .contato{margin-top:28px;padding-top:20px;border-top:1px solid var(--linha);font-size:15px;color:var(--tinta-fraca)}
+  .contato a{color:var(--acento)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div id="formulario">
+    <header>
+      <p class="kicker" id="rotulo-evento">Material do evento</p>
+      <h1>Receba os slides e o material de apoio</h1>
+      <p class="sub">Quarenta segundos. Eu envio o material por e-mail hoje mesmo.</p>
+      <div class="aviso" id="aviso-teste" style="display:none">
+        <strong>Modo de teste</strong>
+        O GUID do formulario ainda nao foi preenchido em config.js. Nada sera enviado ao HubSpot — o fluxo funciona normalmente para voce conferir.
+      </div>
+    </header>
+
+    <form id="form" novalidate>
+      <div class="campo duplo">
+        <div>
+          <label for="firstname">Nome</label>
+          <input type="text" id="firstname" name="firstname" autocomplete="given-name" required>
+        </div>
+        <div>
+          <label for="lastname">Sobrenome</label>
+          <input type="text" id="lastname" name="lastname" autocomplete="family-name" required>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="email">E-mail corporativo</label>
+        <input type="email" id="email" name="email" autocomplete="email" inputmode="email" required>
+      </div>
+
+      <div class="campo">
+        <label for="phone">WhatsApp <span class="opcional">(opcional)</span></label>
+        <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="(47) 90000-0000">
+      </div>
+
+      <div class="campo duplo">
+        <div>
+          <label for="company">Empresa</label>
+          <input type="text" id="company" name="company" autocomplete="organization" required>
+        </div>
+        <div>
+          <label for="jobtitle">Cargo</label>
+          <input type="text" id="jobtitle" name="jobtitle" autocomplete="organization-title" required>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="maturidade">Onde a sua empresa esta com IA hoje?</label>
+        <select id="maturidade" required>
+          <option value="">Selecione</option>
+          <option value="Nao usamos ainda">Ainda nao usamos</option>
+          <option value="Uso individual informal">Algumas pessoas usam por conta propria</option>
+          <option value="Pilotos em andamento">Temos pilotos em andamento</option>
+          <option value="Em producao">Ja temos coisas rodando em producao</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label for="proximo">Qual seria o proximo passo util para voce?</label>
+        <select id="proximo" required>
+          <option value="">Selecione</option>
+          <option value="capacitar_time">Capacitar o meu time</option>
+          <option value="me_capacitar">Me capacitar com profundidade</option>
+          <option value="avaliar_projeto">Avaliar um projeto especifico</option>
+          <option value="so_material">Por ora, so o material</option>
+        </select>
+      </div>
+
+      <button type="submit" id="enviar">Quero o material</button>
+      <p class="erro" id="erro"></p>
+      <p class="lgpd">
+        Ao enviar, voce concorda em receber o material e comunicacoes ocasionais sobre
+        formacoes em IA. Nao repasso os seus dados a terceiros e voce pode pedir a
+        remocao a qualquer momento respondendo a qualquer e-mail.
+      </p>
+    </form>
+  </div>
+
+  <div id="sucesso">
+    <header>
+      <div class="selo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#12463f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <h1>Pronto. O material esta a caminho.</h1>
+      <p class="sub" id="sub-sucesso">Confira a sua caixa de entrada nas proximas horas.</p>
+    </header>
+    <div id="portas"></div>
+    <p class="contato">
+      Qualquer coisa, fale comigo direto:
+      <a href="mailto:william@wmazza.com">william@wmazza.com</a>
+    </p>
+  </div>
+
+</div>
+
+<script src="config.js"></script>
+<script>
+(function(){
+  "use strict";
+
+  var CFG = window.EVENTOS_CONFIG || {};
+  var MODO_TESTE = !CFG.FORM_GUID;
+
+  /* ---------- 1. Identificar o evento de origem pelo parametro ?e= --- */
+  function pegaParam(nome){
+    var m = new RegExp("[?&]" + nome + "=([^&#]*)").exec(window.location.search);
+    return m ? decodeURIComponent(m[1].replace(/\+/g, " ")) : "";
+  }
+
+  var chaveEvento = (pegaParam("e") || "").toLowerCase();
+  var evento = (CFG.EVENTOS && CFG.EVENTOS[chaveEvento]) || null;
+  var nomeEvento = evento ? evento.nome : "Acesso direto (sem QR)";
+
+  if (evento) {
+    document.getElementById("rotulo-evento").textContent = evento.nome;
+  }
+  if (MODO_TESTE) {
+    document.getElementById("aviso-teste").style.display = "block";
+  }
+
+  /* ---------- 2. Decidir a escada de ofertas ------------------------ */
+  function escadaPara(proximo){
+    var R = CFG.ROTEAMENTO || {};
+    var padrao = evento ? evento.escada.slice() : ["online","diagnostico","incompany"];
+    var topo = null;
+
+    if (proximo === "capacitar_time") {
+      topo = R.capacitar_time;
+    } else if (proximo === "me_capacitar") {
+      // A regra que importa: workshop e RH -> presencial. Palestra fria -> online.
+      if (chaveEvento === "ws") topo = R.me_capacitar_ws;
+      else if (chaveEvento === "rh") topo = R.me_capacitar_rh;
+      else topo = R.me_capacitar_sc;
+    } else if (proximo === "avaliar_projeto") {
+      topo = R.avaliar_projeto;
+    }
+
+    // No maximo tres portas: mais que isso vira lista de precos e nao decide nada.
+    if (!topo) return padrao.slice(0, 3);
+    var resto = padrao.filter(function(k){ return k !== topo; });
+    return [topo].concat(resto).slice(0, 3);
+  }
+
+  function montaPortas(proximo){
+    var ordem = escadaPara(proximo);
+    var alvo = document.getElementById("portas");
+    alvo.innerHTML = "";
+
+    ordem.forEach(function(chave, i){
+      var o = (CFG.OFERTAS || {})[chave];
+      if (!o) return;
+      var div = document.createElement("div");
+      div.className = "porta" + (i === 0 ? " destaque" : "");
+
+      var partes = [];
+      if (o.data) partes.push(o.data);
+      if (o.preco) partes.push(o.preco);
+
+      var html = "";
+      if (i === 0) html += '<div class="tag">Recomendado para voce</div>';
+      html += "<h3></h3>";
+      if (partes.length) html += '<p class="meta"></p>';
+      html += "<p></p>";
+      div.innerHTML = html;
+
+      div.querySelector("h3").textContent = o.titulo;
+      if (partes.length) div.querySelector(".meta").textContent = partes.join(" · ");
+      div.querySelectorAll("p")[partes.length ? 1 : 0].textContent = o.descricao;
+
+      alvo.appendChild(div);
+    });
+  }
+
+  /* ---------- 3. Envio ---------------------------------------------- */
+  var form = document.getElementById("form");
+  var botao = document.getElementById("enviar");
+  var erroEl = document.getElementById("erro");
+
+  function mostraErro(txt){
+    erroEl.textContent = txt;
+    erroEl.style.display = "block";
+  }
+
+  form.addEventListener("submit", function(ev){
+    ev.preventDefault();
+    erroEl.style.display = "none";
+
+    var v = function(id){ return (document.getElementById(id).value || "").trim(); };
+
+    var obrigatorios = ["firstname","lastname","email","company","jobtitle","maturidade","proximo"];
+    for (var i = 0; i < obrigatorios.length; i++) {
+      if (!v(obrigatorios[i])) {
+        mostraErro("Preencha os campos obrigatorios para continuar.");
+        document.getElementById(obrigatorios[i]).focus();
+        return;
+      }
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v("email"))) {
+      mostraErro("Confira o endereco de e-mail.");
+      document.getElementById("email").focus();
+      return;
+    }
+
+    var proximo = v("proximo");
+    var rotulosProximo = {
+      capacitar_time:  "Capacitar o time",
+      me_capacitar:    "Se capacitar com profundidade",
+      avaliar_projeto: "Avaliar um projeto especifico",
+      so_material:     "Por ora, so o material"
+    };
+
+    /* A qualificacao vai concatenada em "message" para que o formulario
+       funcione sem criar nenhuma propriedade personalizada no HubSpot.
+       Se depois voce quiser filtrar por esses campos, crie as propriedades
+       evento_origem / maturidade_ia / proximo_passo e mova cada valor. */
+    var mensagem =
+      "[EVENTO] " + nomeEvento +
+      "\n[MATURIDADE EM IA] " + v("maturidade") +
+      "\n[PROXIMO PASSO] " + (rotulosProximo[proximo] || proximo) +
+      "\n[ORIGEM] Captura por QR code — " + (evento ? evento.data + ", " + evento.local : "sem parametro");
+
+    botao.disabled = true;
+    botao.textContent = "Enviando...";
+
+    function concluir(){
+      document.getElementById("formulario").style.display = "none";
+      montaPortas(proximo);
+      document.getElementById("sucesso").style.display = "block";
+      window.scrollTo(0, 0);
+    }
+
+    if (MODO_TESTE) {
+      setTimeout(concluir, 400);
+      return;
+    }
+
+    var payload = {
+      fields: [
+        { name: "firstname", value: v("firstname") },
+        { name: "lastname",  value: v("lastname")  },
+        { name: "email",     value: v("email")     },
+        { name: "phone",     value: v("phone")     },
+        { name: "company",   value: v("company")   },
+        { name: "jobtitle",  value: v("jobtitle")  },
+        { name: "message",   value: mensagem       }
+      ],
+      context: {
+        pageUri: window.location.href,
+        pageName: "Captura de eventos — " + nomeEvento
+      },
+      legalConsentOptions: {
+        consent: {
+          consentToProcess: true,
+          text: "Concordo em receber o material e comunicacoes sobre formacoes em IA."
+        }
+      }
+    };
+
+    var url = "https://api.hsforms.com/submissions/v3/integration/submit/" +
+              CFG.PORTAL_ID + "/" + CFG.FORM_GUID;
+
+    fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    })
+    .then(function(r){
+      if (r.ok) { concluir(); return; }
+      return r.json().then(function(j){
+        throw new Error((j && j.message) || ("HTTP " + r.status));
+      });
+    })
+    .catch(function(e){
+      botao.disabled = false;
+      botao.textContent = "Tentar novamente";
+      mostraErro("Nao consegui enviar agora (" + e.message + "). Tente de novo ou me chame em william@wmazza.com.");
+    });
+  });
+})();
+</script>
+</body>
+</html>
