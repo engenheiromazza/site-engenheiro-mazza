@@ -307,7 +307,7 @@ function Servicos() {
 /* ── CURSOS ── */
 const cursos = [
   {
-    title: "Claude para Negócios",level: "Introdutório",format: "Online · Google Meet",desc: "Treinamento ao vivo e prático, de 3 horas, para RH, Jurídico, gestão e áreas administrativas que querem transformar Inteligência Artificial em resultado real — sem depender de conhecimento técnico.",badge: "Inscrições Abertas",badgeBg: "#FFBD59",data: "31 de agosto",link: "/claude-para-negocios.html",externo: true,esgotado: false
+    title: "Claude para Negócios",level: "Introdutório",format: "Online · Google Meet",desc: "Treinamento ao vivo e prático, de 3 horas, para executivos e empresários que querem dominar Claude Chat, Cowork, Design e Code — e sair com soluções reais para automatizar processos e multiplicar a produtividade do negócio.",badge: "Inscrições Abertas",badgeBg: "#FFBD59",data: "31 de agosto",link: "/claude-para-negocios.html",externo: true,esgotado: false
   },
   {
     title:"Claude para Negócios — Turma 3",
