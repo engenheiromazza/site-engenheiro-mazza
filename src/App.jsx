@@ -307,16 +307,7 @@ function Servicos() {
 /* ── CURSOS ── */
 const cursos = [
   {
-    title: "Claude para Negócios — com Raquel Amaral",
-    level: "Introdutório",
-    format: "Online · Google Meet",
-    desc: "Seis horas ao vivo para sócios de escritórios, diretores e executivos que não têm tempo de virar técnicos. Quatro módulos práticos, do primeiro acesso ao Claude Design, com um bloco dedicado a posicionamento e autoridade no LinkedIn.",
-    badge: "Inscrições Abertas",
-    badgeBg: "#FFBD59",
-    data: "29 de agosto",
-    link: "/claude-para-negocios.html",
-    externo: true,
-    esgotado: false
+    title: "Claude para Negócios",level: "Introdutório",format: "Online · Google Meet",desc: "Treinamento ao vivo e prático, de 3 horas, para RH, Jurídico, gestão e áreas administrativas que querem transformar Inteligência Artificial em resultado real — sem depender de conhecimento técnico.",badge: "Inscrições Abertas",badgeBg: "#FFBD59",data: "31 de agosto",link: "/claude-para-negocios.html",externo: true,esgotado: false
   },
   {
     title:"Claude para Negócios — Turma 3",
