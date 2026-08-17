@@ -326,7 +326,7 @@ function Cursos() {
           </div>
         <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))", gap:"20px" }}>
           {cursos.map((c) => (
-            <div key={c.title} style={{ background:C.white, borderRadius:"4px", padding:"36px 28px", aborder:"1px solid rgba(0,0,0,.06)", position:"relative", overflow:"hidden", transition:"transform .2s,box-shadow .2s", cursor:"default", display:"flex", flexDirection:"column" }}
+            <div key={c.title} style={{ background:C.white, borderRadius:"4px", padding:"36px 28px", border:"1px solid rgba(0,0,0,.06)", position:"relative", overflow:"hidden", transition:"transform .2s,box-shadow .2s", cursor:"default", display:"flex", flexDirection:"column" }}
               onMouseEnter={(e)=>{e.currentTarget.style.transform="translateY(-4px)";e.currentTarget.style.boxShadow="0 16px 40px rgba(0,0,0,.1)"}}
               onMouseLeave={(e)=>{e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="none"}}
             >
