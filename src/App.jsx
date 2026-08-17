@@ -310,30 +310,7 @@ const cursos = [
     title: "Claude para Negócios",level: "Introdutório",format: "Online · Google Meet",desc: "Treinamento ao vivo e prático, de 3 horas, para executivos e empresários que querem dominar Claude Chat, Cowork, Design e Code — e sair com soluções reais para automatizar processos e multiplicar a produtividade do negócio.",badge: "Inscrições Abertas",badgeBg: "#FFBD59",data: "31 de agosto",link: "/claude-para-negocios.html",externo: true,esgotado: false
   },
   {
-    title:"Claude para Negócios — Turma 3",
-    level:"Intermediário",
-    format:"Presencial · Joinville",
-    desc:"Treinamento prático e intensivo sobre o Claude aplicado ao contexto empresarial — Claude Chat, Cowork, Office, Chrome, Celular e Code. Para executivos e empresários que querem dominar a ferramenta mais avançada do mercado.",
-    badge:"Inscrições Abertas",
-    badgeBg:"#FFBD59",
-    data:"19 de setembro",
-    link:"#contato",
-    externo: false,
-    esgotado: false,
-  },
-  {
-    title:"Claude para Advogados",
-    level:"Intermediário",
-    format:"Online",
-    desc:"A versão online do treinamento jurídico mais completo do mercado. Aprenda a usar o Claude para transformar a produtividade do seu escritório — no seu ritmo.",
-    badge:"Em breve",
-    badgeBg:"#A6A6A6",
-    data: null,
-    link:"#contato",
-    externo: false,
-    esgotado: false,
-  },
-];
+    title:"ChatGPT Avançado",level:"Intermediário",format:"Online",desc:"Treinamento online para dominar o ChatGPT além do básico — prompts avançados, automações e aplicação prática no dia a dia profissional.",badge:"Em breve",badgeBg:"#A6A6A6",data: null,link:"#contato",externo: false,esgotado: false},{title:"Claude para Negócios — Presencial",level:"Intermediário",format:"Presencial · Joinville",desc:"A versão presencial e intensiva do Claude para Negócios — Claude Chat, Cowork, Design e Code aplicados ao seu negócio, em um dia de imersão em Joinville.",badge:"Em breve",badgeBg:"#A6A6A6",data: null,link:"#contato",externo: false,esgotado: false}];
 
 function Cursos() {
   const ref = useReveal();
