@@ -417,7 +417,7 @@ function Livro() {
         <div style={{ display:"flex", justifyContent:"center" }}>
           <div style={{ position:"relative", width:"260px" }}>
             <img
-              src="https://raw.githubusercontent.com/engenheiromazza/site-engenheiro-mazza/main/livro.png"
+              src="/livro.png"
               alt="Prompting Sem Segredos — William Mazza"
               style={{ width:"100%", borderRadius:"4px", display:"block", boxShadow:"16px 16px 48px rgba(0,0,0,.6)" }}
               onError={(e)=>e.target.style.display="none"}
