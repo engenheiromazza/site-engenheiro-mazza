@@ -192,7 +192,7 @@ function Sobre() {
             position:"relative",
           }}>
             <img
-              src="https://raw.githubusercontent.com/engenheiromazza/site-engenheiro-mazza/main/Foto_WMazza.png"
+              src="/Foto_WMazza.png"
               alt="William Mazza"
               onError={(e) => { e.target.style.display='none'; }}
               style={{ width:"100%", height:"100%", objectFit:"cover", objectPosition:"center top", display:"block" }}
@@ -307,10 +307,10 @@ function Servicos() {
 /* ── CURSOS ── */
 const cursos = [
   {
-    title: "Claude para Negócios",level: "Introdutório",format: "Online · Google Meet",desc: "Treinamento ao vivo e prático, de 3 horas, para executivos e empresários que querem dominar Claude Chat, Cowork, Design e Code — e sair com soluções reais para automatizar processos e multiplicar a produtividade do negócio.",badge: "Inscrições Abertas",badgeBg: "#FFBD59",data: "31 de agosto",link: "/claude-para-negocios.html",externo: true,esgotado: false
+    title: "Claude para Negócios",level: "Introdutório",format: "Online · Google Meet",desc: "Treinamento ao vivo e prático, de 3 horas, para executivos e empresários que querem dominar Claude Chat, Cowork, Design e Code — e sair com soluções reais para automatizar processos e multiplicar a produtividade do negócio.",badge: "Inscrições Abertas",badgeBg: "#FFBD59",data: "31 de agosto",link: "/claude-para-negocios.html",externo: true,esgotado: false,image: "/cursos/curso-online.jpg"
   },
   {
-    title:"ChatGPT Avançado",level:"Intermediário",format:"Online",desc:"Treinamento online para dominar o ChatGPT além do básico — prompts avançados, automações e aplicação prática no dia a dia profissional.",badge:"Em breve",badgeBg:"#A6A6A6",data: null,link:"#contato",externo: false,esgotado: false},{title:"Claude para Negócios — Presencial",level:"Intermediário",format:"Presencial · Joinville",desc:"A versão presencial e intensiva do Claude para Negócios — Claude Chat, Cowork, Design e Code aplicados ao seu negócio, em um dia de imersão em Joinville.",badge:"Em breve",badgeBg:"#A6A6A6",data: null,link:"#contato",externo: false,esgotado: false}];
+    title:"ChatGPT Avançado",level:"Intermediário",format:"Online",desc:"Treinamento online para dominar o ChatGPT além do básico — prompts avançados, automações e aplicação prática no dia a dia profissional.",badge:"Em breve",badgeBg:"#A6A6A6",data: null,link:"#contato",externo: false,esgotado: false,image: "/cursos/curso-chatgpt.jpg"},{title:"Claude para Negócios — Presencial",level:"Intermediário",format:"Presencial · Joinville",desc:"A versão presencial e intensiva do Claude para Negócios — Claude Chat, Cowork, Design e Code aplicados ao seu negócio, em um dia de imersão em Joinville.",badge:"Em breve",badgeBg:"#A6A6A6",data: null,link:"#contato",externo: false,esgotado: false,image: "/cursos/curso-presencial.jpg"}];
 
 function Cursos() {
   const ref = useReveal();
@@ -323,15 +323,14 @@ function Cursos() {
             Formar pessoas para usar<br />IA com critério é uma das<br /><span style={{ color:C.peach }}>competências centrais</span><br />das empresas modernas.
           </h2>
           <a href="https://upupo.share.hsforms.com/2fpp6iBowSOOAdbpN8mbMZA" target="_blank" rel="noopener noreferrer" className="btn-outline">Mais informações →</a>
-          <a href="/cursos" className="btn-primary">Ver todos os cursos →</a>
-        </div>
+          </div>
         <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))", gap:"20px" }}>
           {cursos.map((c) => (
-            <div key={c.title} style={{ background:C.white, borderRadius:"4px", padding:"36px 28px", border:"1px solid rgba(0,0,0,.06)", position:"relative", transition:"transform .2s,box-shadow .2s", cursor:"default", display:"flex", flexDirection:"column" }}
+            <div key={c.title} style={{ background:C.white, borderRadius:"4px", padding:"36px 28px", aborder:"1px solid rgba(0,0,0,.06)", position:"relative", overflow:"hidden", transition:"transform .2s,box-shadow .2s", cursor:"default", display:"flex", flexDirection:"column" }}
               onMouseEnter={(e)=>{e.currentTarget.style.transform="translateY(-4px)";e.currentTarget.style.boxShadow="0 16px 40px rgba(0,0,0,.1)"}}
               onMouseLeave={(e)=>{e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="none"}}
             >
-              {c.badge && <div style={{ position:"absolute", top:"20px", right:"20px", background:c.badgeBg||C.peach, color:c.esgotado?"#fff":"#000", padding:"3px 10px", fontSize:"10px", fontWeight:700, borderRadius:"2px" }}>{c.badge}</div>}
+              {c.image && (<div style={{ margin:"-36px -28px 20px" }}><img src={c.image} alt={c.title} style={{ width:"100%", aspectRatio:"16/10", objectFit:"cover", display:"block" }} /></div>)}{c.badge && <div style={{ position:"absolute", top:"20px", right:"20px", background:c.badgeBg||C.peach, color:c.esgotado?"#fff":"#000", padding:"3px 10px", fontSize:"10px", fontWeight:700, borderRadius:"2px" }}>{c.badge}</div>}
               {c.data && (
                 <div style={{ display:"inline-flex", alignItems:"center", gap:"6px", background: c.esgotado ? "#eee" : C.graphite, color: c.esgotado ? "#999" : C.peach, fontSize:"11px", fontWeight:700, padding:"5px 12px", borderRadius:"2px", marginBottom:"12px", textDecoration: c.esgotado ? "line-through" : "none" }}>
                   📅 {c.data}{c.esgotado ? " — Esgotado" : ""}
