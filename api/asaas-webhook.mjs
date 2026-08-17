@@ -91,7 +91,7 @@ export default async function handler(req, res) {
 
     email = String(email).trim().toLowerCase();
     const valor    = Number(pgto.value || 0);
-    const parceiro = valor > 0 && valor < 900 ? 'Raquel Amaral' : 'Direto';
+    const parceiro = 'Direto';
 
     // ---------- contato ----------
     const busca = await hubspot('/crm/v3/objects/contacts/search', 'POST', {
@@ -136,7 +136,7 @@ export default async function handler(req, res) {
     } else {
       const novo = await hubspot('/crm/v3/objects/deals', 'POST', {
         properties: {
-          dealname: `Claude para Negócios 29/08 — ${nomeContato}`,
+          dealname: `Claude para Negócios 31/08 — ${nomeContato}`,
           pipeline: PIPELINE_B2C,
           dealstage: FASE_PAGO,
           amount: String(valor),

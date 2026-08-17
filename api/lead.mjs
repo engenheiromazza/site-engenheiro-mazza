@@ -1,8 +1,8 @@
 /**
  * POST /api/lead
- * Recebe o formulário da landing page do Claude para Negócios.
+ * Recebe o formulário da landing page do Claude para Negócios (turma 31/08).
  * Cria (ou atualiza) o contato e abre um negócio em "Lead capturado"
- * no pipeline B2C, já com a atribuição da parceria.
+ * no pipeline B2C.
  *
  * Variável de ambiente obrigatória na Vercel:
  *   HUBSPOT_TOKEN — token de um Private App do HubSpot com os escopos
@@ -17,10 +17,9 @@ const HS = 'https://api.hubapi.com';
 
 const PIPELINE_B2C = 'default';
 const FASE_LEAD    = 'appointmentscheduled'; // "Lead capturado"
-const FECHAMENTO   = '2026-08-28T23:59:59Z'; // encerramento das inscrições
+const FECHAMENTO   = '2026-08-31T22:00:00Z'; // início do curso (19h BRT) — fecham as inscrições aqui
 
-const PRECO    = { cheio: 997, parceria: 797 };
-const PARCEIRA = 'Raquel Amaral';
+const PRECO = 497;
 
 async function hubspot(caminho, metodo, corpo, token) {
   const r = await fetch(HS + caminho, {
@@ -50,7 +49,7 @@ export default async function handler(req, res) {
   }
 
   const corpo = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
-  const { nome = '', email = '', fone = '', cargo = '', empresa = '', viaParceira = false } = corpo;
+  const { nome = '', email = '', fone = '', cargo = '', empresa = '' } = corpo;
 
   if (!String(nome).trim() || !String(email).trim()) {
     return res.status(400).json({ erro: 'nome e email são obrigatórios' });
@@ -59,8 +58,6 @@ export default async function handler(req, res) {
   const partes    = String(nome).trim().split(/\s+/);
   const firstname = partes[0];
   const lastname  = partes.slice(1).join(' ') || partes[0];
-  const parceiro  = viaParceira ? PARCEIRA : 'Direto';
-  const valor     = viaParceira ? PRECO.parceria : PRECO.cheio;
 
   const propsContato = {
     firstname,
@@ -69,7 +66,7 @@ export default async function handler(req, res) {
     phone: fone,
     jobtitle: cargo,
     company: empresa,
-    parceiro_origem: parceiro,
+    parceiro_origem: 'Direto',
   };
 
   try {
@@ -91,7 +88,7 @@ export default async function handler(req, res) {
 
     // ---------- negócio ----------
     // Nome determinístico: evita duplicar se a pessoa enviar o formulário duas vezes.
-    const nomeNegocio = `Claude para Negócios 29/08 — ${String(nome).trim()}`;
+    const nomeNegocio = `Claude para Negócios 31/08 — ${String(nome).trim()}`;
 
     const jaExiste = await hubspot('/crm/v3/objects/deals/search', 'POST', {
       filterGroups: [{ filters: [
@@ -110,9 +107,9 @@ export default async function handler(req, res) {
           dealname: nomeNegocio,
           pipeline: PIPELINE_B2C,
           dealstage: FASE_LEAD,
-          amount: String(valor),
+          amount: String(PRECO),
           closedate: FECHAMENTO,
-          parceiro_origem: parceiro,
+          parceiro_origem: 'Direto',
         },
         associations: [{
           to: { id: contatoId },
