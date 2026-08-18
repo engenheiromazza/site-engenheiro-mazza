@@ -149,6 +149,7 @@
 
   /* ---- result screen ---- */
   #result-screen{text-align:center}
+  .tier-image{width:150px;height:150px;object-fit:contain;margin:0 auto 10px;display:block}
   .ring-wrap{position:relative;width:180px;height:180px;margin:0 auto 24px}
   .ring-wrap svg{transform:rotate(-90deg)}
   .ring-center{
@@ -165,11 +166,7 @@
   }
   #result-screen h2{font-size:clamp(22px,3vw,30px);letter-spacing:-.8px;margin-bottom:14px}
   #result-screen p.diag{font-size:14.5px;line-height:1.75;color:#555;margin-bottom:26px;text-align:left}
-  .urgency{
-    background:var(--graphite);color:var(--white);border-radius:4px;
-    padding:14px 18px;font-size:13px;line-height:1.6;margin-bottom:22px;text-align:left;
-  }
-  .urgency strong{color:var(--peach)}
+  .promo-creative{width:100%;border-radius:4px;margin-bottom:22px;display:block}
   .cta-stack{display:flex;flex-direction:column;gap:10px;margin-bottom:8px}
   .restart-link{display:inline-block;margin-top:16px;font-size:12.5px;color:var(--grayMid);text-decoration:underline}
 </style>
@@ -187,7 +184,7 @@
     <section id="intro-screen" class="fade">
       <div class="eyebrow">Teste de fluência</div>
       <h1>Você manja de Claude — ou só usa 10% do que ele pode fazer?</h1>
-      <p class="lead">10 perguntas rápidas, direto do treinamento oficial Claude 101. Sem cadastro, sem e-mail, sem armazenar nada — o resultado é calculado aqui mesmo, no seu navegador, e some quando você fechar a página.</p>
+      <p class="lead">10 perguntas rápidas, baseadas no treinamento oficial de Claude pela Anthropic. Sem cadastro, sem e-mail, sem armazenar nada — o resultado é calculado aqui mesmo, no seu navegador, e some quando você fechar a página.</p>
 
       <div class="meta-row">
         <div class="meta-item"><span class="dot"></span> 3 minutos</div>
@@ -214,6 +211,7 @@
 
     <!-- ===================== RESULT ===================== -->
     <section id="result-screen" style="display:none">
+      <img class="tier-image" id="tierImage" src="" alt="" />
       <div class="ring-wrap">
         <svg width="180" height="180" viewBox="0 0 180 180">
           <circle cx="90" cy="90" r="78" fill="none" stroke="#F0F0F0" stroke-width="14"/>
@@ -230,9 +228,7 @@
       <h2 id="resultTitle">Resultado</h2>
       <p class="diag" id="resultDiag"></p>
 
-      <div class="urgency">
-        <strong>Turma ao vivo — 31 de agosto, 19h às 22h.</strong> Vagas por data fixa, via Google Meet, com certificado e gravação por 30 dias.
-      </div>
+      <img class="promo-creative" src="/quiz/criativo-cta.png" alt="Claude para Negócios — treinamento on-line ao vivo, 31 de agosto, 19h às 22h" />
 
       <div class="cta-stack">
         <a href="https://engenheiromazza.ia.br/claude-para-negocios.html" target="_blank" rel="noopener noreferrer" class="btn-primary" id="ctaLanding">Quero dominar as 4 frentes do Claude →</a>
@@ -259,16 +255,16 @@
     {
       q: "Como você descreveria o Claude, com suas próprias palavras?",
       opts: [
-        { t: "Uma espécie de mecanismo de busca mais inteligente", p: 0 },
+        { t: "Um parceiro de raciocínio que ajuda a pensar, escrever, programar e resolver problemas complexos", p: 2 },
         { t: "Um chatbot que responde perguntas", p: 1 },
-        { t: "Um parceiro de raciocínio que ajuda a pensar, escrever, programar e resolver problemas complexos", p: 2 }
+        { t: "Uma espécie de mecanismo de busca mais inteligente", p: 0 }
       ]
     },
     {
       q: "Antes de pedir algo importante ao Claude, você costuma...",
       opts: [
-        { t: "Escrever a primeira frase que vem à cabeça e enviar", p: 0 },
         { t: "Dar um contexto básico, tipo “escreva um e-mail sobre X”", p: 1 },
+        { t: "Escrever a primeira frase que vem à cabeça e enviar", p: 0 },
         { t: "Preparar o terreno (seu papel e objetivo), definir a tarefa e especificar o estilo/regras esperadas", p: 2 }
       ]
     },
@@ -276,40 +272,40 @@
       q: "Quando você precisa que o Claude trabalhe com um documento, planilha ou dado específico seu, o que você faz?",
       opts: [
         { t: "Descrevo de memória o que estava no documento", p: 0 },
-        { t: "Às vezes anexo o arquivo, mas nem sempre", p: 1 },
-        { t: "Anexo o arquivo (PDF, DOCX, CSV etc.) ou conecto a fonte, para o Claude usar isso como contexto direto", p: 2 }
+        { t: "Anexo o arquivo (PDF, DOCX, CSV etc.) ou conecto a fonte, para o Claude usar isso como contexto direto", p: 2 },
+        { t: "Às vezes anexo o arquivo, mas nem sempre", p: 1 }
       ]
     },
     {
       q: "Quando a primeira resposta do Claude não sai como você queria, o que você faz?",
       opts: [
+        { t: "Dou feedback específico (o que ajustar) e refino a conversa, tratando a resposta como um rascunho", p: 2 },
         { t: "Desisto e concluo que o Claude não serve para aquilo", p: 0 },
-        { t: "Reescrevo o pedido do zero, sem aproveitar a resposta anterior", p: 1 },
-        { t: "Dou feedback específico (o que ajustar) e refino a conversa, tratando a resposta como um rascunho", p: 2 }
+        { t: "Reescrevo o pedido do zero, sem aproveitar a resposta anterior", p: 1 }
       ]
     },
     {
       q: "Como você decide o que delegar ao Claude versus fazer você mesmo?",
       opts: [
-        { t: "Nunca pensei sobre isso, uso para qualquer coisa", p: 0 },
         { t: "Delego tarefas simples e pontuais", p: 1 },
+        { t: "Nunca pensei sobre isso, uso para qualquer coisa", p: 0 },
         { t: "Testo com um caso que já conheço a resposta, valido se o Claude chega ao resultado certo e só então confio nele para o futuro", p: 2 }
       ]
     },
     {
       q: "Você sabe diferenciar quando usar o Claude “em turnos” (conversa passo a passo) e quando delegar uma tarefa inteira para ele executar sozinho e te entregar pronta (Cowork)?",
       opts: [
-        { t: "Não sabia que existia essa diferença", p: 0 },
         { t: "Sei que existe, mas uso só no modo conversa", p: 1 },
-        { t: "Sim — uso o modo conversa para pensar junto e delego tarefas com várias etapas que viram um entregável final", p: 2 }
+        { t: "Sim — uso o modo conversa para pensar junto e delego tarefas com várias etapas que viram um entregável final", p: 2 },
+        { t: "Não sabia que existia essa diferença", p: 0 }
       ]
     },
     {
       q: "Você sabe a diferença entre um Projeto (base de conhecimento que o Claude sempre consulta) e uma Skill (um processo que o Claude executa sempre do mesmo jeito)?",
       opts: [
-        { t: "Não sabia que essas funcionalidades existiam", p: 0 },
+        { t: "Sim — Projeto guarda conhecimento (documentos, contexto), Skill guarda processo (como fazer uma tarefa sempre do mesmo jeito)", p: 2 },
         { t: "Já ouvi falar, nunca usei nenhuma das duas", p: 1 },
-        { t: "Sim — Projeto guarda conhecimento (documentos, contexto), Skill guarda processo (como fazer uma tarefa sempre do mesmo jeito)", p: 2 }
+        { t: "Não sabia que essas funcionalidades existiam", p: 0 }
       ]
     },
     {
@@ -324,16 +320,16 @@
       q: "Você sabe o que são os conectores do Claude e para que servem?",
       opts: [
         { t: "Não faço ideia", p: 0 },
-        { t: "Ouvi falar que conectam o Claude a outras ferramentas, mas nunca configurei um", p: 1 },
-        { t: "Já conectei o Claude a ferramentas como Google Drive, Slack ou Gmail para ele trabalhar direto com meus dados reais", p: 2 }
+        { t: "Já conectei o Claude a ferramentas como Google Drive, Slack ou Gmail para ele trabalhar direto com meus dados reais", p: 2 },
+        { t: "Ouvi falar que conectam o Claude a outras ferramentas, mas nunca configurei um", p: 1 }
       ]
     },
     {
       q: "No seu dia a dia de trabalho, como você usa o Claude hoje?",
       opts: [
+        { t: "Uso para pesquisar e sintetizar várias fontes, delegar tarefas inteiras e apoiar decisões estratégicas do negócio", p: 2 },
         { t: "Ainda não uso, ou uso raramente", p: 0 },
-        { t: "Uso para tarefas pontuais — revisar um texto, tirar uma dúvida", p: 1 },
-        { t: "Uso para pesquisar e sintetizar várias fontes, delegar tarefas inteiras e apoiar decisões estratégicas do negócio", p: 2 }
+        { t: "Uso para tarefas pontuais — revisar um texto, tirar uma dúvida", p: 1 }
       ]
     }
   ];
@@ -343,19 +339,22 @@
       label: "Iniciante",
       title: "Você está no começo da jornada com Claude",
       diag: "E isso é uma ótima notícia: significa que o maior ganho de produtividade ainda está pela frente. Dá para sair do zero e já aplicar as 4 frentes do Claude — Chat, Cowork, Design e Code — no seu negócio em uma única tarde de treinamento guiado.",
-      ctaLabel: "Comece do jeito certo, sem gastar meses tentando sozinho"
+      ctaLabel: "Comece do jeito certo, sem gastar meses tentando sozinho",
+      image: "/quiz/iniciante.jpg"
     },
     intermediario: {
       label: "Intermediário",
       title: "Você já usa o Claude, mas ainda não no potencial dele",
       diag: "Você já incorporou o Claude na rotina, mas a maior parte do ganho estratégico das 4 frentes (Chat, Cowork, Design e Code) ainda não foi destravada no seu negócio. É exatamente o intervalo onde um treinamento estruturado gera o salto mais rápido.",
-      ctaLabel: "Dê o salto de “usar o Claude” para “automatizar processos com o Claude”"
+      ctaLabel: "Dê o salto de “usar o Claude” para “automatizar processos com o Claude”",
+      image: "/quiz/intermediario.jpg"
     },
     avancado: {
       label: "Avançado",
       title: "Você já tem fluência prática com o Claude",
       diag: "O próximo passo não é aprender a usar — é sistematizar isso em processos escaláveis para o seu negócio, em vez de ficar restrito ao uso individual. É aí que a fluência vira resultado financeiro mensurável.",
-      ctaLabel: "Leve sua fluência para o nível de negócio, com as 4 frentes aplicadas a processos reais"
+      ctaLabel: "Leve sua fluência para o nível de negócio, com as 4 frentes aplicadas a processos reais",
+      image: "/quiz/avancado.jpg"
     }
   };
 
@@ -427,6 +426,9 @@
     var tier = TIERS[tierKey];
 
     var greetName = state.name ? (", " + state.name) : "";
+    var tierImg = document.getElementById("tierImage");
+    tierImg.src = tier.image;
+    tierImg.alt = "Nível " + tier.label;
     document.getElementById("tierBadge").textContent = "Nível " + tier.label;
     document.getElementById("resultTitle").textContent = "Parabéns" + greetName + "! " + tier.title;
     document.getElementById("resultDiag").textContent = tier.diag;
