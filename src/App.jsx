@@ -91,7 +91,7 @@ function Nav() {
     { label: "Sobre",       href: "#sobre" },
     { label: "Serviços",    href: "#servicos" },
     { label: "Cursos",      href: "#cursos" },
-    { label: "Mentoria",    href: "#mentoria" },
+    { label: "Mentoria",    href: "#mentoria" }, { label: "Consultoria", href: "#consultoria" },
     { label: "Livro",       href: "#livro" },
     { label: "Depoimentos", href: "#depoimentos" },
     { label: "Clientes",    href: "#clientes" },
@@ -310,7 +310,7 @@ const cursos = [
     title: "Claude para Negócios",level: "Introdutório",format: "Online · Google Meet",desc: "Treinamento ao vivo e prático, de 3 horas, para executivos e empresários que querem dominar Claude Chat, Cowork, Design e Code — e sair com soluções reais para automatizar processos e multiplicar a produtividade do negócio.",badge: "Inscrições Abertas",badgeBg: "#FFBD59",data: "31 de agosto",link: "/claude-para-negocios.html",externo: true,esgotado: false,image: "/cursos/curso-online.jpg"
   },
   {
-    title:"ChatGPT Avançado",level:"Intermediário",format:"Online",desc:"Treinamento online para dominar o ChatGPT além do básico — prompts avançados, automações e aplicação prática no dia a dia profissional.",badge:"Em breve",badgeBg:"#A6A6A6",data: null,link:"#contato",externo: false,esgotado: false,image: "/cursos/curso-chatgpt.jpg"},{title:"Claude para Negócios — Presencial",level:"Intermediário",format:"Presencial · Joinville",desc:"A versão presencial e intensiva do Claude para Negócios — Claude Chat, Cowork, Design e Code aplicados ao seu negócio, em um dia de imersão em Joinville.",badge:"Em breve",badgeBg:"#A6A6A6",data: null,link:"#contato",externo: false,esgotado: false,image: "/cursos/curso-presencial.jpg"}];
+    title:"ChatGPT Avançado",level:"Intermediário",format:"Online",desc:"Treinamento online para dominar o ChatGPT além do básico — prompts avançados, automações e aplicação prática no dia a dia profissional.",badge:"Em breve",badgeBg:"#A6A6A6",data: null,link:"#contato",externo: false,esgotado: false,image: "/cursos/curso-chatgpt.jpg"},{title:"Claude para Negócios — Presencial",level:"Intermediário",format:"Presencial · Joinville",desc:"A versão presencial e intensiva do Claude para Negócios — Claude Chat, Cowork, Design e Code aplicados ao seu negócio, em um dia de imersão em Joinville. Para aplicar isso dentro da própria empresa, com a equipe e os processos reais, veja a Consultoria em IA Aplicada abaixo.",badge:"Em breve",badgeBg:"#A6A6A6",data: null,link:"#contato",externo: false,esgotado: false,image: "/cursos/curso-presencial.jpg"}];
 
 function Cursos() {
   const ref = useReveal();
@@ -406,7 +406,7 @@ function Mentoria() {
   );
 }
 
-/* ── LIVRO ── */
+function Consultoria() { const ref = useReveal(); return (<section id="consultoria" style={{ background:C.grayLight }}><div ref={ref} className="reveal" style={{ maxWidth:"1060px", margin:"0 auto" }}><div className="section-label">Consultoria em IA Aplicada</div><div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"72px", alignItems:"center" }}><div><h2 style={{ fontSize:"clamp(26px,3vw,42px)", letterSpacing:"-1px", lineHeight:1.1, marginBottom:"20px" }}>Implementação prática de IA<br />dentro da sua empresa,<br /><span style={{ color:C.peach }}>com os seus processos.</span></h2><p style={{ fontSize:"15px", lineHeight:1.85, color:"#555", marginBottom:"16px" }}>A consultoria é voltada a pequenas e médias empresas de Joinville e região que já entendem o potencial da IA, mas precisam de alguém presente, fisicamente, para transformar isso em processos reais de trabalho — com a equipe, com os dados e com as rotinas específicas do seu negócio.</p><p style={{ fontSize:"15px", lineHeight:1.85, color:"#555", marginBottom:"16px" }}>O programa é estruturado em diagnóstico prévio + diária de implementação de 6 a 8 horas, com opção de diária de reforço em 30 a 60 dias.</p><p style={{ fontSize:"14px", lineHeight:1.7, color:C.grayMid, marginBottom:"32px", fontStyle:"italic" }}>Atendimento 100% presencial — exclusivo para empresas de Joinville e região.</p><a href="#contato" className="btn-primary">Solicitar diagnóstico →</a></div><div style={{ display:"flex", flexDirection:"column", gap:"14px" }}>{[{ num:"01", title:"Diagnóstico de maturidade", desc:"Avaliação prévia (remota) do nível de uso de IA na empresa e mapeamento dos processos com maior potencial de ganho." },{ num:"02", title:"Diária de implementação", desc:"Um dia inteiro, presencial, construindo com sua equipe os fluxos de trabalho com Claude ou ChatGPT aplicados aos processos prioritários." },{ num:"03", title:"Treinamento da equipe", desc:"Capacitação prática de quem vai usar o que foi implementado, para o ganho não depender de você estar por perto." },{ num:"04", title:"Diária de reforço (opcional)", desc:"Retorno presencial 30 a 60 dias depois para ajustar, aprofundar e consolidar o que foi implementado." }].map((item) => (<div key={item.num} style={{ background:C.white, borderRadius:"4px", padding:"18px 22px", display:"flex", gap:"18px", alignItems:"flex-start", borderLeft:`3px solid transparent`, transition:"border-color .2s,box-shadow .2s" }} onMouseEnter={(e)=>{e.currentTarget.style.borderLeftColor=C.peach;e.currentTarget.style.boxShadow="0 4px 16px rgba(0,0,0,.06)"}} onMouseLeave={(e)=>{e.currentTarget.style.borderLeftColor="transparent";e.currentTarget.style.boxShadow="none"}}><div style={{ fontFamily:"'Manrope',sans-serif", fontWeight:900, fontSize:"12px", color:C.peach, flexShrink:0, marginTop:"2px" }}>{item.num}</div><div><div style={{ fontFamily:"'Manrope',sans-serif", fontWeight:700, fontSize:"14px", marginBottom:"4px" }}>{item.title}</div><div style={{ fontSize:"13px", lineHeight:1.65, color:"#666" }}>{item.desc}</div></div></div>))}</div></div></div><style>{`@media(max-width:900px){#consultoria .reveal>div{grid-template-columns:1fr!important}}`}</style></section>); } /* ── LIVRO ── */
 function Livro() {
   const ref = useReveal();
   return (
@@ -896,7 +896,7 @@ export default function App() {
         <Sobre />
         <Servicos />
         <Cursos />
-        <Mentoria />
+        <Mentoria /><Consultoria />
         <Livro />
         <Depoimentos />
         <Clientes />
