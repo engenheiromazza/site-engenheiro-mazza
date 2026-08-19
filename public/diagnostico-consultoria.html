@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Diagnóstico de Maturidade em IA — Consultoria | Engenheiro Mazza</title>
+<meta name="description" content="Primeiro passo da Consultoria em IA Aplicada: um diagnóstico remoto de 5 minutos que mapeia o nível de maturidade da sua empresa em IA e os processos com maior potencial de ganho." />
+<link rel="icon" type="image/png" href="/favicon.png" />
+
+<meta property="og:title" content="Diagnóstico de Maturidade em IA — Consultoria" />
+<meta property="og:description" content="5 minutos, sem compromisso. O primeiro passo antes da diária presencial de implementação de IA na sua empresa." />
+<meta property="og:type" content="website" />
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root{
+    --peach:#FFBD59;
+    --black:#000000;
+    --graphite:#1A1A1A;
+    --grayMid:#A6A6A6;
+    --grayLight:#F5F5F5;
+    --white:#FFFFFF;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;background:var(--grayLight);color:var(--graphite);overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}
+  h1,h2,h3,h4{font-family:'Manrope',sans-serif;font-weight:800}
+  ::selection{background:var(--peach);color:#000}
+  a{color:inherit}
+  button{font-family:'Inter',sans-serif;cursor:pointer}
+
+  header.site, footer.site{
+    padding:20px 32px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  header.site{background:var(--grayLight)}
+  footer.site{background:var(--graphite)}
+  .logo{
+    font-family:'Manrope',sans-serif;
+    font-weight:800;
+    font-size:16px;
+    text-decoration:none;
+    color:var(--graphite);
+    letter-spacing:-.3px;
+  }
+  footer.site .logo{color:var(--white)}
+  .logo .accent{color:var(--peach)}
+  footer.site p{color:var(--grayMid);font-size:12px}
+
+  main{flex:1;display:flex;align-items:center;justify-content:center;padding:32px 20px}
+  .card{
+    width:100%;
+    max-width:640px;
+    background:var(--white);
+    border-radius:8px;
+    box-shadow:0 24px 64px rgba(0,0,0,.08);
+    padding:48px 40px;
+    position:relative;
+    overflow:hidden;
+  }
+  @media (max-width:600px){
+    .card{padding:32px 22px}
+    header.site,footer.site{padding:16px 20px}
+  }
+
+  .fade{animation:fadeIn .5s ease}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    color:var(--peach);font-weight:700;font-size:12px;
+    letter-spacing:1.5px;text-transform:uppercase;margin-bottom:18px;
+  }
+  .eyebrow::before{content:"";width:24px;height:2px;background:var(--peach)}
+  h1{font-size:clamp(24px,3.6vw,32px);letter-spacing:-1px;line-height:1.2;margin-bottom:16px}
+  p.lead{font-size:15px;line-height:1.75;color:#555;margin-bottom:28px}
+  .meta-row{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:32px}
+  .meta-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--graphite);font-weight:600}
+  .meta-item .dot{width:6px;height:6px;border-radius:50%;background:var(--peach)}
+
+  .steps{display:flex;flex-direction:column;gap:10px;margin-bottom:36px}
+  .step{display:flex;gap:14px;align-items:flex-start;background:var(--grayLight);border-radius:4px;padding:14px 16px}
+  .step .n{font-family:'Manrope',sans-serif;font-weight:900;font-size:11px;color:var(--peach);flex-shrink:0;margin-top:2px}
+  .step .t{font-family:'Manrope',sans-serif;font-weight:700;font-size:13.5px;margin-bottom:2px}
+  .step .d{font-size:12.5px;line-height:1.6;color:#666}
+
+  .form-wrap{margin-bottom:8px}
+  .form-wrap .hs-form-frame{min-height:420px}
+
+  .footnote{font-size:12.5px;line-height:1.7;color:var(--grayMid);font-style:italic;margin-top:28px;padding-top:22px;border-top:1px solid rgba(0,0,0,.08)}
+
+  .btn-whatsapp{
+    display:inline-flex;align-items:center;gap:8px;justify-content:center;
+    background:#25D366;color:#fff!important;
+    border:none;padding:14px 28px;border-radius:4px;
+    font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;
+    text-decoration:none!important;width:100%;transition:opacity .15s;
+    margin-top:18px;
+  }
+  .btn-whatsapp:hover{opacity:.88}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a href="https://engenheiromazza.ia.br/" class="logo">@engenheiro<span class="accent">mazza</span></a>
+</header>
+
+<main>
+  <div class="card fade">
+    <div class="eyebrow">Consultoria em IA Aplicada</div>
+    <h1>Antes da diária presencial, um diagnóstico rápido do seu negócio.</h1>
+    <p class="lead">Este formulário é o primeiro passo da consultoria: leva cerca de 5 minutos e me ajuda a entender o nível atual de uso de IA na sua empresa e os processos com maior potencial de ganho — para chegarmos ao dia da diária já com um plano claro do que construir juntos.</p>
+
+    <div class="meta-row">
+      <div class="meta-item"><span class="dot"></span> 5 minutos</div>
+      <div class="meta-item"><span class="dot"></span> Sem compromisso</div>
+      <div class="meta-item"><span class="dot"></span> Retorno em até 24h</div>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="n">01</div>
+        <div><div class="t">Você preenche o diagnóstico</div><div class="d">Nível atual de uso de IA na empresa e os processos com maior potencial de ganho.</div></div>
+      </div>
+      <div class="step">
+        <div class="n">02</div>
+        <div><div class="t">Eu analiso suas respostas</div><div class="d">Retorno em até 24h com um resumo do que faz sentido priorizar na diária.</div></div>
+      </div>
+      <div class="step">
+        <div class="n">03</div>
+        <div><div class="t">Agendamos a diária presencial</div><div class="d">6 a 8 horas, já com foco definido nos processos certos para o seu negócio.</div></div>
+      </div>
+    </div>
+
+    <div class="form-wrap">
+      <!-- HubSpot form embed -->
+      <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+      <script>
+        window.addEventListener("DOMContentLoaded", function () {
+          if (window.hbspt) {
+            hbspt.forms.create({
+              portalId: "51594684",
+              formId: "SEU_FORM_ID_AQUI",
+              target: "#hubspot-form-diagnostico"
+            });
+          }
+        });
+      </script>
+      <div id="hubspot-form-diagnostico"></div>
+    </div>
+
+    <a
+      href="https://wa.me/5547997009544?text=Ol%C3%A1%2C%20William!%20Quero%20saber%20mais%20sobre%20a%20Consultoria%20em%20IA%20Aplicada%20antes%20de%20preencher%20o%20diagn%C3%B3stico."
+      target="_blank" rel="noopener noreferrer" class="btn-whatsapp"
+    >Prefere falar antes? Chame no WhatsApp</a>
+
+    <p class="footnote">Atendimento 100% presencial — exclusivo para empresas de Joinville e região. Nenhuma informação enviada aqui é compartilhada com terceiros; ela é usada apenas para preparar o seu diagnóstico e o dia da diária.</p>
+  </div>
+</main>
+
+<footer class="site">
+  <a href="https://engenheiromazza.ia.br/" class="logo">@engenheiro<span class="accent">mazza</span></a>
+  <p>© 2026 Engenheiro Mazza</p>
+</footer>
+
+</body>
+</html>
