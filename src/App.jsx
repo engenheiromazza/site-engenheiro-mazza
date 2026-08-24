@@ -559,6 +559,13 @@ const depoimentos = [
     company:"Shopping Mueller · Joinville",
     link: null,
   },
+  {
+    quote:"Fiz o programa de mentoria em IA com o Mazza e foi sensacional. Sua vivência e experiência no tema IA de longa data foi de suma importância na mentoria para desmistificar o tema e produzir direcionados objetivos e assertivos para inclusão da IA na minha empresa e também nas minhas atuações profissionais.",
+    name:"Wandair Garcia",
+    role:"Conselheiro e Board Advisor",
+    company:"Governança, Estratégia, Sucessão e Decisões Estratégicas para empresas familiares",
+    link: null,
+  },
 ];
 
 function Depoimentos() {
