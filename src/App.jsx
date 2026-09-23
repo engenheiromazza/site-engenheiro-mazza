@@ -307,10 +307,45 @@ function Servicos() {
 /* ── CURSOS ── */
 const cursos = [
   {
-    title: "Claude para Negócios",level: "Introdutório",format: "Online · Google Meet",desc: "Treinamento ao vivo e prático, de 3 horas, para executivos e empresários que querem dominar Claude Chat, Cowork, Design e Code — e sair com soluções reais para automatizar processos e multiplicar a produtividade do negócio.",badge: "Inscrições Abertas",badgeBg: "#FFBD59",data: "31 de agosto",link: "/claude-para-negocios.html",externo: true,esgotado: false,image: "/cursos/curso-online.jpg"
+    title: "Claude para Negócios",
+    level: "Intermediário",
+    format: "Presencial · Joinville",
+    desc: "Treinamento prático e intensivo sobre o Claude aplicado ao contexto empresarial — Claude Chat, Cowork, Office, Chrome, Celular e Code. Para executivos e empresários que querem dominar a ferramenta mais avançada do mercado.",
+    badge: "Inscrições Abertas",
+    badgeBg: "#FFBD59",
+    data: "31 de outubro",
+    link: "#contato",
+    externo: false,
+    esgotado: false,
+    image: "/cursos/curso-presencial.jpg"
   },
   {
-    title:"ChatGPT Avançado",level:"Intermediário",format:"Online",desc:"Treinamento online para dominar o ChatGPT além do básico — prompts avançados, automações e aplicação prática no dia a dia profissional.",badge:"Em breve",badgeBg:"#A6A6A6",data: null,link:"#contato",externo: false,esgotado: false,image: "/cursos/curso-chatgpt.jpg"},{title:"Claude para Negócios — Presencial",level:"Intermediário",format:"Presencial · Joinville",desc:"A versão presencial e intensiva do Claude para Negócios — Claude Chat, Cowork, Design e Code aplicados ao seu negócio, em um dia de imersão em Joinville. Para aplicar isso dentro da própria empresa, com a equipe e os processos reais, veja a Consultoria em IA Aplicada abaixo.",badge:"Em breve",badgeBg:"#A6A6A6",data: null,link:"#contato",externo: false,esgotado: false,image: "/cursos/curso-presencial.jpg"}];
+    title: "Claude para Advogados",
+    level: "Intermediário",
+    format: "Presencial · Joinville",
+    desc: "Treinamento intensivo sobre o uso do Claude aplicado à prática jurídica — contratos, petições, pesquisa legal e automação de tarefas repetitivas do escritório.",
+    badge: "Vagas Esgotadas",
+    badgeBg: "#888",
+    data: "01 de agosto",
+    link: "#contato",
+    externo: false,
+    esgotado: true,
+    image: "/cursos/curso-presencial.jpg"
+  },
+  {
+    title: "Claude para Negócios",
+    level: "Intermediário",
+    format: "Online",
+    desc: "A versão online do mais completo treinamento sobre o Claude no mercado. Domine a ferramenta de IA mais avançada no seu ritmo, com aplicação direta no seu negócio.",
+    badge: "Em breve",
+    badgeBg: "#A6A6A6",
+    data: null,
+    link: "#contato",
+    externo: false,
+    esgotado: false,
+    image: "/cursos/curso-online.jpg"
+  }
+];
 
 function Cursos() {
   const ref = useReveal();
@@ -690,7 +725,7 @@ function Depoimentos() {
 }
 
 /* ── CLIENTES ── */
-const TOTAL_LOGOS = 43;
+const TOTAL_LOGOS = 44;
 
 function Clientes() {
   const ref = useReveal();
