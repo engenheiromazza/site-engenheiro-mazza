@@ -314,7 +314,7 @@ const cursos = [
     badge: "Inscrições Abertas",
     badgeBg: "#FFBD59",
     data: "31 de outubro",
-    link: "#contato",
+    link: "/claude-para-negocios.html",
     externo: false,
     esgotado: false,
     image: "/cursos/curso-presencial.jpg"
