@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Missão: Copilot — IA no Trabalho #1 | Engenheiro Mazza</title>
+<meta name="description" content="Evento presencial de demonstração prática do Microsoft Copilot para RH, lideranças e áreas administrativas. 02/12/2026, 9h às 12h, Ágora Tech Park. Ingresso R$ 97, 40 vagas." />
+<meta name="author" content="William Mazza" />
+<meta property="og:title" content="Missão: Copilot — IA no Trabalho #1" />
+<meta property="og:description" content="Demonstração prática do Copilot no trabalho real. 02/12/2026, 9h às 12h. 40 vagas." />
+<meta property="og:type" content="website" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{--peach:#FFBD59;--peach-h:#e6a93e;--black:#000;--graphite:#1A1A1A;--mid:#A6A6A6;--light:#F5F5F5;--cream:#FFF8EC}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;background:var(--light);color:#444;line-height:1.6}
+  h1,h2,h3,.btn,.tag{font-family:'Manrope',sans-serif}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+  header{background:var(--black);padding:14px 0}
+  header .wrap{display:flex;justify-content:space-between;align-items:center}
+  header a.brand{color:#fff;text-decoration:none;font-family:'Manrope';font-weight:800;letter-spacing:.3px}
+  header a.brand span{color:var(--peach)}
+  .btn{display:inline-block;background:var(--peach);color:var(--black);font-weight:800;padding:14px 28px;border-radius:8px;text-decoration:none;border:0;cursor:pointer;font-size:16px;transition:background .2s}
+  .btn:hover{background:var(--peach-h)}
+  .btn.sm{padding:9px 18px;font-size:14px}
+  .hero{background:linear-gradient(135deg,var(--cream),#fff);padding:64px 0 56px}
+  .tag{display:inline-block;background:var(--graphite);color:var(--peach);font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:6px 12px;border-radius:99px;margin-bottom:18px}
+  h1{font-size:clamp(30px,5vw,48px);line-height:1.1;color:var(--black);font-weight:800;max-width:780px}
+  h1 em{font-style:normal;background:var(--peach);padding:0 8px;border-radius:6px}
+  .lead{font-size:18px;max-width:680px;margin:18px 0 26px;color:#555}
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:30px 0}
+  .fact{background:#fff;border:1px solid #eee;border-radius:12px;padding:16px 18px}
+  .fact b{display:block;font-family:'Manrope';color:var(--black);font-size:15px}
+  .fact span{font-size:14px;color:#666}
+  section{padding:56px 0}
+  h2{font-size:clamp(24px,3.5vw,34px);color:var(--black);font-weight:800;margin-bottom:22px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+  .card{background:#fff;border:1px solid #eee;border-radius:14px;padding:24px}
+  .card h3{font-size:18px;color:var(--black);margin-bottom:8px}
+  .dark{background:var(--graphite);color:#ccc}
+  .dark h2{color:#fff}
+  .dark .card{background:#222;border-color:#333}
+  .dark .card h3{color:var(--peach)}
+  .check{list-style:none}
+  .check li{padding:8px 0 8px 28px;position:relative}
+  .check li:before{content:"✓";position:absolute;left:0;color:var(--peach-h);font-weight:800}
+  .signup{display:grid;grid-template-columns:1fr 1.2fr;gap:36px;align-items:start}
+  .price{font-family:'Manrope';font-size:52px;font-weight:800;color:var(--black);line-height:1}
+  .price small{font-size:16px;font-weight:600;color:#666}
+  .formbox{background:#fff;border:1px solid #e0e0e0;border-radius:16px;padding:26px;box-shadow:0 8px 30px rgba(0,0,0,.06)}
+  .note{font-size:13px;color:#666;margin-top:12px}
+  .steps{counter-reset:s;list-style:none}
+  .steps li{counter-increment:s;padding:10px 0 10px 44px;position:relative}
+  .steps li:before{content:counter(s);position:absolute;left:0;top:8px;width:30px;height:30px;border-radius:50%;background:var(--peach);color:#000;font-weight:800;font-family:'Manrope';display:flex;align-items:center;justify-content:center}
+  footer{background:var(--black);color:var(--mid);padding:34px 0;font-size:13px}
+  footer a{color:var(--peach)}
+  #fallback{display:none;margin-top:14px}
+  @media(max-width:800px){.signup{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header><div class="wrap">
+  <a class="brand" href="/">Engenheiro <span>Mazza</span></a>
+  <a class="btn sm" href="#inscricao">Garantir minha vaga</a>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <span class="tag">IA no Trabalho #1 · Presencial</span>
+  <h1>Missão: <em>Copilot</em> — veja a IA funcionando no seu trabalho, ao vivo</h1>
+  <p class="lead">Uma manhã de demonstração prática do Microsoft Copilot para profissionais de RH, lideranças e áreas administrativas. Sem jargão técnico: você sai sabendo o que dá para fazer na segunda-feira.</p>
+  <a class="btn" href="#inscricao">Quero participar — R$ 97</a>
+  <div class="facts">
+    <div class="fact"><b>Quarta, 02/12/2026</b><span>9h às 12h · credenciamento às 8h30</span></div>
+    <div class="fact"><b>Ágora Tech Park</b><span>Sala Metodologia 2</span></div>
+    <div class="fact"><b>Somente 40 vagas</b><span>Turma reduzida, formato de demonstração</span></div>
+    <div class="fact"><b>R$ 97 por pessoa</b><span>Pagamento seguro via Asaas</span></div>
+  </div>
+</div></div>
+
+<section><div class="wrap">
+  <h2>Para quem é</h2>
+  <div class="grid">
+    <div class="card"><h3>RH e Pessoas</h3><p>Rotinas de comunicação, documentos, análises e relatórios com apoio da IA.</p></div>
+    <div class="card"><h3>Lideranças</h3><p>Preparação de reuniões, decisões e acompanhamento do time com mais rapidez.</p></div>
+    <div class="card"><h3>Administrativo e Financeiro</h3><p>Planilhas, e-mails, aprovações e tarefas repetitivas que consomem horas da semana.</p></div>
+  </div>
+</div></section>
+
+<section class="dark"><div class="wrap">
+  <h2>O que você vai ver na prática</h2>
+  <div class="grid">
+    <div class="card"><h3>Demonstrações ao vivo</h3><p>O Copilot aplicado a tarefas reais de escritório, passo a passo.</p></div>
+    <div class="card"><h3>Uso seguro</h3><p>Boas práticas de proteção de dados e LGPD ao usar IA no trabalho.</p></div>
+    <div class="card"><h3>Material para levar</h3><p>PDF com prompts e passo a passo para você repetir depois do evento.</p></div>
+    <div class="card"><h3>Plataforma da Academia</h3><p>Demonstração da plataforma de microtreinamentos de IA para empresas.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Como funciona a inscrição</h2>
+  <ol class="steps">
+    <li>Preencha o formulário abaixo com seus dados.</li>
+    <li>Ao enviar, você é levado ao pagamento seguro de R$ 97.</li>
+    <li>Confirmado o pagamento, seu nome entra na lista de entrada do evento.</li>
+  </ol>
+</div></section>
+
+<section id="inscricao" style="background:var(--cream)"><div class="wrap signup">
+  <div>
+    <h2>Garanta sua vaga</h2>
+    <div class="price">R$ 97 <small>por pessoa</small></div>
+    <ul class="check" style="margin-top:18px">
+      <li>Quarta, 02/12/2026, das 9h às 12h</li>
+      <li>Ágora Tech Park, Sala Metodologia 2</li>
+      <li>Vagas limitadas a 40 inscrições pagas</li>
+      <li>PDF com prompts e passo a passo</li>
+    </ul>
+    <p class="note">As vagas são preenchidas por ordem de pagamento confirmado.</p>
+  </div>
+  <div class="formbox">
+    <div id="hs-form"></div>
+    <p id="fallback" class="note">O formulário não carregou. <a href="https://share.hsforms.com/1nPX08W-pRSqrO9Ng31PNNwupupo" target="_blank" rel="noopener">Abra a inscrição em uma nova aba</a>.</p>
+    <p class="note">Ao enviar, você será redirecionado para o pagamento seguro.</p>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <p><strong style="color:#fff">Engenheiro Mazza</strong> · IA aplicada ao trabalho real · <a href="/">engenheiromazza.ia.br</a></p>
+  <p style="margin-top:10px">Microsoft, Microsoft 365 e Copilot são marcas registradas da Microsoft Corporation. Este evento é independente e não é patrocinado nem endossado pela Microsoft.</p>
+  <p style="margin-top:10px">Seus dados são tratados conforme a LGPD, apenas para inscrição e comunicação sobre o evento, e compartilhados com terceiros somente mediante seu consentimento expresso.</p>
+</div></footer>
+
+<script charset="utf-8" src="https://js.hsforms.net/forms/embed/v2.js"></script>
+<script>
+  // Formulário HubSpot "Inscrição — Missão: Copilot" e link Asaas (configurados em 31/10/2026)
+  var HS_PORTAL_ID = "51594684";
+  var HS_FORM_ID   = "9cf5f4f1-6fa9-452a-ab3b-d360df53cd37";
+  var ASAAS_URL    = "https://www.asaas.com/c/wvppluy0qllu2udc";
+
+  // Repasse de UTMs ao formulário (campos ocultos utm_source, utm_medium, utm_campaign)
+  var qs = new URLSearchParams(location.search);
+  function utm(k){ return qs.get(k) || ""; }
+
+  if (window.hbspt) {
+    hbspt.forms.create({
+      region: "na1",
+      portalId: HS_PORTAL_ID,
+      formId: HS_FORM_ID,
+      target: "#hs-form",
+      onFormReady: function ($form) {
+        ["utm_source","utm_medium","utm_campaign"].forEach(function(k){
+          var el = $form[0].querySelector('input[name="'+k+'"]');
+          if (el && utm(k)) { el.value = utm(k); el.dispatchEvent(new Event("input",{bubbles:true})); }
+        });
+      },
+      // Contato já gravado no HubSpot neste ponto; só então abre o pagamento
+      onFormSubmitted: function ($form, data) {
+        var email = (data && data.submissionValues && data.submissionValues.email) || "";
+        var url = ASAAS_URL + (email ? (ASAAS_URL.indexOf("?")>-1?"&":"?") + "email=" + encodeURIComponent(email) : "");
+        window.location.href = url;
+      }
+    });
+  } else {
+    document.getElementById("fallback").style.display = "block";
+  }
+</script>
+</body>
+</html>
