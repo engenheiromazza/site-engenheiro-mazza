@@ -1,11 +1,11 @@
-import { useState, useEffect, useRef } from "react";
+himport { useState, useEffect, useRef } from "react";
 
 const C = {
-  peach:    "#FFBD59",
+  peach:    "#FFBD59h",
   black:    "#000000",
   graphite: "#1A1A1A",
   grayMid:  "#A6A6A6",
-  grayLight:"#F5F5F5",
+  grayLight:"#F5F5F5",hh
   white:    "#FFFFFF",
 };
 
@@ -473,7 +473,7 @@ function Livro() {
           <p style={{ fontSize:"15px", lineHeight:1.85, color:C.grayMid, marginBottom:"16px" }}>
             Se você não é profissional de tecnologia mas quer dominar a inteligência artificial,
             este livro foi escrito para você. 15 técnicas de prompting com exemplos práticos
-            de <strong style={{ color:"rgba(255,255,255,.7)" }}>12 áreas corporativas</strong> — do Financeiro ao Jurídico, do RH ao Marketing.
+            de <strong style={{ color:"rgba(255,255,255,.7)" }}>12 áreas corporativas</strong> — do Financeiroh ao Jurídico, do RH ao Marketing.hh
           </p>
           <p style={{ fontSize:"15px", lineHeight:1.85, color:C.grayMid, marginBottom:"28px" }}>
             Você não vai decorar prompts prontos. Vai aprender a construir os seus —
@@ -725,7 +725,7 @@ function Depoimentos() {
 }
 
 /* ── CLIENTES ── */
-const TOTAL_LOGOS = 44;
+const TOTAL_LOGOS = 50;
 
 function Clientes() {
   const ref = useReveal();
