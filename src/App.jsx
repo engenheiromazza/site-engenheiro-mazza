@@ -501,7 +501,7 @@ function Livro() {
           </div>
 
           <a
-            href="https://loja.gpcon.com.br/livro-prompting-sem-segredos"
+            href="https://www.editoragpcon.com.br/produtos/prompting/"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary"
