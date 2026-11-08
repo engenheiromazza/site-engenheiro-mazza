@@ -315,7 +315,7 @@ const cursos = [
     badge: "2 de dezembro",
     date: "2 de dezembro · Joinville",
     externo: true,
-    image: "https://drive.google.com/thumbnail/d/1vX73CYVYdJ6dAJmCNxNJtYvdBuFldf/public",
+    image: "/cursos/curso-copilot.jpg",
   },
   {
     title: "Missão: Copilot",
@@ -325,7 +325,7 @@ const cursos = [
     link: null,
     badge: "Em breve · 2027",
     date: "Data a definir",
-    image: "https://drive.google.com/thumbnail/d/1vX73CYVYdJ6dAJmCNxNJtYvdBuFldf/public",
+    image: "/cursos/curso-copilot.jpg",
   },
   {
     title: "Claude para Negócios",
@@ -335,7 +335,7 @@ const cursos = [
     link: null,
     badge: "Em breve · 2027",
     date: "Data a definir",
-    image: "https://drive.google.com/thumbnail/d/1vX73CYVYdJ6dAJmCNxNJtYvdBuFldf/public",
+    image: "/cursos/curso-claude.jpg",
   },
 ];
 
