@@ -307,20 +307,37 @@ function Servicos() {
 /* ── CURSOS ── */
 const cursos = [
   {
-    title: "Claude para Negócios",
+    title: "Missão: Copilot",
     level: "Intermediário",
-    format: "Presencial · Joinville",
-    desc: "Treinamento prático e intensivo sobre o Claude aplicado ao contexto empresarial — Claude Chat, Cowork, Office, Chrome, Celular e Code. Para executivos e empresários que querem dominar a ferramenta mais avançada do mercado.",
-    badge: "Inscrições Abertas",
-    badgeBg: "#FFBD59",
-    data: "31 de outubro",
-    link: "/claude-para-negocios.html",
-    externo: false,
-    esgotado: false,
-    image: "/cursos/curso-presencial.jpg"
+    format: "Presencial · Joinville / Blumenau",
+    desc: "Domine o Microsoft 365 Copilot na prática — Word, Excel, PowerPoint, Teams e Outlook com IA. Para profissionais e equipes que querem produtividade real a partir do dia seguinte.",
+    link: "https://pay.kiwify.com.br/missao-copilot-joinville",
+    badge: "2 de dezembro",
+    date: "2 de dezembro · Joinville",
+    externo: true,
+    image: "https://drive.google.com/thumbnail/d/1vX73CYVYdJ6dAJmCNxNJtYvdBuFldf/public",
   },
   {
-    title: "Claude para Advogados",
+    title: "Missão: Copilot",
+    level: "Intermediário",
+    format: "Presencial · Blumenau",
+    desc: "Domine o Microsoft 365 Copilot na prática — Word, Excel, PowerPoint, Teams e Outlook com IA. Para profissionais e equipes que querem produtividade real a partir do dia seguinte.",
+    link: null,
+    badge: "Em breve · 2027",
+    date: "Data a definir",
+    image: "https://drive.google.com/thumbnail/d/1vX73CYVYdJ6dAJmCNxNJtYvdBuFldf/public",
+  },
+  {
+    title: "Claude para Negócios",
+    level: "Intermediário",
+    format: "Presencial · Joinville / Blumenau",
+    desc: "Treinamento prático e intensivo sobre o Claude aplicado ao contexto empresarial — Claude Chat, Cowork, Office, Chrome, Celular e Code. Para executivos e empresários que querem dominar a ferramenta mais avançada do mercado.",
+    link: null,
+    badge: "Em breve · 2027",
+    date: "Data a definir",
+    image: "https://drive.google.com/thumbnail/d/1vX73CYVYdJ6dAJmCNxNJtYvdBuFldf/public",
+  },
+]; "Claude para Advogados",
     level: "Intermediário",
     format: "Presencial · Joinville",
     desc: "Treinamento intensivo sobre o uso do Claude aplicado à prática jurídica — contratos, petições, pesquisa legal e automação de tarefas repetitivas do escritório.",
@@ -377,7 +394,7 @@ function Cursos() {
               </div>
               <h3 style={{ fontFamily:"'Manrope',sans-serif", fontSize:"17px", fontWeight:800, marginBottom:"10px", lineHeight:1.25 }}>{c.title}</h3>
               <p style={{ fontSize:"13px", lineHeight:1.75, color:"#666", marginBottom:"24px", flexGrow:1 }}>{c.desc}</p>
-              <a href={c.link} target={c.externo ? "_blank" : "_self"} rel={c.externo ? "noopener noreferrer" : ""} style={{ fontFamily:"'Manrope',sans-serif", fontWeight:700, fontSize:"13px", color:C.graphite, textDecoration:"none", display:"flex", alignItems:"center", gap:"6px", marginTop:"auto" }}>
+              <a href={c.link || '#'} onClick={!c.link ? e => e.preventDefault() : undefined} target={c.externo ? "_blank" : "_self"} rel={c.externo ? "noopener noreferrer" : ""} style={{ fontFamily:"'Manrope',sans-serif", fontWeight:700, fontSize:"13px", color:C.graphite, textDecoration:"none", display:"flex", alignItems:"center", gap:"6px", marginTop:"auto" }}>
                 {c.externo ? "Acessar curso →" : "Saiba mais →"}
               </a>
             </div>
