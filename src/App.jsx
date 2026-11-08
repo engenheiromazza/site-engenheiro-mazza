@@ -311,7 +311,7 @@ const cursos = [
     level: "Intermediário",
     format: "Presencial · Joinville / Blumenau",
     desc: "Domine o Microsoft 365 Copilot na prática — Word, Excel, PowerPoint, Teams e Outlook com IA. Para profissionais e equipes que querem produtividade real a partir do dia seguinte.",
-    link: "https://pay.kiwify.com.br/missao-copilot-joinville",
+    link: "https://engenheiromazza.ia.br/missao-copilot.html",
     badge: "2 de dezembro",
     date: "2 de dezembro · Joinville",
     externo: true,
