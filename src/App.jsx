@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-h
+
 const C = {
   peach:    "#FFBD59",
   black:    "#000000",
@@ -263,8 +263,8 @@ const servicos = [
   {
     num:"04",
     title:"Consultoria em IA Aplicada",
-    desc:"Diagnóstico, estratégia e orientação para adoção de Inteligência Artificial em escritórios, áreas administrativas e equipes corporativas. Foco em processos reais, produtividade e aplicação segura no dia a dia.",
-    tags:["Diagnóstico","Roadmap","Adoção prática"],
+    desc:"A única consultoria de IA que entrega resultado em um único dia. Das 9h às 17h, o cliente passa de zero à execução autônoma das próprias automações — sem dependência após a visita.",
+    tags:["1 dia","Resultado imediato","Autonomia garantida"],
   },
 ];
 
@@ -406,7 +406,7 @@ function Mentoria() {
               e ao funcionamento do seu negócio.
             </p>
             <p style={{ fontSize:"15px", lineHeight:1.85, color:"#555", marginBottom:"16px" }}>
-              O programa clássico contempla 4 encontros de 1 hora, adaptáveis às necessidades
+              Em apenas 4 horas resolvemos o gap de conhecimento do CEO, executivo ou empresário
               e ao ritmo de cada executivo.
             </p>
             <p style={{ fontSize:"14px", lineHeight:1.7, color:C.grayMid, marginBottom:"32px", fontStyle:"italic" }}>
@@ -420,7 +420,7 @@ function Mentoria() {
               { num:"01", title:"Diagnóstico individual", desc:"Avaliação do nível atual de compreensão e uso de IA — e o que faz sentido para o seu perfil e contexto." },
               { num:"02", title:"IA aplicada ao negócio", desc:"Mapeamento das oportunidades reais de aplicação nos processos, decisões e estratégia da sua empresa." },
               { num:"03", title:"Plano de ação", desc:"Roteiro prático e personalizado — você sai com próximos passos claros, não com conceitos abstratos." },
-              { num:"04", title:"Formato adaptável", desc:"4 encontros de 1h é o ponto de partida. O programa se ajusta à sua agenda e objetivos específicos." },
+              { num:"04", title:"4 horas, resultado real", desc:"Um único bloco de 4h — sem mensalidades, sem espera, sem promessas: ao final você já sabe o que fazer e começa a fazer." },
             ].map((item) => (
               <div key={item.num} style={{ background:C.grayLight, borderRadius:"4px", padding:"18px 22px", display:"flex", gap:"18px", alignItems:"flex-start", borderLeft:`3px solid transparent`, transition:"border-color .2s,box-shadow .2s" }}
                 onMouseEnter={(e)=>{e.currentTarget.style.borderLeftColor=C.peach;e.currentTarget.style.boxShadow="0 4px 16px rgba(0,0,0,.06)"}}
@@ -441,7 +441,7 @@ function Mentoria() {
   );
 }
 
-function Consultoria() { const ref = useReveal(); return (<section id="consultoria" style={{ background:C.grayLight }}><div ref={ref} className="reveal" style={{ maxWidth:"1060px", margin:"0 auto" }}><div className="section-label">Consultoria em IA Aplicada</div><div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"72px", alignItems:"center" }}><div><h2 style={{ fontSize:"clamp(26px,3vw,42px)", letterSpacing:"-1px", lineHeight:1.1, marginBottom:"20px" }}>Implementação prática de IA<br />dentro da sua empresa,<br /><span style={{ color:C.peach }}>com os seus processos.</span></h2><p style={{ fontSize:"15px", lineHeight:1.85, color:"#555", marginBottom:"16px" }}>A consultoria é voltada a pequenas e médias empresas de Joinville e região que já entendem o potencial da IA, mas precisam de alguém presente, fisicamente, para transformar isso em processos reais de trabalho — com a equipe, com os dados e com as rotinas específicas do seu negócio.</p><p style={{ fontSize:"15px", lineHeight:1.85, color:"#555", marginBottom:"16px" }}>O programa é estruturado em diagnóstico prévio + diária de implementação de 6 a 8 horas, com opção de diária de reforço em 30 a 60 dias.</p><p style={{ fontSize:"14px", lineHeight:1.7, color:C.grayMid, marginBottom:"32px", fontStyle:"italic" }}>Atendimento 100% presencial — exclusivo para empresas de Joinville e região.</p><a href="/diagnostico-consultoria.html" className="btn-primary">Fazer diagnóstico →</a></div><div style={{ display:"flex", flexDirection:"column", gap:"14px" }}>{[{ num:"01", title:"Diagnóstico de maturidade", desc:"Avaliação prévia (remota) do nível de uso de IA na empresa e mapeamento dos processos com maior potencial de ganho." },{ num:"02", title:"Diária de implementação", desc:"Um dia inteiro, presencial, construindo com sua equipe os fluxos de trabalho com Claude ou ChatGPT aplicados aos processos prioritários." },{ num:"03", title:"Treinamento da equipe", desc:"Capacitação prática de quem vai usar o que foi implementado, para o ganho não depender de você estar por perto." },{ num:"04", title:"Diária de reforço (opcional)", desc:"Retorno presencial 30 a 60 dias depois para ajustar, aprofundar e consolidar o que foi implementado." }].map((item) => (<div key={item.num} style={{ background:C.white, borderRadius:"4px", padding:"18px 22px", display:"flex", gap:"18px", alignItems:"flex-start", borderLeft:`3px solid transparent`, transition:"border-color .2s,box-shadow .2s" }} onMouseEnter={(e)=>{e.currentTarget.style.borderLeftColor=C.peach;e.currentTarget.style.boxShadow="0 4px 16px rgba(0,0,0,.06)"}} onMouseLeave={(e)=>{e.currentTarget.style.borderLeftColor="transparent";e.currentTarget.style.boxShadow="none"}}><div style={{ fontFamily:"'Manrope',sans-serif", fontWeight:900, fontSize:"12px", color:C.peach, flexShrink:0, marginTop:"2px" }}>{item.num}</div><div><div style={{ fontFamily:"'Manrope',sans-serif", fontWeight:700, fontSize:"14px", marginBottom:"4px" }}>{item.title}</div><div style={{ fontSize:"13px", lineHeight:1.65, color:"#666" }}>{item.desc}</div></div></div>))}</div></div></div><style>{`@media(max-width:900px){#consultoria .reveal>div{grid-template-columns:1fr!important}}`}</style></section>); } /* ── LIVRO ── */
+function Consultoria() { const ref = useReveal(); return (<section id="consultoria" style={{ background:C.grayLight }}><div ref={ref} className="reveal" style={{ maxWidth:"1060px", margin:"0 auto" }}><div className="section-label">Consultoria em IA Aplicada</div><div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"72px", alignItems:"center" }}><div><h2 style={{ fontSize:"clamp(26px,3vw,42px)", letterSpacing:"-1px", lineHeight:1.1, marginBottom:"20px" }}>Implementação prática de IA<br />dentro da sua empresa,<br /><span style={{ color:C.peach }}>com os seus processos.</span></h2><p style={{ fontSize:"15px", lineHeight:1.85, color:"#555", marginBottom:"16px" }}>Um dia inteiro, presencial, dentro da sua empresa. Sem consultor que faz diagnóstico e vai embora — eu fico até as automações estarem rodando, com a sua equipe, nos seus processos, do jeito que o seu negócio funciona.</p><p style={{ fontSize:"15px", lineHeight:1.85, color:"#555", marginBottom:"16px" }}>Chego às 9h. Às 17h, quando vou embora, sua equipe já opera as automações que construímos juntos — e não depende de mais ninguém para continuar.</p><p style={{ fontSize:"14px", lineHeight:1.7, color:C.grayMid, marginBottom:"32px", fontStyle:"italic" }}>Atendimento 100% presencial — exclusivo para empresas de Joinville e região.</p><a href="/diagnostico-consultoria.html" className="btn-primary">Fazer diagnóstico →</a></div><div style={{ display:"flex", flexDirection:"column", gap:"14px" }}>{[{ num:"01", title:"Diagnóstico de maturidade", desc:"Avaliação prévia (remota) do nível de uso de IA na empresa e mapeamento dos processos com maior potencial de ganho." },{ num:"02", title:"Diária de implementação", desc:"Um dia inteiro, presencial, construindo com sua equipe os fluxos de trabalho com Claude ou ChatGPT aplicados aos processos prioritários." },{ num:"03", title:"Treinamento da equipe", desc:"Capacitação prática de quem vai usar o que foi implementado, para o ganho não depender de você estar por perto." },{ num:"04", title:"Autonomia garantida", desc:"Ao final do dia, o próprio cliente já opera as automações criadas — sem dependência de suporte ou retorno do consultor." }].map((item) => (<div key={item.num} style={{ background:C.white, borderRadius:"4px", padding:"18px 22px", display:"flex", gap:"18px", alignItems:"flex-start", borderLeft:`3px solid transparent`, transition:"border-color .2s,box-shadow .2s" }} onMouseEnter={(e)=>{e.currentTarget.style.borderLeftColor=C.peach;e.currentTarget.style.boxShadow="0 4px 16px rgba(0,0,0,.06)"}} onMouseLeave={(e)=>{e.currentTarget.style.borderLeftColor="transparent";e.currentTarget.style.boxShadow="none"}}><div style={{ fontFamily:"'Manrope',sans-serif", fontWeight:900, fontSize:"12px", color:C.peach, flexShrink:0, marginTop:"2px" }}>{item.num}</div><div><div style={{ fontFamily:"'Manrope',sans-serif", fontWeight:700, fontSize:"14px", marginBottom:"4px" }}>{item.title}</div><div style={{ fontSize:"13px", lineHeight:1.65, color:"#666" }}>{item.desc}</div></div></div>))}</div></div></div><style>{`@media(max-width:900px){#consultoria .reveal>div{grid-template-columns:1fr!important}}`}</style></section>); } /* ── LIVRO ── */
 function Livro() {
   const ref = useReveal();
   return (
@@ -473,7 +473,7 @@ function Livro() {
           <p style={{ fontSize:"15px", lineHeight:1.85, color:C.grayMid, marginBottom:"16px" }}>
             Se você não é profissional de tecnologia mas quer dominar a inteligência artificial,
             este livro foi escrito para você. 15 técnicas de prompting com exemplos práticos
-            de <strong style={{ color:"rgba(255,255,255,.7)" }}>12 áreas corporativas</strong> — do Financeiroh ao Jurídico, do RH ao Marketing.hh
+            de <strong style={{ color:"rgba(255,255,255,.7)" }}>12 áreas corporativas</strong> — do Financeiro ao Jurídico, do RH ao Marketing.
           </p>
           <p style={{ fontSize:"15px", lineHeight:1.85, color:C.grayMid, marginBottom:"28px" }}>
             Você não vai decorar prompts prontos. Vai aprender a construir os seus —
