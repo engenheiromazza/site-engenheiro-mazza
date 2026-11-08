@@ -337,31 +337,6 @@ const cursos = [
     date: "Data a definir",
     image: "https://drive.google.com/thumbnail/d/1vX73CYVYdJ6dAJmCNxNJtYvdBuFldf/public",
   },
-]; "Claude para Advogados",
-    level: "Intermediário",
-    format: "Presencial · Joinville",
-    desc: "Treinamento intensivo sobre o uso do Claude aplicado à prática jurídica — contratos, petições, pesquisa legal e automação de tarefas repetitivas do escritório.",
-    badge: "Vagas Esgotadas",
-    badgeBg: "#888",
-    data: "01 de agosto",
-    link: "#contato",
-    externo: false,
-    esgotado: true,
-    image: "/cursos/curso-presencial.jpg"
-  },
-  {
-    title: "Claude para Negócios",
-    level: "Intermediário",
-    format: "Online",
-    desc: "A versão online do mais completo treinamento sobre o Claude no mercado. Domine a ferramenta de IA mais avançada no seu ritmo, com aplicação direta no seu negócio.",
-    badge: "Em breve",
-    badgeBg: "#A6A6A6",
-    data: null,
-    link: "#contato",
-    externo: false,
-    esgotado: false,
-    image: "/cursos/curso-online.jpg"
-  }
 ];
 
 function Cursos() {
