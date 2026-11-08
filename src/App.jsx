@@ -1,11 +1,11 @@
-himport { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const C = {
-  peach:    "#FFBD59h",
+  peach:    "#FFBD59",
   black:    "#000000",
   graphite: "#1A1A1A",
   grayMid:  "#A6A6A6",
-  grayLight:"#FFBD59"
+  grayLight:"#F5F5F5"
   white:    "#FFFFFF",
 };
 
