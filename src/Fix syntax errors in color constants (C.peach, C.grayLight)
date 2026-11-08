@@ -5,7 +5,7 @@ const C = {
   black:    "#000000",
   graphite: "#1A1A1A",
   grayMid:  "#A6A6A6",
-  grayLight:"#F5F5F5",hh
+  grayLight:"#FFBD59"
   white:    "#FFFFFF",
 };
 
